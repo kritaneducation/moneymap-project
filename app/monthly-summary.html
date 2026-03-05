@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="MoneyMap helps you track income, expenses, categories, and monthly summaries with a responsive personal finance dashboard.">
+    <title>Monthly Summary | MoneyMap - Your Financial Concierge</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="dashboard-body bg-slate-wash">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="dashboard-sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <span class="logo-text">MoneyMap<span>.</span></span>
+            </a>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="sidebar-link" title="Home">
+                <i class="fa-solid fa-house"></i>
+                <span class="nav-label">Home</span>
+            </a>
+            <a href="income-list.html" class="sidebar-link" title="Income">
+                <i class="fa-solid fa-coins"></i>
+                <span class="nav-label">Income</span>
+            </a>
+            <a href="expense-list.html" class="sidebar-link" title="Expenses">
+                <i class="fa-solid fa-receipt"></i>
+                <span class="nav-label">Expenses</span>
+            </a>
+            <a href="categories.html" class="sidebar-link" title="Categories">
+                <i class="fa-solid fa-tags"></i>
+                <span class="nav-label">Categories</span>
+            </a>
+            <a href="monthly-summary.html" class="sidebar-link active" title="Summary">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span class="nav-label">Summary</span>
+            </a>
+            <a href="report.html" class="sidebar-link" title="Reports">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+                <span class="nav-label">Reports</span>
+            </a>
+            <a href="settings.html" class="sidebar-link" title="Settings">
+                <i class="fa-solid fa-gear"></i>
+                <span class="nav-label">Settings</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="../login.html" class="sidebar-link logout-link" title="Logout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span class="nav-label">Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="dashboard-main">
+
+        <!-- Top Tab Bar & User Profile -->
+        <header class="dashboard-top-tabs">
+            <div class="header-left">
+                <button id="sidebarToggle" class="sidebar-toggle" title="Toggle Sidebar">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+                <div class="tabs-container">
+                    <a href="add-expense.html" class="tab-link">Add Expense</a>
+                    <a href="add-income.html" class="tab-link">Add Income</a>
+                    <a href="expense-list.html" class="tab-link">All Expenses</a>
+                    <a href="income-list.html" class="tab-link">All Income</a>
+                    <a href="dashboard.html" class="tab-link active">Summary</a>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="user-profile-compact">
+                    <div class="user-info">
+                        <span class="user-name">Sarah Jenkins</span>
+                        <span class="user-role">Member</span>
+                    </div>
+                    <div class="user-avatar-wrap">
+                        <img src="../assets/user-sarah.webp" alt="Sarah Jenkins" class="sidebar-avatar">
+                        <div class="status-indicator"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            <h1 class="sr-only">Monthly Summary</h1>
+
+            <!-- Insights Section Header -->
+            <div class="section-header reveal" data-mm-style="mm-inline-0038">
+                <h2 data-mm-style="mm-inline-0081">Monthly Analysis
+                    <span data-mm-style="mm-inline-0134">March 2026</span></h2>
+                <p data-mm-style="mm-inline-0082">Comparative study of your weekly financial flow.</p>
+            </div>
+
+            <!-- Weekly Comparison Chart -->
+            <div class="dashboard-row visual-row reveal-delayed">
+                <div class="paper-card span-12">
+                    <div class="card-header row-between">
+                        <div>
+                            <h4>Weekly Flow Comparison</h4>
+                            <span class="card-subtitle">Income vs Expenses (Current Month)</span>
+                        </div>
+                        <div data-mm-style="mm-inline-0135">
+                            <span data-mm-style="mm-inline-0136"><span
+                                    data-mm-style="mm-inline-0137"></span>
+                                Income</span>
+                            <span data-mm-style="mm-inline-0136"><span
+                                    data-mm-style="mm-inline-0138"></span>
+                                Expenses</span>
+                        </div>
+                    </div>
+
+                    <!-- CSS Bar Chart Container -->
+                    <div
+                        data-mm-style="mm-inline-0139">
+                        <!-- Week 1 -->
+                        <div
+                            data-mm-style="mm-inline-0140">
+                            <div data-mm-style="mm-inline-0141">
+                                <div data-mm-style="mm-inline-0142"
+                                    title="Income: $1,250"></div>
+                                <div data-mm-style="mm-inline-0143"
+                                    title="Expense: $650"></div>
+                            </div>
+                            <span data-mm-style="mm-inline-0144">Week 1</span>
+                        </div>
+                        <!-- Week 2 -->
+                        <div
+                            data-mm-style="mm-inline-0140">
+                            <div data-mm-style="mm-inline-0141">
+                                <div data-mm-style="mm-inline-0145"
+                                    title="Income: $1,400"></div>
+                                <div data-mm-style="mm-inline-0146"
+                                    title="Expense: $500"></div>
+                            </div>
+                            <span data-mm-style="mm-inline-0144">Week 2</span>
+                        </div>
+                        <!-- Week 3 -->
+                        <div
+                            data-mm-style="mm-inline-0140">
+                            <div data-mm-style="mm-inline-0141">
+                                <div data-mm-style="mm-inline-0147"
+                                    title="Income: $900"></div>
+                                <div data-mm-style="mm-inline-0148"
+                                    title="Expense: $1,100"></div>
+                            </div>
+                            <span data-mm-style="mm-inline-0144">Week 3</span>
+                        </div>
+                        <!-- Week 4 -->
+                        <div
+                            data-mm-style="mm-inline-0140">
+                            <div data-mm-style="mm-inline-0141">
+                                <div data-mm-style="mm-inline-0149"
+                                    title="Income: $1,150"></div>
+                                <div data-mm-style="mm-inline-0150"
+                                    title="Expense: $720"></div>
+                            </div>
+                            <span data-mm-style="mm-inline-0144">Week 4</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary Table Row -->
+            <div class="dashboard-row reveal" data-mm-style="mm-inline-0151">
+                <div class="paper-card span-8">
+                    <h4>Monthly Summary Breakdown</h4>
+                    <span class="card-subtitle">Consolidated view of all transaction categories</span>
+                    <div class="table-responsive" data-mm-style="mm-inline-0108">
+                        <table class="dashboard-table">
+                            <thead>
+                                <tr>
+                                    <th data-mm-style="mm-inline-0109">Category Type</th>
+                                    <th data-mm-style="mm-inline-0110">Planned</th>
+                                    <th data-mm-style="mm-inline-0110">Actual</th>
+                                    <th data-mm-style="mm-inline-0009">Variance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Primary Salary</td>
+                                    <td data-mm-style="mm-inline-0152">$5,000.00</td>
+                                    <td data-mm-style="mm-inline-0153">
+                                        $5,000.00</td>
+                                    <td data-mm-style="mm-inline-0009"><i class="fa-solid fa-check-circle"
+                                            data-mm-style="mm-inline-0154"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Food & Dining</td>
+                                    <td data-mm-style="mm-inline-0152">$400.00</td>
+                                    <td data-mm-style="mm-inline-0155">$520.40
+                                    </td>
+                                    <td data-mm-style="mm-inline-0009"><span
+                                            data-mm-style="mm-inline-0156">+12%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Housing & Rent</td>
+                                    <td data-mm-style="mm-inline-0152">$1,200.00</td>
+                                    <td data-mm-style="mm-inline-0155">
+                                        $1,200.00</td>
+                                    <td data-mm-style="mm-inline-0009"><i class="fa-solid fa-check-circle"
+                                            data-mm-style="mm-inline-0154"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Freelance Work</td>
+                                    <td data-mm-style="mm-inline-0152">$1,500.00</td>
+                                    <td data-mm-style="mm-inline-0153">
+                                        $2,450.00</td>
+                                    <td data-mm-style="mm-inline-0009"><span
+                                            data-mm-style="mm-inline-0157">+63%</span></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr data-mm-style="mm-inline-0158">
+                                    <td>Total Net Cashflow</td>
+                                    <td data-mm-style="mm-inline-0152">$4,900.00</td>
+                                    <td data-mm-style="mm-inline-0159">$5,729.60</td>
+                                    <td data-mm-style="mm-inline-0009"><span class="badge badge-income"
+                                            data-mm-style="mm-inline-0160">Healthy</span></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Highlight Insight Chips -->
+                <div class="paper-card span-4" data-mm-style="mm-inline-0161">
+                    <h4>Quick Insights</h4>
+                    <span class="card-subtitle" data-mm-style="mm-inline-0082">Key metrics for March 2026</span>
+                    <div data-mm-style="mm-inline-0162">
+                        <div
+                            data-mm-style="mm-inline-0163">
+                            <span
+                                data-mm-style="mm-inline-0164">Savings
+                                Rate</span>
+                            <div data-mm-style="mm-inline-0165">
+                                <h3 data-mm-style="mm-inline-0166">22.4%</h3>
+                                <span data-mm-style="mm-inline-0167"><i
+                                        class="fa-solid fa-arrow-up"></i> 5%</span>
+                            </div>
+                        </div>
+                        <div
+                            data-mm-style="mm-inline-0163">
+                            <span
+                                data-mm-style="mm-inline-0164">Top
+                                Expense</span>
+                            <h3 data-mm-style="mm-inline-0168">Housing & Rent</h3>
+                            <span data-mm-style="mm-inline-0169">$1,200 (21% of budget)</span>
+                        </div>
+                        <div
+                            data-mm-style="mm-inline-0163">
+                            <span
+                                data-mm-style="mm-inline-0164">Wealth
+                                Status</span>
+                            <div data-mm-style="mm-inline-0170">
+                                <div
+                                    data-mm-style="mm-inline-0171">
+                                </div>
+                                <span data-mm-style="mm-inline-0172">On Track</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Dashboard Footer -->
+        <footer class="dashboard-footer">
+            <div class="container row-between">
+                <p>&copy; 2026 MoneyMap<span>.</span> All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="../contact.html">Support</a>
+                    <a href="../privacy.html">Privacy</a>
+                    <a href="../faq.html">FAQ</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
+

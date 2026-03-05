@@ -1,0 +1,291 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="MoneyMap helps you track income, expenses, categories, and monthly summaries with a responsive personal finance dashboard.">
+    <title>Login & Signup | MoneyMap - Your Financial Concierge</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-slate-wash login-page">
+    <!-- ============================================ -->
+    <!-- SECTION 1: Header / Navigation               -->
+    <!-- ============================================ -->
+    <header class="header" id="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">MoneyMap<span>.</span></a>
+
+                        <nav class="nav-desktop" id="nav-desktop">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="privacy.html" class="nav-link">Privacy</a>
+                <a href="app/dashboard.html" class="nav-link">Dashboard</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="login.html" class="btn-login" id="btn-login">Log in</a>
+                <a href="login.html" class="btn-primary" id="btn-get-started">Get Started</a>
+
+                <button class="nav-toggle" aria-label="Toggle Navigation" id="mobile-toggle">
+                    <div class="toggle-bar"></div>
+                    <div class="toggle-bar"></div>
+                    <div class="toggle-bar"></div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav -->
+                <nav class="nav-mobile" id="nav-mobile">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="faq.html" class="nav-link">FAQ</a>
+            <a href="privacy.html" class="nav-link">Privacy</a>
+            <a href="app/dashboard.html" class="nav-link">Dashboard</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ============================================ -->
+        <!-- SECTION 2: Premium Intro Section             -->
+        <!-- ============================================ -->
+        <section class="auth-premium-hero" id="auth-hero">
+            <div class="container">
+                <div class="premium-hero-inner reveal">
+                    <div class="premium-hero-content">
+                        <div class="hero-badge">
+                            <span class="hero-dot"></span>
+                            <span class="font-mono">Premium Access</span>
+                        </div>
+                        <h1 class="premium-title">Access your personal <br><span class="italic">expense manager.</span>
+                        </h1>
+                        <p class="premium-desc">Securely manage your wealth with our state-of-the-art sliding
+                            authentication system.</p>
+                        <div class="premium-actions">
+                            <a href="about.html" class="btn-primary">Explore Features</a>
+                            <a href="faq.html" class="btn-outline">Watch Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 3: Sliding Authentication Hub        -->
+        <!-- ============================================ -->
+        <section class="auth-hub-section" id="auth-hub">
+            <div class="container reveal">
+                <div class="sliding-container" id="sliding-container">
+
+                    <!-- Signup Container -->
+                    <div class="form-container signup-container">
+                        <form id="signup-form" class="auth-form-sliding">
+                            <fieldset class="form-fieldset">
+                                <legend class="form-legend">Create Account</legend>
+                            <h3>Create Account</h3>
+                            <div class="auth-social-sliding">
+                                <a href="https://www.facebook.com" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="https://www.google.com" class="social-icon"><i class="fa-brands fa-google"></i></a>
+                                <a href="https://www.linkedin.com" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                            </div>
+                            <span class="auth-span">or use your email for registration</span>
+                            <div class="form-group-sliding">
+                                <i class="fa-solid fa-user"></i>
+                                <input type="text" id="signup-name" placeholder="Full Name" required />
+                            </div>
+                            <div class="form-group-sliding">
+                                <i class="fa-solid fa-envelope"></i>
+                                <input type="email" id="signup-email" placeholder="Email Address" required />
+                            </div>
+                            <div class="form-group-sliding">
+                                <i class="fa-solid fa-lock"></i>
+                                <input type="password" id="signup-password" placeholder="Password" required
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" />
+                            </div>
+                            <button type="submit" class="btn-auth-sliding">Sign Up</button>
+                            <div class="auth-mobile-switch" aria-hidden="true">
+                                <span>Already have an account?</span>
+                                <button type="button" class="auth-mobile-switch-btn" id="mobile-signin-trigger">Sign In</button>
+                            </div>
+                            </fieldset>
+                        </form>
+                    </div>
+
+                    <!-- Login Container -->
+                    <div class="form-container login-container">
+                        <form id="login-form" class="auth-form-sliding">
+                            <fieldset class="form-fieldset">
+                                <legend class="form-legend">Login</legend>
+                            <h3>Sign In</h3>
+                            <div class="auth-social-sliding">
+                                <a href="https://www.facebook.com" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="https://www.google.com" class="social-icon"><i class="fa-brands fa-google"></i></a>
+                                <a href="https://www.linkedin.com" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                            </div>
+                            <span class="auth-span">or use your account email</span>
+                            <div class="form-group-sliding">
+                                <i class="fa-solid fa-envelope"></i>
+                                <input type="email" id="login-email" placeholder="Email Address" required />
+                            </div>
+                            <div class="form-group-sliding">
+                                <i class="fa-solid fa-lock"></i>
+                                <input type="password" id="login-password" placeholder="Password" required
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" />
+                            </div>
+                            <a href="contact.html" class="forgot-auth">Forgot your password?</a>
+                            <button type="submit" class="btn-auth-sliding">Sign In</button>
+                            <div class="auth-mobile-switch" aria-hidden="true">
+                                <span>New to MoneyMap?</span>
+                                <button type="button" class="auth-mobile-switch-btn" id="mobile-signup-trigger">Create Account</button>
+                            </div>
+                            </fieldset>
+                        </form>
+                    </div>
+
+                    <!-- Overlay Container -->
+                    <div class="overlay-container">
+                        <div class="overlay-sliding">
+                            <div class="overlay-panel overlay-left">
+                                <h2>Welcome Back!</h2>
+                                <p>To keep connected with us please login with your personal info</p>
+                                <button class="ghost-sliding" id="signIn">Sign In</button>
+                            </div>
+                            <div class="overlay-panel overlay-right">
+                                <h2>Hello, Friend!</h2>
+                                <p>Enter your personal details and start journey with us</p>
+                                <button class="ghost-sliding" id="signUp">Sign Up</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 4: Security/Trust Bar                -->
+        <!-- ============================================ -->
+        <section class="security-bar" id="security-trust">
+            <div class="container reveal">
+                <div class="security-grid">
+                    <div class="security-item">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <div class="security-text">
+                            <h4>Bank-Grade Security</h4>
+                            <p>256-bit SSL encryption for all your data.</p>
+                        </div>
+                    </div>
+                    <div class="security-item">
+                        <i class="fa-solid fa-user-lock"></i>
+                        <div class="security-text">
+                            <h4>Privacy First</h4>
+                            <p>Your financial data is never shared with third parties.</p>
+                        </div>
+                    </div>
+                    <div class="security-item">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <div class="security-text">
+                            <h4>Verified Access</h4>
+                            <p>Multi-factor authentication supported.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================ -->
+    <!-- SECTION 5: Footer                            -->
+    <!-- ============================================ -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-top">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <a href="index.html" class="logo footer-logo">MoneyMap<span>.</span></a>
+                    <p>Take control of your finances with smart expense tracking, income management, and visual reports.
+                        Built for everyone.</p>
+                    <div class="social-links">
+                        <a href="https://twitter.com" class="social-link" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://github.com" class="social-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com" class="social-link" aria-label="LinkedIn"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com" class="social-link" aria-label="Instagram"><i
+                                class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 1 -->
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Features</a></li>
+                        <li><a href="faq.html">How It Works</a></li>
+                        <li><a href="contact.html">Benefits</a></li>
+                        <li><a href="index.html#statistics">Statistics</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 2 -->
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Get the latest tips on financial management delivered to your inbox.</p>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <fieldset class="form-fieldset">
+                            <legend class="form-legend">Newsletter Signup</legend>
+                        <div class="input-group">
+                            <input type="email" placeholder="Enter your email" class="newsletter-input"
+                                id="newsletter-email" required>
+                            <button type="submit" class="btn-newsletter" id="btn-newsletter">
+                                <i class="fa-solid fa-paper-plane"></i> Join
+                            </button>
+                        </div>
+                        </fieldset>
+                    </form>
+                    <p class="newsletter-note">We respect your privacy. Unsubscribe anytime.</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 MoneyMap Inc. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="index.html">Home</a>
+                    <a href="privacy.html">Terms of Service</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
+

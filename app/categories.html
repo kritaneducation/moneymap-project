@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="MoneyMap helps you track income, expenses, categories, and monthly summaries with a responsive personal finance dashboard.">
+    <title>Manage Categories | MoneyMap - Your Financial Concierge</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="dashboard-body bg-slate-wash">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="dashboard-sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <span class="logo-text">MoneyMap<span>.</span></span>
+            </a>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="sidebar-link" title="Home">
+                <i class="fa-solid fa-house"></i>
+                <span class="nav-label">Home</span>
+            </a>
+            <a href="income-list.html" class="sidebar-link" title="Income">
+                <i class="fa-solid fa-coins"></i>
+                <span class="nav-label">Income</span>
+            </a>
+            <a href="expense-list.html" class="sidebar-link" title="Expenses">
+                <i class="fa-solid fa-receipt"></i>
+                <span class="nav-label">Expenses</span>
+            </a>
+            <a href="categories.html" class="sidebar-link active" title="Categories">
+                <i class="fa-solid fa-tags"></i>
+                <span class="nav-label">Categories</span>
+            </a>
+            <a href="monthly-summary.html" class="sidebar-link" title="Summary">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span class="nav-label">Summary</span>
+            </a>
+            <a href="report.html" class="sidebar-link" title="Reports">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+                <span class="nav-label">Reports</span>
+            </a>
+            <a href="settings.html" class="sidebar-link" title="Settings">
+                <i class="fa-solid fa-gear"></i>
+                <span class="nav-label">Settings</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="../login.html" class="sidebar-link logout-link" title="Logout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span class="nav-label">Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="dashboard-main">
+
+        <!-- Top Tab Bar & User Profile -->
+        <header class="dashboard-top-tabs">
+            <div class="header-left">
+                <button id="sidebarToggle" class="sidebar-toggle" title="Toggle Sidebar">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+                <div class="tabs-container">
+                    <a href="add-expense.html" class="tab-link">Add Expense</a>
+                    <a href="add-income.html" class="tab-link">Add Income</a>
+                    <a href="dashboard.html" class="tab-link">Summary</a>
+                    <a href="categories.html" class="tab-link active">Categories</a>
+                    <a href="settings.html" class="tab-link">Settings</a>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="user-profile-compact">
+                    <div class="user-info">
+                        <span class="user-name">Sarah Jenkins</span>
+                        <span class="user-role">Member</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            <h1 class="sr-only">Categories</h1>
+
+            <!-- Page Header -->
+            <div class="section-header reveal" data-mm-style="mm-inline-0038">
+                <h2 data-mm-style="mm-inline-0081">Manage Categories
+                </h2>
+                <p data-mm-style="mm-inline-0082">Organize your finances with custom income and expense labels.</p>
+            </div>
+
+            <div class="dashboard-row reveal-delayed">
+                <!-- Add Category Form -->
+                <div class="paper-card span-4">
+                    <div class="card-header">
+                        <h4>New Category</h4>
+                        <span class="card-subtitle">Create a custom label</span>
+                    </div>
+                    <form id="add-category-form"
+                        data-mm-style="mm-inline-0083">
+                        <fieldset class="form-fieldset">
+                            <legend class="form-legend">Add Category</legend>
+                        <div class="form-group">
+                            <label
+                                data-mm-style="mm-inline-0084">Category
+                                Name</label>
+                            <input type="text" id="cat-name" placeholder="e.g. Subscriptions" required
+                                pattern="[A-Za-z][A-Za-z\s&-]{1,28}[A-Za-z]"
+                                title="3-30 letters. Spaces, ampersand, and hyphen are allowed."
+                                data-mm-style="mm-inline-0085">
+                        </div>
+                        <div class="form-group">
+                            <label
+                                data-mm-style="mm-inline-0084">Type</label>
+                            <div data-mm-style="mm-inline-0086">
+                                <label
+                                    data-mm-style="mm-inline-0087">
+                                    <input type="radio" name="cat-type" value="expense" checked> Expense
+                                </label>
+                                <label
+                                    data-mm-style="mm-inline-0087">
+                                    <input type="radio" name="cat-type" value="income"> Income
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label
+                                data-mm-style="mm-inline-0084">Pick
+                                a Color</label>
+                            <div data-mm-style="mm-inline-0088">
+                                <input type="color" id="cat-color" value="#3b82f6"
+                                    data-mm-style="mm-inline-0089">
+                                <span data-mm-style="mm-inline-0073">Select a brand color for this
+                                    category</span>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary"
+                            data-mm-style="mm-inline-0090">
+                            Create Category <i class="fa-solid fa-plus-circle" data-mm-style="mm-inline-0041"></i>
+                        </button>
+                        </fieldset>
+                    </form>
+                </div>
+
+                <!-- Categories List -->
+                <div class="paper-card span-8">
+                    <div class="card-header"
+                        data-mm-style="mm-inline-0091">
+                        <div>
+                            <h4>Your Categories</h4>
+                            <span class="card-subtitle">Active labels used in transactions</span>
+                        </div>
+                        <div class="filter-pills" data-mm-style="mm-inline-0092">
+                            <button class="pill active" data-filter="all">All</button>
+                            <button class="pill" data-filter="income">Income</button>
+                            <button class="pill" data-filter="expense">Expense</button>
+                        </div>
+                    </div>
+
+                    <div id="categories-grid"
+                        data-mm-style="mm-inline-0093">
+                        <!-- Categories will be injected here -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Dashboard Footer -->
+        <footer class="dashboard-footer">
+            <div class="container row-between">
+                <p>&copy; 2026 MoneyMap<span>.</span> All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="../contact.html">Support</a>
+                    <a href="../privacy.html">Privacy</a>
+                    <a href="../faq.html">FAQ</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Success Toast -->
+    <div data-mm-style="mm-inline-0094"
+        id="successToast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-message" data-mm-style="mm-inline-0095">Category saved!</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
+

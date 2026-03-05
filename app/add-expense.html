@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="MoneyMap helps you track income, expenses, categories, and monthly summaries with a responsive personal finance dashboard.">
+    <title>Add Expense | MoneyMap - Your Financial Concierge</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="dashboard-body bg-slate-wash">
+
+    <!-- ============================================ -->
+    <!-- LEFT SIDEBAR                                 -->
+    <!-- ============================================ -->
+    <aside class="dashboard-sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <span class="logo-text">MoneyMap<span>.</span></span>
+            </a>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="sidebar-link" title="Home">
+                <i class="fa-solid fa-house"></i>
+                <span class="nav-label">Home</span>
+            </a>
+            <a href="income-list.html" class="sidebar-link" title="Income">
+                <i class="fa-solid fa-coins"></i>
+                <span class="nav-label">Income</span>
+            </a>
+            <a href="expense-list.html" class="sidebar-link" title="Expenses">
+                <i class="fa-solid fa-receipt"></i>
+                <span class="nav-label">Expenses</span>
+            </a>
+            <a href="categories.html" class="sidebar-link" title="Categories">
+                <i class="fa-solid fa-tags"></i>
+                <span class="nav-label">Categories</span>
+            </a>
+            <a href="monthly-summary.html" class="sidebar-link" title="Summary">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span class="nav-label">Summary</span>
+            </a>
+            <a href="report.html" class="sidebar-link" title="Reports">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+                <span class="nav-label">Reports</span>
+            </a>
+            <a href="settings.html" class="sidebar-link" title="Settings">
+                <i class="fa-solid fa-gear"></i>
+                <span class="nav-label">Settings</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="../login.html" class="sidebar-link logout-link" title="Logout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span class="nav-label">Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- ============================================ -->
+    <!-- MAIN CONTENT AREA                            -->
+    <!-- ============================================ -->
+    <main class="dashboard-main">
+
+        <!-- Top Tab Bar & User Profile -->
+        <header class="dashboard-top-tabs">
+            <div class="header-left">
+                <button id="sidebarToggle" class="sidebar-toggle" title="Toggle Sidebar">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+                <div class="tabs-container">
+                    <a href="add-expense.html" class="tab-link active">Add Expense</a>
+                    <a href="add-income.html" class="tab-link">Add Income</a>
+                    <a href="expense-list.html" class="tab-link">All Expenses</a>
+                    <a href="income-list.html" class="tab-link">All Income</a>
+                    <a href="dashboard.html" class="tab-link">Summary</a>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="user-profile-compact">
+                    <div class="user-info">
+                        <span class="user-name">Sarah Jenkins</span>
+                        <span class="user-role">Member</span>
+                    </div>
+                    <div class="user-avatar-wrap">
+                        <img src="../assets/user-sarah.webp" alt="Sarah Jenkins" class="sidebar-avatar">
+                        <div class="status-indicator"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            <h1 class="sr-only">Add Expense</h1>
+
+            <!-- KPI Cards Row -->
+            <div class="kpi-grid reveal">
+                <div class="paper-card kpi-card">
+                    <div class="kpi-icon icon-income"><i class="fa-solid fa-wallet"></i></div>
+                    <div class="kpi-info">
+                        <span class="kpi-label">Total Income</span>
+                        <h3 class="kpi-value">$12,450.00</h3>
+                    </div>
+                </div>
+                <div class="paper-card kpi-card">
+                    <div class="kpi-icon icon-expense"><i class="fa-solid fa-credit-card"></i></div>
+                    <div class="kpi-info">
+                        <span class="kpi-label">Total Expenses</span>
+                        <h3 class="kpi-value">$4,230.50</h3>
+                    </div>
+                </div>
+                <div class="paper-card kpi-card">
+                    <div class="kpi-icon icon-balance"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <div class="kpi-info">
+                        <span class="kpi-label">Net Balance</span>
+                        <h3 class="kpi-value">$8,219.50</h3>
+                    </div>
+                </div>
+                <div class="paper-card kpi-card">
+                    <div class="kpi-icon icon-transactions"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                    <div class="kpi-info">
+                        <span class="kpi-label">Month's Transactions</span>
+                        <h3 class="kpi-value">148</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Expense Form Row -->
+            <div class="dashboard-row visual-row reveal-delayed">
+                <div class="paper-card form-card span-8">
+                    <div class="card-header">
+                        <h4>Add Expenses</h4>
+                        <span class="card-subtitle">Specify exactly as per your details</span>
+                    </div>
+                    <form class="expense-form" id="add-expense-form">
+                        <fieldset data-mm-style="mm-inline-0067">
+                            <legend
+                                data-mm-style="mm-inline-0068">
+                                Transaction Details</legend>
+                            <!-- Decorative Icon Group -->
+                            <div data-mm-style="mm-inline-0069">
+                                <div
+                                    data-mm-style="mm-inline-0070">
+                                    <i class="fa-solid fa-receipt"></i>
+                                </div>
+                                <div data-mm-style="mm-inline-0071">
+                                    <span data-mm-style="mm-inline-0072">New
+                                        Expense</span>
+                                    <span data-mm-style="mm-inline-0073">Log your spending
+                                        details</span>
+                                </div>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="amount">Amount</label>
+                                    <div class="input-with-icon">
+                                        <span class="input-icon">$</span>
+                                        <input type="number" id="amount" step="0.01" min="0" placeholder="0.00"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="category">Category</label>
+                                    <select id="category" required>
+                                        <option value="" disabled selected>Select category</option>
+                                        <!-- Categories loaded dynamically from script.js -->
+                                    </select>
+                                </div>
+                                <div class="form-group span-full">
+                                    <label for="description">Description (Max 100 chars)</label>
+                                    <input type="text" id="description" maxlength="100"
+                                        placeholder="E.g. Grocery shopping at Walmart">
+                                </div>
+                                <div class="form-group">
+                                    <label for="date">Date</label>
+                                    <input type="date" id="date" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-primary" data-mm-style="mm-inline-0074">Add
+                                Expenses <i class="fa-solid fa-arrow-right" data-mm-style="mm-inline-0041"></i></button>
+                        </fieldset>
+                    </form>
+                </div>
+
+                <div class="support-cards-stack span-4">
+                    <div class="paper-card tip-card">
+                        <div class="feature-card-image" data-mm-style="mm-inline-0075">
+                            <img src="../assets/feature-expense.jpg" alt="Expense feature"
+                                data-mm-style="mm-inline-0076">
+                        </div>
+                        <div class="card-header" data-mm-style="mm-inline-0077">
+                            <h4><span class="emoji">ðŸ’¡</span> Category Tips</h4>
+                        </div>
+                        <ul class="support-list"
+                            data-mm-style="mm-inline-0078">
+                            <li><strong data-mm-style="mm-inline-0033">Food</strong>: Groceries, restaurants, and daily
+                                snacks.</li>
+                            <li><strong data-mm-style="mm-inline-0033">Bills</strong>: Rent, electricity, and
+                                subscriptions.</li>
+                            <li><strong data-mm-style="mm-inline-0033">Shopping</strong>: Clothing, electronics, and home
+                                items.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Dashboard Footer -->
+        <footer class="dashboard-footer">
+            <div class="container row-between">
+                <p>&copy; 2026 MoneyMap<span>.</span> All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="../contact.html">Support</a>
+                    <a href="../privacy.html">Privacy</a>
+                    <a href="../faq.html">FAQ</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
+

@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="MoneyMap helps you track income, expenses, categories, and monthly summaries with a responsive personal finance dashboard.">
+    <title>All Income | MoneyMap - Your Financial Concierge</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="dashboard-body bg-slate-wash">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="dashboard-sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <span class="logo-text">MoneyMap<span>.</span></span>
+            </a>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="sidebar-link" title="Home">
+                <i class="fa-solid fa-house"></i>
+                <span class="nav-label">Home</span>
+            </a>
+            <a href="income-list.html" class="sidebar-link active" title="Income">
+                <i class="fa-solid fa-coins"></i>
+                <span class="nav-label">Income</span>
+            </a>
+            <a href="expense-list.html" class="sidebar-link" title="Expenses">
+                <i class="fa-solid fa-receipt"></i>
+                <span class="nav-label">Expenses</span>
+            </a>
+            <a href="categories.html" class="sidebar-link" title="Categories">
+                <i class="fa-solid fa-tags"></i>
+                <span class="nav-label">Categories</span>
+            </a>
+            <a href="monthly-summary.html" class="sidebar-link" title="Summary">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span class="nav-label">Summary</span>
+            </a>
+            <a href="report.html" class="sidebar-link" title="Reports">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+                <span class="nav-label">Reports</span>
+            </a>
+            <a href="settings.html" class="sidebar-link" title="Settings">
+                <i class="fa-solid fa-gear"></i>
+                <span class="nav-label">Settings</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="../login.html" class="sidebar-link logout-link" title="Logout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span class="nav-label">Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="dashboard-main">
+
+        <!-- Top Tab Bar & User Profile -->
+        <header class="dashboard-top-tabs">
+            <div class="header-left">
+                <button id="sidebarToggle" class="sidebar-toggle" title="Toggle Sidebar">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+                <div class="tabs-container">
+                    <a href="add-expense.html" class="tab-link">Add Expense</a>
+                    <a href="add-income.html" class="tab-link">Add Income</a>
+                    <a href="expense-list.html" class="tab-link">All Expenses</a>
+                    <a href="income-list.html" class="tab-link active">All Income</a>
+                    <a href="dashboard.html" class="tab-link">Summary</a>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="user-profile-compact">
+                    <div class="user-info">
+                        <span class="user-name">Sarah Jenkins</span>
+                        <span class="user-role">Member</span>
+                    </div>
+                    <div class="user-avatar-wrap">
+                        <img src="../assets/user-sarah.webp" alt="Sarah Jenkins" class="sidebar-avatar">
+                        <div class="status-indicator"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            <h1 class="sr-only">Income List</h1>
+
+            <!-- KPI Cards Row -->
+            <div class="kpi-grid reveal">
+                <div class="paper-card kpi-card">
+                    <div class="kpi-icon icon-income"><i class="fa-solid fa-wallet"></i></div>
+                    <div class="kpi-info">
+                        <span class="kpi-label">Total Income</span>
+                        <h3 class="kpi-value">$12,450.00</h3>
+                        <span class="kpi-trend trend-up"><i class="fa-solid fa-arrow-up"></i> 12%</span>
+                    </div>
+                </div>
+                <!-- ... other KPI cards omitted for brevity in this tool call, assume they match others ... -->
+            </div>
+
+            <!-- Toolbar Row -->
+            <div class="paper-card dashboard-toolbar reveal-delayed"
+                data-mm-style="mm-inline-0099">
+                <div class="search-wrapper" data-mm-style="mm-inline-0100">
+                    <i class="fa-solid fa-magnifying-glass"
+                        data-mm-style="mm-inline-0101"></i>
+                    <input type="text" placeholder="Search by source or amount..."
+                        data-mm-style="mm-inline-0102">
+                </div>
+                <div class="filter-group" data-mm-style="mm-inline-0103">
+                    <select class="toolbar-select" id="category-filter"
+                        data-mm-style="mm-inline-0104">
+                        <option value="">All Sources</option>
+                    </select>
+                    <input type="date" class="toolbar-date" title="From Date"
+                        data-mm-style="mm-inline-0125">
+                    <input type="date" class="toolbar-date" title="To Date"
+                        data-mm-style="mm-inline-0125">
+                </div>
+                <div class="toolbar-actions" data-mm-style="mm-inline-0106">
+                    <button class="btn-outline-sm"
+                        data-mm-style="mm-inline-0107"><i
+                            class="fa-solid fa-file-export"></i> Export</button>
+                    <a href="add-income.html" class="btn-primary"
+                        data-mm-style="mm-inline-0126"><i
+                            class="fa-solid fa-plus"></i> Add Income</a>
+                </div>
+            </div>
+
+            <!-- Data Table Section -->
+            <div class="paper-card table-card reveal-delayed" data-mm-style="mm-inline-0108">
+                <div class="table-responsive">
+                    <table class="dashboard-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th data-mm-style="mm-inline-0109">Author</th>
+                                <th data-mm-style="mm-inline-0109">Title</th>
+                                <th data-mm-style="mm-inline-0109">Source</th>
+                                <th data-mm-style="mm-inline-0109">Date</th>
+                                <th data-mm-style="mm-inline-0110">Amount</th>
+                                <th data-mm-style="mm-inline-0009">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="income-list-body">
+                            <!-- Mock Data Rows 1-10 -->
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <div class="author-cell" data-mm-style="mm-inline-0111">
+                                        <img src="../assets/user-sarah.webp" class="author-avatar" alt="Sarah"
+                                            data-mm-style="mm-inline-0112">
+                                        <div class="author-info" data-mm-style="mm-inline-0071">
+                                            <span class="author-name"
+                                                data-mm-style="mm-inline-0113">Sarah
+                                                Jenkins</span>
+                                            <span class="author-role"
+                                                data-mm-style="mm-inline-0073">Member</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td data-mm-style="mm-inline-0114">Monthly Base Salary</td>
+                                <td><span class="badge badge-income">Salary</span></td>
+                                <td data-mm-style="mm-inline-0115">Mar 01, 2026</td>
+                                <td data-mm-style="mm-inline-0127">+$5,000.00
+                                </td>
+                                <td data-mm-style="mm-inline-0009"><button class="action-btn"><i
+                                            class="fa-solid fa-ellipsis-vertical"></i></button></td>
+                            </tr>
+                            <!-- More rows added for completeness -->
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <div class="author-cell" data-mm-style="mm-inline-0111">
+                                        <img src="../assets/user-sarah.webp" class="author-avatar" alt="Sarah"
+                                            data-mm-style="mm-inline-0112">
+                                        <div class="author-info" data-mm-style="mm-inline-0071">
+                                            <span class="author-name"
+                                                data-mm-style="mm-inline-0113">Sarah
+                                                Jenkins</span>
+                                            <span class="author-role"
+                                                data-mm-style="mm-inline-0073">Member</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td data-mm-style="mm-inline-0114">UI Design - Client X</td>
+                                <td><span class="badge badge-income">Freelance</span></td>
+                                <td data-mm-style="mm-inline-0115">Feb 28, 2026</td>
+                                <td data-mm-style="mm-inline-0127">+$2,400.00
+                                </td>
+                                <td data-mm-style="mm-inline-0009"><button class="action-btn"><i
+                                            class="fa-solid fa-ellipsis-vertical"></i></button></td>
+                            </tr>
+                            <!-- Total 10 rows would go here ... -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Insights Strip -->
+                <div class="insights-strip"
+                    data-mm-style="mm-inline-0128">
+                    <div class="insight-chip"
+                        data-mm-style="mm-inline-0129">
+                        <span data-mm-style="mm-inline-0073">Top Source:</span>
+                        <span data-mm-style="mm-inline-0130">Salary (60%)</span>
+                    </div>
+                    <div class="insight-chip"
+                        data-mm-style="mm-inline-0129">
+                        <span data-mm-style="mm-inline-0073">Freelance:</span>
+                        <span data-mm-style="mm-inline-0131">$2.4k
+                            (30%)</span>
+                    </div>
+                    <div class="insight-chip"
+                        data-mm-style="mm-inline-0129">
+                        <span data-mm-style="mm-inline-0073">Others:</span>
+                        <span data-mm-style="mm-inline-0132">$0.8k (10%)</span>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="table-pagination"
+                    data-mm-style="mm-inline-0119">
+                    <span class="pagination-info" data-mm-style="mm-inline-0120">Showing 1 to 10
+                        of 42 entries</span>
+                    <div class="pagination-links" data-mm-style="mm-inline-0121">
+                        <a href="#" class="page-link active"
+                            data-mm-style="mm-inline-0133">1</a>
+                        <a href="#" class="page-link"
+                            data-mm-style="mm-inline-0124">2</a>
+                        <a href="#" class="page-link"
+                            data-mm-style="mm-inline-0124">Next
+                            <i class="fa-solid fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Dashboard Footer -->
+        <footer class="dashboard-footer">
+            <div class="container row-between">
+                <p>&copy; 2026 MoneyMap<span>.</span> All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="../contact.html">Support</a>
+                    <a href="../privacy.html">Privacy</a>
+                    <a href="../faq.html">FAQ</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
+

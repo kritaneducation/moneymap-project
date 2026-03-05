@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="MoneyMap helps you track income, expenses, categories, and monthly summaries with a responsive personal finance dashboard.">
+    <title>Account Settings | MoneyMap - Your Financial Concierge</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="dashboard-body bg-slate-wash">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="dashboard-sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <span class="logo-text">MoneyMap<span>.</span></span>
+            </a>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="sidebar-link" title="Home">
+                <i class="fa-solid fa-house"></i>
+                <span class="nav-label">Home</span>
+            </a>
+            <a href="income-list.html" class="sidebar-link" title="Income">
+                <i class="fa-solid fa-coins"></i>
+                <span class="nav-label">Income</span>
+            </a>
+            <a href="expense-list.html" class="sidebar-link" title="Expenses">
+                <i class="fa-solid fa-receipt"></i>
+                <span class="nav-label">Expenses</span>
+            </a>
+            <a href="categories.html" class="sidebar-link" title="Categories">
+                <i class="fa-solid fa-tags"></i>
+                <span class="nav-label">Categories</span>
+            </a>
+            <a href="monthly-summary.html" class="sidebar-link" title="Summary">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span class="nav-label">Summary</span>
+            </a>
+            <a href="report.html" class="sidebar-link" title="Reports">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+                <span class="nav-label">Reports</span>
+            </a>
+            <a href="settings.html" class="sidebar-link active" title="Settings">
+                <i class="fa-solid fa-gear"></i>
+                <span class="nav-label">Settings</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="../login.html" class="sidebar-link logout-link" title="Logout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span class="nav-label">Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="dashboard-main">
+
+        <!-- Top Tab Bar & User Profile -->
+        <header class="dashboard-top-tabs">
+            <div class="header-left">
+                <button id="sidebarToggle" class="sidebar-toggle" title="Toggle Sidebar">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+                <div class="tabs-container">
+                    <a href="add-expense.html" class="tab-link">Add Expense</a>
+                    <a href="add-income.html" class="tab-link">Add Income</a>
+                    <a href="dashboard.html" class="tab-link">Summary</a>
+                    <a href="settings.html" class="tab-link active">Settings</a>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="user-profile-compact">
+                    <div class="user-info">
+                        <span class="user-name">Sarah Jenkins</span>
+                        <span class="user-role">Member</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            <h1 class="sr-only">Settings</h1>
+
+            <!-- Settings Header -->
+            <div class="section-header reveal" data-mm-style="mm-inline-0038">
+                <h2 data-mm-style="mm-inline-0081">Account Settings</h2>
+                <p data-mm-style="mm-inline-0082">Manage your profile, preferences, and data security.</p>
+            </div>
+
+            <div class="dashboard-row reveal-delayed">
+                <!-- Profile Photo Card -->
+                <div class="paper-card span-4" data-mm-style="mm-inline-0186">
+                    <div data-mm-style="mm-inline-0187">
+                        <img src="../assets/user-sarah.webp" alt="Profile Photo"
+                            data-mm-style="mm-inline-0188">
+                        <button class="icon-btn"
+                            data-mm-style="mm-inline-0189">
+                            <i class="fa-solid fa-camera"></i>
+                        </button>
+                    </div>
+                    <h4 data-mm-style="mm-inline-0190">Sarah Jenkins</h4>
+                    <span data-mm-style="mm-inline-0120">Member since Jan 2025</span>
+                    <hr data-mm-style="mm-inline-0191">
+                    <div data-mm-style="mm-inline-0192">
+                        <button class="btn-outline-sm" data-mm-style="mm-inline-0193">Upload New Photo</button>
+                        <button class="btn-outline-sm"
+                            data-mm-style="mm-inline-0194">Remove
+                            Photo</button>
+                    </div>
+                </div>
+
+                <!-- Account Detail Form -->
+                <div class="paper-card span-8">
+                    <h4>Personal Information</h4>
+                    <span class="card-subtitle">Update your profile details and contact info</span>
+
+                    <form id="settings-form"
+                        data-mm-style="mm-inline-0195">
+                        <fieldset class="form-fieldset">
+                            <legend class="form-legend">Profile Settings</legend>
+                        <div class="form-group">
+                            <label
+                                data-mm-style="mm-inline-0084">Full
+                                Name</label>
+                            <input type="text" id="user-fullname" value="Sarah Jenkins"
+                                data-mm-style="mm-inline-0085">
+                        </div>
+                        <div class="form-group">
+                            <label
+                                data-mm-style="mm-inline-0084">Email
+                                Address</label>
+                            <input type="email" id="user-email" value="sarah.jenkins@example.com"
+                                data-mm-style="mm-inline-0085">
+                        </div>
+                        <div class="form-group">
+                            <label
+                                data-mm-style="mm-inline-0084">Currency</label>
+                            <select id="user-currency"
+                                data-mm-style="mm-inline-0085">
+                                <option value="USD">USD - US Dollar</option>
+                                <option value="EUR">EUR - Euro</option>
+                                <option value="GBP">GBP - British Pound</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label
+                                data-mm-style="mm-inline-0084">Occupation</label>
+                            <input type="text" id="user-occupation" value="Product Designer"
+                                data-mm-style="mm-inline-0085">
+                        </div>
+                        </fieldset>
+                    </form>
+
+                    <h4 data-mm-style="mm-inline-0196">Site Preferences</h4>
+                    <span class="card-subtitle">Customize your visual and notification experience</span>
+
+                    <div data-mm-style="mm-inline-0174">
+                        <div data-mm-style="mm-inline-0091">
+                            <div>
+                                <span data-mm-style="mm-inline-0197">Dark Mode</span>
+                                <span data-mm-style="mm-inline-0073">Switch to a darker visual
+                                    theme</span>
+                            </div>
+                            <label class="switch"
+                                data-mm-style="mm-inline-0198">
+                                <input type="checkbox" id="dark-mode-toggle" data-mm-style="mm-inline-0199">
+                                <span
+                                    data-mm-style="mm-inline-0200">
+                                    <span
+                                        data-mm-style="mm-inline-0201"></span>
+                                </span>
+                            </label>
+                        </div>
+                        <div data-mm-style="mm-inline-0091">
+                            <div>
+                                <span data-mm-style="mm-inline-0197">Email
+                                    Notifications</span>
+                                <span data-mm-style="mm-inline-0073">Receive weekly summary
+                                    reports</span>
+                            </div>
+                            <label class="switch"
+                                data-mm-style="mm-inline-0198">
+                                <input type="checkbox" checked data-mm-style="mm-inline-0199">
+                                <span
+                                    data-mm-style="mm-inline-0202">
+                                    <span
+                                        data-mm-style="mm-inline-0203"></span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div data-mm-style="mm-inline-0204">
+                        <button class="btn-outline-sm">Cancel</button>
+                        <button class="btn-primary" id="save-settings-btn"
+                            data-mm-style="mm-inline-0205">Save All
+                            Changes</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Dashboard Footer -->
+        <footer class="dashboard-footer">
+            <div class="container row-between">
+                <p>&copy; 2026 MoneyMap<span>.</span> All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="../contact.html">Support</a>
+                    <a href="../privacy.html">Privacy</a>
+                    <a href="../faq.html">FAQ</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Success Toast (Visual Demo) -->
+    <div data-mm-style="mm-inline-0094"
+        id="successToast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span data-mm-style="mm-inline-0095">Settings saved successfully!</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
+

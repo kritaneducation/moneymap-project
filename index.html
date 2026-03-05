@@ -1,0 +1,547 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyMap - Take Control of Your Finances</title>
+    <meta name="description"
+        content="MoneyMap helps you track expenses, manage income, and achieve your financial goals with beautiful visual reports and smart budgeting tools.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- ============================================ -->
+    <!-- SECTION 1: Header / Navigation               -->
+    <!-- ============================================ -->
+    <header class="header" id="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">MoneyMap<span>.</span></a>
+
+                        <nav class="nav-desktop" id="nav-desktop">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="privacy.html" class="nav-link">Privacy</a>
+                <a href="app/dashboard.html" class="nav-link">Dashboard</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="login.html" class="btn-login" id="btn-login">Log in</a>
+                <a href="login.html" class="btn-primary" id="btn-get-started">Get Started</a>
+
+                <button class="nav-toggle" aria-label="Toggle Navigation" id="mobile-toggle">
+                    <div class="toggle-bar"></div>
+                    <div class="toggle-bar"></div>
+                    <div class="toggle-bar"></div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav -->
+                <nav class="nav-mobile" id="nav-mobile">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="faq.html" class="nav-link">FAQ</a>
+            <a href="privacy.html" class="nav-link">Privacy</a>
+            <a href="app/dashboard.html" class="nav-link">Dashboard</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ============================================ -->
+        <!-- SECTION 2: Hero                              -->
+        <!-- ============================================ -->
+        <section class="hero" id="hero">
+            <div class="container">
+                <div class="hero-grid reveal">
+                    <!-- Left: Text Content -->
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <span class="hero-dot"></span>
+                            Smart Finance Management
+                        </div>
+                        <h1 class="hero-title">
+                            Take Control of<br>
+                            <span class="italic">Your Finances.</span>
+                        </h1>
+                        <p class="hero-desc">
+                            Track your daily expenses, manage income streams, and visualize your financial journey with
+                            powerful reports. MoneyMap makes budgeting simple, intuitive, and even enjoyable.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="login.html" class="btn-hero-primary" id="hero-login-btn">
+                                <i class="fa-solid fa-right-to-bracket"></i> Login
+                            </a>
+                            <a href="login.html" class="btn-hero-outline" id="hero-signup-btn">
+                                <i class="fa-solid fa-user-plus"></i> Sign Up
+                            </a>
+                        </div>
+
+                        <!-- Trust badges -->
+                        <div class="hero-trust">
+                            <div class="trust-avatars">
+                                <img src="assets/user-sarah.webp" alt="User" class="trust-avatar" loading="lazy">
+                                <img src="assets/user-michael.webp" alt="User" class="trust-avatar" loading="lazy">
+                                <img src="assets/user-jessica.webp" alt="User" class="trust-avatar" loading="lazy">
+                            </div>
+                            <p class="trust-text">Joined by <strong>15,847+</strong> users</p>
+                        </div>
+                    </div>
+
+                    <!-- Right: App Mockup Image -->
+                    <div class="hero-image-wrap reveal-delayed">
+                        <img src="assets/hero-dashboard.jpg"
+                            alt="MoneyMap finance dashboard showing expense charts and analytics" class="hero-image"
+                            width="600" height="400">
+                        <!-- Floating stat cards over the image -->
+                        <div class="hero-float-card float-card-1">
+                            <div class="card-icon green"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                            <div class="card-info">
+                                <span class="label">Savings</span>
+                                <span class="value">+23%</span>
+                            </div>
+                        </div>
+                        <div class="hero-float-card float-card-2">
+                            <div class="card-icon blue"><i class="fa-solid fa-wallet"></i></div>
+                            <div class="card-info">
+                                <span class="label">This Month</span>
+                                <span class="value">$2,450</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 3: Features                          -->
+        <!-- ============================================ -->
+        <section class="features" id="features">
+            <div class="container reveal">
+                <div class="section-header">
+                    <span class="section-badge">Core Features</span>
+                    <h2 class="section-title">Everything you need to manage your money</h2>
+                    <p class="section-subtitle">Powerful tools designed to give you complete control over your finances.
+                    </p>
+                </div>
+
+                <div class="features-grid">
+                    <!-- Feature 1: Daily Expense Tracking -->
+                    <div class="feature-card-v2" id="feature-expense">
+                        <div class="feature-card-image">
+                            <img src="assets/feature-expense.jpg"
+                                alt="Person tracking daily expenses on a smartphone app" loading="lazy" width="400"
+                                height="250">
+                            <div class="feature-card-overlay"></div>
+                        </div>
+                        <div class="feature-card-body">
+                            <div class="feature-icon-wrap">
+                                <i class="fa-solid fa-receipt"></i>
+                            </div>
+                            <h3>Daily Expense Tracking</h3>
+                            <p>Log every transaction as it happens. Categorize spending automatically and see where your
+                                money goes each day.</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2: Income Management -->
+                    <div class="feature-card-v2" id="feature-income">
+                        <div class="feature-card-image">
+                            <img src="assets/feature-income.jpg" alt="Income and money management with financial charts"
+                                loading="lazy" width="400" height="250">
+                            <div class="feature-card-overlay"></div>
+                        </div>
+                        <div class="feature-card-body">
+                            <div class="feature-icon-wrap">
+                                <i class="fa-solid fa-money-bill-trend-up"></i>
+                            </div>
+                            <h3>Income Management</h3>
+                            <p>Track multiple income sources in one place. Monitor salary, freelance earnings,
+                                investments, and side hustles effortlessly.</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3: Visual Reports -->
+                    <div class="feature-card-v2" id="feature-reports">
+                        <div class="feature-card-image">
+                            <img src="assets/feature-reports.jpg"
+                                alt="Colorful financial charts and data visualizations" loading="lazy" width="400"
+                                height="250">
+                            <div class="feature-card-overlay"></div>
+                        </div>
+                        <div class="feature-card-body">
+                            <div class="feature-icon-wrap">
+                                <i class="fa-solid fa-chart-pie"></i>
+                            </div>
+                            <h3>Visual Reports</h3>
+                            <p>Beautiful pie charts, bar graphs, and trend lines that transform raw numbers into clear,
+                                actionable financial insights.</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 4: Monthly Summaries -->
+                    <div class="feature-card-v2" id="feature-summary">
+                        <div class="feature-card-image">
+                            <img src="assets/feature-summary.jpg" alt="Monthly financial summary report on a work desk"
+                                loading="lazy" width="400" height="250">
+                            <div class="feature-card-overlay"></div>
+                        </div>
+                        <div class="feature-card-body">
+                            <div class="feature-icon-wrap">
+                                <i class="fa-solid fa-calendar-check"></i>
+                            </div>
+                            <h3>Monthly Summaries</h3>
+                            <p>Get a comprehensive month-end overview of your income vs. expenses, savings rate, and
+                                progress toward your financial goals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 4: How It Works                      -->
+        <!-- ============================================ -->
+        <section class="how" id="how-it-works">
+            <div class="container">
+                <div class="how-layout reveal">
+                    <div class="how-image-side">
+                        <img src="assets/how-it-works.jpg" alt="Person using MoneyMap finance app on their phone"
+                            class="how-main-image" loading="lazy" width="500" height="600">
+                    </div>
+                    <div class="how-content-side">
+                        <div class="section-header left-aligned">
+                            <span class="section-badge">The Process</span>
+                            <h2 class="section-title">How It Works</h2>
+                            <p class="section-subtitle">Get started in four simple steps and transform your financial
+                                life.</p>
+                        </div>
+                        <div class="steps-list">
+                            <div class="step-item" id="step-1">
+                                <div class="step-num">1</div>
+                                <div class="step-content">
+                                    <h3>Create Account</h3>
+                                    <p>Sign up for free in under a minute. No credit card required to get started.</p>
+                                </div>
+                            </div>
+                            <div class="step-item" id="step-2">
+                                <div class="step-num">2</div>
+                                <div class="step-content">
+                                    <h3>Add Transactions</h3>
+                                    <p>Log your income and expenses manually or connect your accounts for auto-import.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="step-item" id="step-3">
+                                <div class="step-num">3</div>
+                                <div class="step-content">
+                                    <h3>Track Spending</h3>
+                                    <p>Watch your spending patterns emerge through beautiful charts and daily
+                                        breakdowns.</p>
+                                </div>
+                            </div>
+                            <div class="step-item" id="step-4">
+                                <div class="step-num">4</div>
+                                <div class="step-content">
+                                    <h3>Achieve Goals</h3>
+                                    <p>Set savings targets, reduce unnecessary spending, and build the financial future
+                                        you deserve.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 5: User Benefits                     -->
+        <!-- ============================================ -->
+        <section class="benefits" id="benefits">
+            <div class="container reveal">
+                <div class="section-header">
+                    <span class="section-badge">Why MoneyMap</span>
+                    <h2 class="section-title">Benefits that change your life</h2>
+                    <p class="section-subtitle">More than just an app â€” it's a path to financial freedom.</p>
+                </div>
+
+                <div class="benefits-grid">
+                    <!-- Benefit 1 -->
+                    <div class="benefit-card" id="benefit-awareness">
+                        <div class="benefit-image-wrap">
+                            <img src="assets/benefit-awareness.jpg"
+                                alt="Person gaining financial awareness through budgeting" loading="lazy" width="400"
+                                height="280">
+                        </div>
+                        <div class="benefit-body">
+                            <div class="benefit-icon">
+                                <i class="fa-solid fa-eye"></i>
+                            </div>
+                            <h3>Better Financial Awareness</h3>
+                            <p>See exactly where every dollar goes. Understanding your habits is the first step to
+                                improving them.</p>
+                        </div>
+                    </div>
+
+                    <!-- Benefit 2 -->
+                    <div class="benefit-card" id="benefit-savings">
+                        <div class="benefit-image-wrap">
+                            <img src="assets/benefit-savings.jpg" alt="Reaching savings goals with smart budgeting"
+                                loading="lazy" width="400" height="280">
+                        </div>
+                        <div class="benefit-body">
+                            <div class="benefit-icon">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+                            <h3>Reach Savings Goals Faster</h3>
+                            <p>Set targets, track progress, and watch your savings grow with automated goal tracking and
+                                smart alerts.</p>
+                        </div>
+                    </div>
+
+                    <!-- Benefit 3 -->
+                    <div class="benefit-card" id="benefit-spending">
+                        <div class="benefit-image-wrap">
+                            <img src="assets/benefit-spending.jpg"
+                                alt="Reducing unnecessary spending through expense analysis" loading="lazy" width="400"
+                                height="280">
+                        </div>
+                        <div class="benefit-body">
+                            <div class="benefit-icon">
+                                <i class="fa-solid fa-scissors"></i>
+                            </div>
+                            <h3>Reduce Unnecessary Spending</h3>
+                            <p>Identify subscriptions, impulse buys, and hidden costs. Cut the waste and redirect money
+                                to what matters.</p>
+                        </div>
+                    </div>
+
+                    <!-- Benefit 4 -->
+                    <div class="benefit-card" id="benefit-security">
+                        <div class="benefit-image-wrap">
+                            <img src="assets/benefit-security.jpg" alt="Building long-term financial security"
+                                loading="lazy" width="400" height="280">
+                        </div>
+                        <div class="benefit-body">
+                            <div class="benefit-icon">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <h3>Build Financial Security</h3>
+                            <p>Create an emergency fund, plan for retirement, and build a safety net that gives you
+                                peace of mind.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 6: Statistics / Infographic          -->
+        <!-- ============================================ -->
+        <section class="statistics" id="statistics">
+            <div class="stats-bg-overlay"></div>
+            <div class="container reveal">
+                <div class="section-header light">
+                    <span class="section-badge light">By The Numbers</span>
+                    <h2 class="section-title light">Trusted by thousands worldwide</h2>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card" id="stat-users">
+                        <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+                        <div class="stat-number" data-target="15847">0</div>
+                        <div class="stat-label">Active Users</div>
+                    </div>
+                    <div class="stat-card" id="stat-expenses">
+                        <div class="stat-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                        <div class="stat-number" data-target="284500">0</div>
+                        <div class="stat-label">Total Expenses Tracked</div>
+                    </div>
+                    <div class="stat-card" id="stat-reports">
+                        <div class="stat-icon"><i class="fa-solid fa-chart-bar"></i></div>
+                        <div class="stat-number" data-target="42300">0</div>
+                        <div class="stat-label">Reports Generated</div>
+                    </div>
+                    <div class="stat-card" id="stat-savings">
+                        <div class="stat-icon"><i class="fa-solid fa-piggy-bank"></i></div>
+                        <div class="stat-number" data-target="23" data-suffix="%">0%</div>
+                        <div class="stat-label">Average Savings Increase</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 7: Testimonials                      -->
+        <!-- ============================================ -->
+        <section class="testimonials" id="testimonials">
+            <div class="container reveal">
+                <div class="section-header">
+                    <span class="section-badge">User Stories</span>
+                    <h2 class="section-title">What our users say</h2>
+                    <p class="section-subtitle">Real stories from real people who transformed their finances with
+                        MoneyMap.</p>
+                </div>
+
+                <div class="testimonials-carousel">
+                    <div class="testimonials-track" id="testimonials-track">
+                        <!-- Testimonial 1: Sarah Johnson -->
+                        <div class="testimonial-card" id="testimonial-sarah">
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="testimonial-tag">Highly Recommended</span>
+                            </div>
+                            <p class="testimonial-quote">"MoneyMap completely changed my relationship with money. I used
+                                to dread checking my bank account, but now I actually look forward to it. The daily
+                                expense tracking and monthly summaries give me total clarity."</p>
+                            <div class="testimonial-user">
+                                <img src="assets/user-sarah.webp" alt="Sarah Johnson" class="user-img" width="56"
+                                    height="56">
+                                <div>
+                                    <p class="user-name">Sarah Johnson</p>
+                                    <p class="user-role">Freelance Designer</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2: Michael Chen -->
+                        <div class="testimonial-card dark-card" id="testimonial-michael">
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="testimonial-tag">Enterprise Approved</span>
+                            </div>
+                            <p class="testimonial-quote">"As a CFO, I appreciate precision. The visual reports and data
+                                visualizations in MoneyMap are cleaner than most enterprise tools I've used. It helped
+                                me personally save 30% more this year."</p>
+                            <div class="testimonial-user">
+                                <img src="assets/user-michael.webp" alt="Michael Chen" class="user-img" width="56"
+                                    height="56">
+                                <div>
+                                    <p class="user-name">Michael Chen</p>
+                                    <p class="user-role">CFO, StartUp Inc.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Controls -->
+                    <div class="testimonials-controls">
+                        <button class="btn-arrow btn-arrow-prev" id="testimonial-prev"
+                            aria-label="Previous testimonial">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                        <div class="testimonial-dots">
+                            <span class="dot active" data-index="0"></span>
+                            <span class="dot" data-index="1"></span>
+                        </div>
+                        <button class="btn-arrow btn-arrow-next" id="testimonial-next" aria-label="Next testimonial">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================ -->
+    <!-- SECTION 8: Footer                            -->
+    <!-- ============================================ -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-top">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <a href="index.html" class="logo footer-logo">MoneyMap<span>.</span></a>
+                    <p>Take control of your finances with smart expense tracking, income management, and visual reports.
+                        Built for everyone.</p>
+                    <div class="social-links">
+                        <a href="https://twitter.com" class="social-link" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://github.com" class="social-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com" class="social-link" aria-label="LinkedIn"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com" class="social-link" aria-label="Instagram"><i
+                                class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 1 -->
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Features</a></li>
+                        <li><a href="faq.html">How It Works</a></li>
+                        <li><a href="contact.html">Benefits</a></li>
+                        <li><a href="#statistics">Statistics</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 2 -->
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Get the latest tips on financial management delivered to your inbox.</p>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <fieldset class="form-fieldset">
+                            <legend class="form-legend">Newsletter Signup</legend>
+                        <div class="input-group">
+                            <input type="email" placeholder="Enter your email" class="newsletter-input"
+                                id="newsletter-email" required>
+                            <button type="submit" class="btn-newsletter" id="btn-newsletter">
+                                <i class="fa-solid fa-paper-plane"></i> Join
+                            </button>
+                        </div>
+                        </fieldset>
+                    </form>
+                    <p class="newsletter-note">We respect your privacy. Unsubscribe anytime.</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 MoneyMap Inc. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="index.html">Home</a>
+                    <a href="privacy.html">Terms of Service</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
