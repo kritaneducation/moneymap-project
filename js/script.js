@@ -689,6 +689,50 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(el);
     });
 
+    // 3b. Stats Counter Animation
+    const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+    if (statNumbers.length > 0) {
+        const animateStat = (el) => {
+            const targetValue = Number(el.dataset.target || 0);
+            const suffix = el.dataset.suffix || '';
+            const durationMs = 1400;
+            const startTime = performance.now();
+
+            const tick = (now) => {
+                const progress = Math.min((now - startTime) / durationMs, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = Math.round(targetValue * eased);
+                el.textContent = `${current.toLocaleString()}${suffix}`;
+
+                if (progress < 1) {
+                    window.requestAnimationFrame(tick);
+                }
+            };
+
+            window.requestAnimationFrame(tick);
+        };
+
+        const statsObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+
+                const el = entry.target;
+                if (!el.dataset.animated) {
+                    el.dataset.animated = 'true';
+                    animateStat(el);
+                }
+
+                observer.unobserve(el);
+            });
+        }, { threshold: 0.35 });
+
+        statNumbers.forEach((el) => {
+            const suffix = el.dataset.suffix || '';
+            el.textContent = `0${suffix}`;
+            statsObserver.observe(el);
+        });
+    }
+
     // 4. Initialize Theme from Store
     mmStore.applyTheme();
 
