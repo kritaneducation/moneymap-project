@@ -2,13 +2,19 @@
 
 /**
  * MoneyMapStore - Unified data management for the application
- * Handles localStorage for transactions and Cookies for session state.
+ * Handles localStorage-backed application data.
  */
 class MoneyMapStore {
     constructor() {
-        this.STORAGE_KEY = 'moneymap_data';
-        this.COOKIE_SESSION_KEY = 'moneymap_session';
+        this.STORAGE_KEY = 'moneymap_data_guest';
         this.SCHEMA_VERSION = 2;
+        this.init();
+    }
+
+    setStorageKey(nextKey) {
+        if (!nextKey || typeof nextKey !== 'string') return;
+        if (this.STORAGE_KEY === nextKey && this.data) return;
+        this.STORAGE_KEY = nextKey;
         this.init();
     }
 
@@ -24,6 +30,7 @@ class MoneyMapStore {
                 currency: 'USD',
                 darkMode: false,
                 userName: 'Sarah Jenkins',
+                emailNotificationsEnabled: true,
                 sessionTimeoutMinutes: 30,
                 autoLogoutEnabled: true
             },
@@ -78,10 +85,6 @@ class MoneyMapStore {
             this.save();
         }
 
-        // Handle Session Cookie (Simple demo)
-        if (!this.getCookie(this.COOKIE_SESSION_KEY)) {
-            this.setCookie(this.COOKIE_SESSION_KEY, 'active_session', 1); // 1 day expiry
-        }
     }
 
     save() {
@@ -195,24 +198,6 @@ class MoneyMapStore {
         }
     }
 
-    // --- Cookie Helpers ---
-    setCookie(name, value, days) {
-        const date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        const expires = "; expires=" + date.toUTCString();
-        document.cookie = name + "=" + (value || "") + expires + "; path=/";
-    }
-
-    getCookie(name) {
-        const nameEQ = name + "=";
-        const ca = document.cookie.split(';');
-        for (let i = 0; i < ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-        }
-        return null;
-    }
 }
 
 // Global Store Instance
@@ -250,75 +235,230 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const AuthManager = {
-        TOKEN_KEY: 'mm_session_token',
-        USER_KEY: 'mm_user',
+        USERS_KEY: 'mm_users',
+        SESSION_KEY: 'mm_session',
         LAST_EMAIL_KEY: 'mm_last_email',
         LAST_PAGE_KEY: 'mm_last_app_page',
         LAST_LOGIN_KEY: 'mm_last_login_at',
-        EMAIL_COOKIE_KEY: 'mm_last_email',
         LAST_ACTIVITY_KEY: 'mm_last_activity',
-        ACTIVITY_COOKIE_KEY: 'mm_last_activity',
         DEFAULT_TIMEOUT_MINUTES: 30,
-        setCookie: function(name, value, days) {
-            let expires = '';
-            if (days) {
-                const date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = '; expires=' + date.toUTCString();
-            }
-            document.cookie = name + '=' + encodeURIComponent(value || '') + expires + '; path=/; SameSite=Lax';
+        normalizeEmail(email) {
+            return String(email || '').trim().toLowerCase();
         },
-        getCookie: function(name) {
-            const nameEQ = name + '=';
-            const ca = document.cookie.split(';');
-            for(let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-                if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
-            }
-            return null;
-        },
-        eraseCookie: function(name) {
-            document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT; SameSite=Lax';
-        },
-        login: function(userData) {
-            // Generate a simple mock token representing an active session
-            const mockToken = btoa(userData.email + ':' + new Date().getTime());
-            this.setCookie(this.TOKEN_KEY, mockToken, 7);
-            
-            // Store user profile data in localStorage for UI population
-            StorageManager.set(this.USER_KEY, userData);
-            StorageManager.set(this.LAST_LOGIN_KEY, new Date().toISOString());
-
-            // Persist last known email in both localStorage and cookie for convenience.
-            if (userData.email) {
-                StorageManager.set(this.LAST_EMAIL_KEY, userData.email);
-                this.setCookie(this.EMAIL_COOKIE_KEY, userData.email, 30);
+        async hashPassword(rawPassword) {
+            const source = String(rawPassword || '');
+            if (!window.crypto || !window.crypto.subtle || !window.TextEncoder) {
+                return `fallback_${btoa(source)}`;
             }
 
+            const bytes = new TextEncoder().encode(source);
+            const digest = await window.crypto.subtle.digest('SHA-256', bytes);
+            return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, '0')).join('');
+        },
+        getUsers() {
+            const users = StorageManager.get(this.USERS_KEY, []);
+            if (!Array.isArray(users)) return [];
+
+            let changed = false;
+            const normalized = users.map(user => {
+                const next = { ...user };
+                if (!next.id) {
+                    next.id = Date.now() + Math.floor(Math.random() * 10000);
+                    changed = true;
+                }
+                next.email = this.normalizeEmail(next.email);
+                if (!next.createdAt) {
+                    next.createdAt = new Date().toISOString();
+                    changed = true;
+                }
+                return next;
+            });
+
+            if (changed) {
+                this.saveUsers(normalized);
+            }
+            return normalized;
+        },
+        saveUsers(users) {
+            StorageManager.set(this.USERS_KEY, users);
+        },
+        getSession() {
+            const session = StorageManager.get(this.SESSION_KEY, null);
+            if (!session || !session.token) return null;
+
+            if (!session.userId && session.email) {
+                const users = this.getUsers();
+                const user = users.find(u => this.normalizeEmail(u.email) === this.normalizeEmail(session.email));
+                if (user) {
+                    const patchedSession = { ...session, userId: user.id, userName: user.userName, email: user.email };
+                    StorageManager.set(this.SESSION_KEY, patchedSession);
+                    return patchedSession;
+                }
+            }
+            return session;
+        },
+        getDataStorageKey(userId) {
+            return `moneymap_data_u_${String(userId || 'guest')}`;
+        },
+        getCurrentUserRecord() {
+            const session = this.getSession();
+            if (!session || !session.userId) return null;
+            const users = this.getUsers();
+            return users.find(u => u.id === session.userId) || null;
+        },
+        async register({ userName, email, password }) {
+            const normalizedEmail = this.normalizeEmail(email);
+            const cleanName = String(userName || '').trim();
+            if (!cleanName || !normalizedEmail || !password) {
+                return { ok: false, message: 'Please fill all signup fields.' };
+            }
+
+            const users = this.getUsers();
+            const exists = users.some(u => this.normalizeEmail(u.email) === normalizedEmail);
+            if (exists) {
+                return { ok: false, message: 'Account already exists for this email.' };
+            }
+
+            const nextUser = {
+                id: Date.now() + Math.floor(Math.random() * 10000),
+                userName: cleanName,
+                email: normalizedEmail,
+                passwordHash: await this.hashPassword(password),
+                occupation: '',
+                avatarDataUrl: '',
+                notificationsEnabled: true,
+                createdAt: new Date().toISOString()
+            };
+            users.push(nextUser);
+            this.saveUsers(users);
+            return { ok: true, user: nextUser };
+        },
+        async login({ email, password }) {
+            const normalizedEmail = this.normalizeEmail(email);
+            const users = this.getUsers();
+            const user = users.find(u => this.normalizeEmail(u.email) === normalizedEmail);
+            if (!user) {
+                return { ok: false, message: 'Invalid email or password.' };
+            }
+
+            let valid = false;
+            if (user.passwordHash) {
+                const attemptedHash = await this.hashPassword(password);
+                valid = attemptedHash === user.passwordHash;
+            } else if (user.password) {
+                // Legacy user migration from plain text password to hash.
+                valid = user.password === password;
+                if (valid) {
+                    user.passwordHash = await this.hashPassword(password);
+                    delete user.password;
+                    this.saveUsers(users);
+                }
+            }
+
+            if (!valid) {
+                return { ok: false, message: 'Invalid email or password.' };
+            }
+
+            const session = {
+                token: btoa(`${normalizedEmail}:${Date.now()}`),
+                userId: user.id,
+                email: user.email,
+                userName: user.userName,
+                loginAt: new Date().toISOString()
+            };
+
+            StorageManager.set(this.SESSION_KEY, session);
+            StorageManager.set(this.LAST_LOGIN_KEY, session.loginAt);
+            StorageManager.set(this.LAST_EMAIL_KEY, user.email);
             this.recordActivity();
+            return { ok: true, user, session };
         },
-        logout: function(reasonMessage = '') {
-            this.eraseCookie(this.TOKEN_KEY);
-            StorageManager.remove(this.USER_KEY);
-            StorageManager.remove(this.LAST_ACTIVITY_KEY);
-            this.eraseCookie(this.ACTIVITY_COOKIE_KEY);
+        async changePassword(currentPassword, nextPassword) {
+            const users = this.getUsers();
+            const currentUser = this.getCurrentUserRecord();
+            if (!currentUser) return { ok: false, message: 'No active user.' };
 
+            const userIndex = users.findIndex(u => u.id === currentUser.id);
+            if (userIndex === -1) return { ok: false, message: 'User not found.' };
+
+            const currentHash = await this.hashPassword(currentPassword);
+            if (users[userIndex].passwordHash !== currentHash) {
+                return { ok: false, message: 'Current password is incorrect.' };
+            }
+
+            users[userIndex].passwordHash = await this.hashPassword(nextPassword);
+            this.saveUsers(users);
+            return { ok: true };
+        },
+        updateCurrentUser(updates) {
+            const users = this.getUsers();
+            const currentUser = this.getCurrentUserRecord();
+            if (!currentUser) return { ok: false, message: 'No active user.' };
+
+            const userIndex = users.findIndex(u => u.id === currentUser.id);
+            if (userIndex === -1) return { ok: false, message: 'User not found.' };
+
+            const nextEmail = updates.email ? this.normalizeEmail(updates.email) : users[userIndex].email;
+            const duplicateEmail = users.some((u, idx) => idx !== userIndex && this.normalizeEmail(u.email) === nextEmail);
+            if (duplicateEmail) {
+                return { ok: false, message: 'Email already used by another account.' };
+            }
+
+            users[userIndex] = {
+                ...users[userIndex],
+                ...updates,
+                email: nextEmail
+            };
+
+            this.saveUsers(users);
+
+            const session = this.getSession();
+            if (session) {
+                StorageManager.set(this.SESSION_KEY, {
+                    ...session,
+                    email: users[userIndex].email,
+                    userName: users[userIndex].userName
+                });
+                StorageManager.set(this.LAST_EMAIL_KEY, users[userIndex].email);
+            }
+
+            return { ok: true, user: users[userIndex] };
+        },
+        deleteCurrentUser() {
+            const users = this.getUsers();
+            const currentUser = this.getCurrentUserRecord();
+            if (!currentUser) return { ok: false, message: 'No active user.' };
+
+            const remaining = users.filter(u => u.id !== currentUser.id);
+            this.saveUsers(remaining);
+            localStorage.removeItem(this.getDataStorageKey(currentUser.id));
+            this.logout('Account deleted successfully.');
+            return { ok: true };
+        },
+        logout(reasonMessage = '') {
+            StorageManager.remove(this.SESSION_KEY);
+            StorageManager.remove(this.LAST_ACTIVITY_KEY);
             if (reasonMessage) {
                 StorageManager.set('mm_logout_reason', reasonMessage);
             }
-            window.location.href = '../login.html';
+
+            const currentPath = window.location.pathname.replace(/\\/g, '/');
+            const loginPath = currentPath.includes('/app/') ? '../login.html' : 'login.html';
+            window.location.href = loginPath;
         },
-        isAuthenticated: function() {
-            return this.getCookie(this.TOKEN_KEY) !== null;
+        isAuthenticated() {
+            const session = this.getSession();
+            return Boolean(session && session.token && session.userId);
         },
-        getUser: function() {
-            return StorageManager.get(this.USER_KEY, null);
+        getUser() {
+            const user = this.getCurrentUserRecord();
+            if (!user) return null;
+            return { userName: user.userName, email: user.email };
         },
-        getLastVisitedPage: function() {
+        getLastVisitedPage() {
             return StorageManager.get(this.LAST_PAGE_KEY, 'app/dashboard.html');
         },
-        saveLastVisitedPage: function() {
+        saveLastVisitedPage() {
             const path = window.location.pathname.replace(/\\/g, '/');
             const appIndex = path.indexOf('/app/');
             if (appIndex === -1) return;
@@ -328,33 +468,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 StorageManager.set(this.LAST_PAGE_KEY, appPart);
             }
         },
-        getRememberedEmail: function() {
-            return StorageManager.get(this.LAST_EMAIL_KEY, this.getCookie(this.EMAIL_COOKIE_KEY) || '');
+        getRememberedEmail() {
+            return StorageManager.get(this.LAST_EMAIL_KEY, '');
         },
-        recordActivity: function() {
-            const now = Date.now();
-            StorageManager.set(this.LAST_ACTIVITY_KEY, now);
-            this.setCookie(this.ACTIVITY_COOKIE_KEY, String(now), 1);
+        recordActivity() {
+            StorageManager.set(this.LAST_ACTIVITY_KEY, Date.now());
         },
-        getLastActivity: function() {
+        getLastActivity() {
             const fromStorage = StorageManager.get(this.LAST_ACTIVITY_KEY, null);
-            if (typeof fromStorage === 'number' && Number.isFinite(fromStorage)) {
-                return fromStorage;
-            }
-
-            const fromCookie = Number(this.getCookie(this.ACTIVITY_COOKIE_KEY));
-            return Number.isFinite(fromCookie) ? fromCookie : Date.now();
+            return typeof fromStorage === 'number' && Number.isFinite(fromStorage) ? fromStorage : Date.now();
         },
-        getTimeoutMs: function() {
+        getTimeoutMs() {
             const settings = mmStore.getSettings();
             const minutes = Number(settings?.sessionTimeoutMinutes || this.DEFAULT_TIMEOUT_MINUTES);
             return Math.max(5, minutes) * 60 * 1000;
         },
-        isAutoLogoutEnabled: function() {
+        isAutoLogoutEnabled() {
             const settings = mmStore.getSettings();
             return settings?.autoLogoutEnabled !== false;
         },
-        isSessionExpired: function() {
+        isSessionExpired() {
             if (!this.isAutoLogoutEnabled()) return false;
             return Date.now() - this.getLastActivity() > this.getTimeoutMs();
         }
@@ -401,6 +534,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }, duration);
         }
     };
+
+    const activeSession = AuthManager.getSession();
+    if (activeSession && activeSession.userId) {
+        mmStore.setStorageKey(AuthManager.getDataStorageKey(activeSession.userId));
+    }
 
     // Protect application routes
     const isAppRoute = window.location.pathname.includes('/app/');
@@ -472,6 +610,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const getStartedBtn = document.getElementById('btn-get-started');
         if (getStartedBtn) getStartedBtn.textContent = 'Dashboard';
+
+        // Avoid duplicated Dashboard entries in the public header when authenticated.
+        document.querySelectorAll('#nav-desktop .nav-link, #nav-mobile .nav-link').forEach(link => {
+            const text = (link.textContent || '').trim().toLowerCase();
+            if (text === 'dashboard') {
+                link.remove();
+            }
+        });
     }
 
     const setPublicNavActiveState = () => {
@@ -704,13 +850,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const updateGlobalUserInfo = () => {
         const lUser = AuthManager.getUser();
+        const currentUser = AuthManager.getCurrentUserRecord();
         const fallbackName = lUser && lUser.userName ? lUser.userName : mmStore.getSettings().userName || 'Member';
         document.querySelectorAll('.user-name, .author-name').forEach(el => {
             el.innerText = fallbackName;
         });
-        const profileHeader = document.querySelector('.span-4 h4');
-        if (profileHeader && window.location.pathname.includes('settings.html')) {
+
+        const profileHeader = document.getElementById('profile-display-name');
+        if (profileHeader) {
             profileHeader.innerText = fallbackName;
+        }
+
+        const profileAvatar = document.getElementById('profile-avatar');
+        if (profileAvatar && currentUser && currentUser.avatarDataUrl) {
+            profileAvatar.src = currentUser.avatarDataUrl;
         }
     };
 
@@ -964,60 +1117,245 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCategories('all');
     }
 
-    // 7. Settings Page Logic
+    // 7. Settings / Profile CRUD Logic
     const settingsForm = document.getElementById('settings-form');
     const saveSettingsBtn = document.getElementById('save-settings-btn');
+    const cancelSettingsBtn = document.getElementById('cancel-settings-btn');
     const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const notificationsToggle = document.getElementById('email-notifications-toggle');
+    const profileAvatar = document.getElementById('profile-avatar');
+    const profileDisplayName = document.getElementById('profile-display-name');
+    const profileMemberSince = document.getElementById('profile-member-since');
+    const uploadPhotoBtn = document.getElementById('upload-photo-btn');
+    const removePhotoBtn = document.getElementById('remove-photo-btn');
+    const profilePhotoInput = document.getElementById('profile-photo-input');
+    const profileCameraBtn = document.getElementById('profile-camera-btn');
+    const changePasswordBtn = document.getElementById('change-password-btn');
+    const deleteAccountBtn = document.getElementById('delete-account-btn');
+    const defaultAvatar = '../assets/user-sarah.webp';
 
     if (settingsForm && saveSettingsBtn) {
-        // Load initial values
-        const settings = mmStore.getSettings();
-        document.getElementById('user-fullname').value = settings.userName || '';
-        document.getElementById('user-email').value = settings.email || '';
-        document.getElementById('user-currency').value = settings.currency || 'USD';
-        document.getElementById('user-occupation').value = settings.occupation || '';
-        if (document.getElementById('session-timeout-minutes')) {
-            document.getElementById('session-timeout-minutes').value = settings.sessionTimeoutMinutes || 30;
-        }
-        if (document.getElementById('auto-logout-enabled')) {
-            document.getElementById('auto-logout-enabled').checked = settings.autoLogoutEnabled !== false;
-        }
-        if (darkModeToggle) darkModeToggle.checked = settings.darkMode || false;
+        const settingsCard = settingsForm.closest('.paper-card');
+        let pendingAvatarDataUrl = '';
+        let initialProfileState = null;
 
-        saveSettingsBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const newSettings = {
-                userName: document.getElementById('user-fullname').value,
-                email: document.getElementById('user-email').value,
-                currency: document.getElementById('user-currency').value,
-                occupation: document.getElementById('user-occupation').value,
-                sessionTimeoutMinutes: Number(document.getElementById('session-timeout-minutes')?.value || settings.sessionTimeoutMinutes || 30),
-                autoLogoutEnabled: document.getElementById('auto-logout-enabled') ? document.getElementById('auto-logout-enabled').checked : settings.autoLogoutEnabled,
-                darkMode: darkModeToggle ? darkModeToggle.checked : settings.darkMode
+        const hydrateSettingsForm = () => {
+            const settings = mmStore.getSettings();
+            const currentUser = AuthManager.getCurrentUserRecord();
+            const memberSince = currentUser && currentUser.createdAt
+                ? new Date(currentUser.createdAt).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+                : 'Jan 2025';
+
+            const profileState = {
+                userName: (currentUser && currentUser.userName) || settings.userName || '',
+                email: (currentUser && currentUser.email) || settings.email || '',
+                currency: settings.currency || 'USD',
+                occupation: (currentUser && currentUser.occupation) || settings.occupation || '',
+                darkMode: settings.darkMode || false,
+                emailNotificationsEnabled: (currentUser && typeof currentUser.notificationsEnabled === 'boolean')
+                    ? currentUser.notificationsEnabled
+                    : settings.emailNotificationsEnabled !== false,
+                sessionTimeoutMinutes: Number(settings.sessionTimeoutMinutes || 30),
+                autoLogoutEnabled: settings.autoLogoutEnabled !== false,
+                avatarDataUrl: (currentUser && currentUser.avatarDataUrl) || ''
             };
 
-            // Phone regex validation (if field added in future or used here)
-            // For now, let's just save.
-            mmStore.updateSettings(newSettings);
+            initialProfileState = { ...profileState };
+            pendingAvatarDataUrl = profileState.avatarDataUrl || '';
 
-            saveSettingsBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Saving...';
-            saveSettingsBtn.disabled = true;
+            document.getElementById('user-fullname').value = profileState.userName;
+            document.getElementById('user-email').value = profileState.email;
+            document.getElementById('user-currency').value = profileState.currency;
+            document.getElementById('user-occupation').value = profileState.occupation;
 
-            setTimeout(() => {
-                saveSettingsBtn.innerHTML = '<i class="fa-solid fa-check"></i> Saved!';
-                saveSettingsBtn.style.background = 'var(--money-green)';
-                ToastManager.show('Settings saved successfully.', 'success');
+            if (darkModeToggle) darkModeToggle.checked = profileState.darkMode;
+            if (notificationsToggle) notificationsToggle.checked = profileState.emailNotificationsEnabled;
+            if (document.getElementById('session-timeout-minutes')) {
+                document.getElementById('session-timeout-minutes').value = profileState.sessionTimeoutMinutes;
+            }
+            if (document.getElementById('auto-logout-enabled')) {
+                document.getElementById('auto-logout-enabled').checked = profileState.autoLogoutEnabled;
+            }
 
-                setTimeout(() => {
-                    saveSettingsBtn.innerHTML = 'Save All Changes';
-                    saveSettingsBtn.style.background = '';
-                    saveSettingsBtn.disabled = false;
-                }, 2000);
-            }, 800);
+            if (profileAvatar) {
+                profileAvatar.src = profileState.avatarDataUrl || defaultAvatar;
+            }
+            if (profileDisplayName) {
+                profileDisplayName.textContent = profileState.userName || 'Member';
+            }
+            if (profileMemberSince) {
+                profileMemberSince.textContent = `Member since ${memberSince}`;
+            }
+        };
+
+        const readProfileFormState = () => ({
+            userName: document.getElementById('user-fullname').value.trim(),
+            email: document.getElementById('user-email').value.trim(),
+            currency: document.getElementById('user-currency').value,
+            occupation: document.getElementById('user-occupation').value.trim(),
+            darkMode: darkModeToggle ? darkModeToggle.checked : false,
+            emailNotificationsEnabled: notificationsToggle ? notificationsToggle.checked : true,
+            sessionTimeoutMinutes: Number(document.getElementById('session-timeout-minutes')?.value || 30),
+            autoLogoutEnabled: document.getElementById('auto-logout-enabled') ? document.getElementById('auto-logout-enabled').checked : true,
+            avatarDataUrl: pendingAvatarDataUrl || ''
         });
 
-        const settingsCard = settingsForm.closest('.paper-card');
+        const renderSaveBtnLoading = (isLoading) => {
+            if (!saveSettingsBtn) return;
+            if (isLoading) {
+                saveSettingsBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Saving...';
+                saveSettingsBtn.disabled = true;
+                return;
+            }
+            saveSettingsBtn.innerHTML = 'Save All Changes';
+            saveSettingsBtn.style.background = '';
+            saveSettingsBtn.disabled = false;
+        };
+
+        hydrateSettingsForm();
+
+        saveSettingsBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const formState = readProfileFormState();
+
+            if (!formState.userName || !formState.email) {
+                ToastManager.show('Name and email are required.', 'error');
+                return;
+            }
+
+            renderSaveBtnLoading(true);
+
+            const profileUpdate = AuthManager.updateCurrentUser({
+                userName: formState.userName,
+                email: formState.email,
+                occupation: formState.occupation,
+                notificationsEnabled: formState.emailNotificationsEnabled,
+                avatarDataUrl: formState.avatarDataUrl
+            });
+
+            if (!profileUpdate.ok) {
+                renderSaveBtnLoading(false);
+                ToastManager.show(profileUpdate.message, 'error');
+                return;
+            }
+
+            mmStore.updateSettings({
+                userName: formState.userName,
+                email: formState.email,
+                currency: formState.currency,
+                occupation: formState.occupation,
+                darkMode: formState.darkMode,
+                emailNotificationsEnabled: formState.emailNotificationsEnabled,
+                sessionTimeoutMinutes: Math.max(5, formState.sessionTimeoutMinutes),
+                autoLogoutEnabled: formState.autoLogoutEnabled
+            });
+
+            updateGlobalUserInfo();
+            hydrateSettingsForm();
+            saveSettingsBtn.innerHTML = '<i class="fa-solid fa-check"></i> Saved!';
+            saveSettingsBtn.style.background = 'var(--money-green)';
+            ToastManager.show('Profile updated successfully.', 'success');
+
+            window.setTimeout(() => {
+                renderSaveBtnLoading(false);
+            }, 1500);
+        });
+
+        if (cancelSettingsBtn) {
+            cancelSettingsBtn.addEventListener('click', () => {
+                hydrateSettingsForm();
+                ToastManager.show('Changes reverted.', 'info', 1800);
+            });
+        }
+
+        const triggerPhotoInput = () => {
+            if (profilePhotoInput) {
+                profilePhotoInput.click();
+            }
+        };
+
+        if (uploadPhotoBtn) uploadPhotoBtn.addEventListener('click', triggerPhotoInput);
+        if (profileCameraBtn) profileCameraBtn.addEventListener('click', triggerPhotoInput);
+
+        if (profilePhotoInput) {
+            profilePhotoInput.addEventListener('change', () => {
+                const file = profilePhotoInput.files && profilePhotoInput.files[0];
+                if (!file) return;
+                if (file.size > 2 * 1024 * 1024) {
+                    ToastManager.show('Image must be under 2MB.', 'error');
+                    profilePhotoInput.value = '';
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = () => {
+                    pendingAvatarDataUrl = String(reader.result || '');
+                    if (profileAvatar && pendingAvatarDataUrl) {
+                        profileAvatar.src = pendingAvatarDataUrl;
+                    }
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        if (removePhotoBtn) {
+            removePhotoBtn.addEventListener('click', () => {
+                pendingAvatarDataUrl = '';
+                if (profileAvatar) {
+                    profileAvatar.src = defaultAvatar;
+                }
+                ToastManager.show('Profile photo removed. Save changes to apply.', 'info', 2200);
+            });
+        }
+
+        if (changePasswordBtn) {
+            changePasswordBtn.addEventListener('click', async () => {
+                const currentPassword = document.getElementById('current-password')?.value || '';
+                const nextPassword = document.getElementById('new-password')?.value || '';
+                const confirmPassword = document.getElementById('confirm-password')?.value || '';
+
+                if (!currentPassword || !nextPassword || !confirmPassword) {
+                    ToastManager.show('Fill all password fields.', 'error');
+                    return;
+                }
+                if (nextPassword.length < 8) {
+                    ToastManager.show('New password must be at least 8 characters.', 'error');
+                    return;
+                }
+                if (nextPassword !== confirmPassword) {
+                    ToastManager.show('New password and confirm password do not match.', 'error');
+                    return;
+                }
+
+                const result = await AuthManager.changePassword(currentPassword, nextPassword);
+                if (!result.ok) {
+                    ToastManager.show(result.message, 'error');
+                    return;
+                }
+
+                document.getElementById('current-password').value = '';
+                document.getElementById('new-password').value = '';
+                document.getElementById('confirm-password').value = '';
+                ToastManager.show('Password updated successfully.', 'success');
+            });
+        }
+
+        if (deleteAccountBtn) {
+            deleteAccountBtn.addEventListener('click', () => {
+                const confirmed = window.confirm('Delete account and all its local data permanently?');
+                if (!confirmed) return;
+                AuthManager.deleteCurrentUser();
+            });
+        }
+
+        if (darkModeToggle) {
+            darkModeToggle.addEventListener('change', () => {
+                mmStore.updateSettings({ darkMode: darkModeToggle.checked });
+            });
+        }
+
         if (settingsCard && !document.getElementById('mm-data-tools')) {
+            const settings = mmStore.getSettings();
             const dataTools = document.createElement('section');
             dataTools.id = 'mm-data-tools';
             dataTools.className = 'data-tools-panel';
@@ -1080,13 +1418,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
             }
-        }
-    }
 
-    if (darkModeToggle) {
-        darkModeToggle.addEventListener('change', () => {
-            mmStore.updateSettings({ darkMode: darkModeToggle.checked });
-        });
+            hydrateSettingsForm();
+        }
     }
 
     // 8. Regex Validation for Amount
@@ -1309,16 +1643,24 @@ document.addEventListener('DOMContentLoaded', () => {
             signupEmailInput.value = rememberedEmail;
         }
 
-        signupFormScript.addEventListener('submit', (e) => {
+        signupFormScript.addEventListener('submit', async (e) => {
             e.preventDefault();
             const name = document.getElementById('signup-name').value;
             const email = document.getElementById('signup-email').value;
-            mmStore.updateSettings({ userName: name, email: email });
-            AuthManager.login({ userName: name, email: email });
-            ToastManager.show('Signup successful. Redirecting...', 'success', 1800);
-            setTimeout(() => {
-                window.location.href = AuthManager.getLastVisitedPage();
-            }, 900);
+            const password = document.getElementById('signup-password').value;
+
+            const signupResult = await AuthManager.register({ userName: name, email, password });
+            if (!signupResult.ok) {
+                ToastManager.show(signupResult.message, 'error', 2800);
+                return;
+            }
+
+            mmStore.updateSettings({ userName: name, email: AuthManager.normalizeEmail(email) });
+            ToastManager.show('Account created. Please sign in to continue.', 'success', 2200);
+            signupFormScript.reset();
+            if (authContainer) {
+                authContainer.classList.remove('right-panel-active');
+            }
         });
     }
 
@@ -1330,13 +1672,23 @@ document.addEventListener('DOMContentLoaded', () => {
             loginEmailInput.value = rememberedEmail;
         }
 
-        loginFormScript.addEventListener('submit', (e) => {
+        loginFormScript.addEventListener('submit', async (e) => {
             e.preventDefault();
             const email = document.getElementById('login-email').value;
-            if (email) {
-                mmStore.updateSettings({ email: email });
-                AuthManager.login({ userName: 'Welcome Back', email: email });
+            const password = document.getElementById('login-password').value;
+            const signinResult = await AuthManager.login({ email, password });
+            if (!signinResult.ok) {
+                ToastManager.show(signinResult.message, 'error', 2800);
+                return;
             }
+
+            mmStore.setStorageKey(AuthManager.getDataStorageKey(signinResult.user.id));
+
+            mmStore.updateSettings({
+                email: signinResult.user.email,
+                userName: signinResult.user.userName
+            });
+
             ToastManager.show('Sign in successful. Redirecting...', 'success', 1800);
             setTimeout(() => {
                 window.location.href = AuthManager.getLastVisitedPage();

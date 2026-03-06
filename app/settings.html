@@ -100,61 +100,62 @@
             <h1 class="sr-only">Settings</h1>
 
             <!-- Settings Header -->
-            <div class="section-header reveal" data-mm-style="mm-inline-0038">
-                <h2 data-mm-style="mm-inline-0081">Account Settings</h2>
-                <p data-mm-style="mm-inline-0082">Manage your profile, preferences, and data security.</p>
+            <div class="section-header reveal public-ui-0038">
+                <h2 class="entry-ui-0081">Account Settings</h2>
+                <p class="entry-ui-0082">Manage your profile, preferences, and data security.</p>
             </div>
 
-            <div class="dashboard-row reveal-delayed">
+            <div class="dashboard-row reveal-delayed settings-layout">
                 <!-- Profile Photo Card -->
-                <div class="paper-card span-4" data-mm-style="mm-inline-0186">
-                    <div data-mm-style="mm-inline-0187">
-                        <img src="../assets/user-sarah.webp" alt="Profile Photo"
-                            data-mm-style="mm-inline-0188">
-                        <button class="icon-btn"
-                            data-mm-style="mm-inline-0189">
+                <div class="paper-card span-4 profile-side-card settings-ui-0186">
+                    <div class="settings-ui-0187">
+                        <img src="../assets/user-sarah.webp" alt="Profile Photo" id="profile-avatar"
+                            class="settings-ui-0188">
+                        <button class="icon-btn" type="button" id="profile-camera-btn"
+                            class="settings-ui-0189">
                             <i class="fa-solid fa-camera"></i>
                         </button>
                     </div>
-                    <h4 data-mm-style="mm-inline-0190">Sarah Jenkins</h4>
-                    <span data-mm-style="mm-inline-0120">Member since Jan 2025</span>
-                    <hr data-mm-style="mm-inline-0191">
-                    <div data-mm-style="mm-inline-0192">
-                        <button class="btn-outline-sm" data-mm-style="mm-inline-0193">Upload New Photo</button>
-                        <button class="btn-outline-sm"
-                            data-mm-style="mm-inline-0194">Remove
+                    <h4 id="profile-display-name" class="settings-ui-0190">Sarah Jenkins</h4>
+                    <span id="profile-member-since" class="dashboard-ui-0120">Member since Jan 2025</span>
+                    <hr class="settings-ui-0191">
+                    <div class="settings-ui-0192">
+                        <button class="btn-outline-sm" id="upload-photo-btn" type="button" class="settings-ui-0193">Upload New Photo</button>
+                        <button class="btn-outline-sm" id="remove-photo-btn" type="button"
+                            class="settings-ui-0194">Remove
                             Photo</button>
+                        <input type="file" id="profile-photo-input" accept="image/png,image/jpeg,image/webp" hidden>
                     </div>
                 </div>
 
                 <!-- Account Detail Form -->
-                <div class="paper-card span-8">
+                <div class="paper-card span-8 settings-main-card">
                     <h4>Personal Information</h4>
                     <span class="card-subtitle">Update your profile details and contact info</span>
 
                     <form id="settings-form"
-                        data-mm-style="mm-inline-0195">
+                        class="settings-ui-0195">
                         <fieldset class="form-fieldset">
                             <legend class="form-legend">Profile Settings</legend>
                         <div class="form-group">
                             <label
-                                data-mm-style="mm-inline-0084">Full
+                                class="entry-ui-0084">Full
                                 Name</label>
                             <input type="text" id="user-fullname" value="Sarah Jenkins"
-                                data-mm-style="mm-inline-0085">
+                                class="entry-ui-0085">
                         </div>
                         <div class="form-group">
                             <label
-                                data-mm-style="mm-inline-0084">Email
+                                class="entry-ui-0084">Email
                                 Address</label>
                             <input type="email" id="user-email" value="sarah.jenkins@example.com"
-                                data-mm-style="mm-inline-0085">
+                                class="entry-ui-0085">
                         </div>
                         <div class="form-group">
                             <label
-                                data-mm-style="mm-inline-0084">Currency</label>
+                                class="entry-ui-0084">Currency</label>
                             <select id="user-currency"
-                                data-mm-style="mm-inline-0085">
+                                class="entry-ui-0085">
                                 <option value="USD">USD - US Dollar</option>
                                 <option value="EUR">EUR - Euro</option>
                                 <option value="GBP">GBP - British Pound</option>
@@ -162,56 +163,83 @@
                         </div>
                         <div class="form-group">
                             <label
-                                data-mm-style="mm-inline-0084">Occupation</label>
+                                class="entry-ui-0084">Occupation</label>
                             <input type="text" id="user-occupation" value="Product Designer"
-                                data-mm-style="mm-inline-0085">
+                                class="entry-ui-0085">
                         </div>
                         </fieldset>
                     </form>
 
-                    <h4 data-mm-style="mm-inline-0196">Site Preferences</h4>
+                    <h4 class="settings-ui-0196">Site Preferences</h4>
                     <span class="card-subtitle">Customize your visual and notification experience</span>
 
-                    <div data-mm-style="mm-inline-0174">
-                        <div data-mm-style="mm-inline-0091">
+                    <div class="settings-ui-0174">
+                        <div class="entry-ui-0091">
                             <div>
-                                <span data-mm-style="mm-inline-0197">Dark Mode</span>
-                                <span data-mm-style="mm-inline-0073">Switch to a darker visual
+                                <span class="settings-ui-0197">Dark Mode</span>
+                                <span class="entry-ui-0073">Switch to a darker visual
                                     theme</span>
                             </div>
-                            <label class="switch"
-                                data-mm-style="mm-inline-0198">
-                                <input type="checkbox" id="dark-mode-toggle" data-mm-style="mm-inline-0199">
+                            <label class="switch settings-ui-0198">
+                                <input type="checkbox" id="dark-mode-toggle" class="settings-ui-0199">
                                 <span
-                                    data-mm-style="mm-inline-0200">
+                                    class="settings-ui-0200">
                                     <span
-                                        data-mm-style="mm-inline-0201"></span>
+                                        class="settings-ui-0201"></span>
                                 </span>
                             </label>
                         </div>
-                        <div data-mm-style="mm-inline-0091">
+                        <div class="entry-ui-0091">
                             <div>
-                                <span data-mm-style="mm-inline-0197">Email
+                                <span class="settings-ui-0197">Email
                                     Notifications</span>
-                                <span data-mm-style="mm-inline-0073">Receive weekly summary
+                                <span class="entry-ui-0073">Receive weekly summary
                                     reports</span>
                             </div>
-                            <label class="switch"
-                                data-mm-style="mm-inline-0198">
-                                <input type="checkbox" checked data-mm-style="mm-inline-0199">
+                            <label class="switch settings-ui-0198">
+                                <input type="checkbox" id="email-notifications-toggle" checked class="settings-ui-0199">
                                 <span
-                                    data-mm-style="mm-inline-0202">
+                                    class="settings-ui-0202">
                                     <span
-                                        data-mm-style="mm-inline-0203"></span>
+                                        class="settings-ui-0203"></span>
                                 </span>
                             </label>
                         </div>
                     </div>
 
-                    <div data-mm-style="mm-inline-0204">
-                        <button class="btn-outline-sm">Cancel</button>
-                        <button class="btn-primary" id="save-settings-btn"
-                            data-mm-style="mm-inline-0205">Save All
+                    <h4 class="profile-section-title">Security</h4>
+                    <span class="card-subtitle">Keep your account secure by updating your password</span>
+                    <div class="profile-security-grid">
+                        <div class="form-group">
+                            <label for="current-password" class="entry-ui-0084">Current Password</label>
+                            <input type="password" id="current-password" class="entry-ui-0085" placeholder="Enter current password">
+                        </div>
+                        <div class="form-group">
+                            <label for="new-password" class="entry-ui-0084">New Password</label>
+                            <input type="password" id="new-password" class="entry-ui-0085" placeholder="At least 8 characters">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password" class="entry-ui-0084">Confirm Password</label>
+                            <input type="password" id="confirm-password" class="entry-ui-0085" placeholder="Repeat new password">
+                        </div>
+                        <div class="profile-security-actions">
+                            <button class="btn-outline-sm" id="change-password-btn" type="button">Update Password</button>
+                        </div>
+                    </div>
+
+                    <h4 class="profile-section-title">Account Actions</h4>
+                    <span class="card-subtitle">Advanced actions for your account and data</span>
+                    <div class="profile-danger-zone">
+                        <p>This permanently deletes your profile and all your local data for this account.</p>
+                        <button class="btn-outline-sm btn-danger-outline" id="delete-account-btn" type="button">
+                            <i class="fa-solid fa-trash"></i> Delete Account
+                        </button>
+                    </div>
+
+                    <div class="settings-ui-0204">
+                        <button class="btn-outline-sm" id="cancel-settings-btn" type="button">Cancel</button>
+                        <button class="btn-primary" id="save-settings-btn" type="button"
+                            class="settings-ui-0205">Save All
                             Changes</button>
                     </div>
                 </div>
@@ -233,10 +261,10 @@
     </main>
 
     <!-- Success Toast (Visual Demo) -->
-    <div data-mm-style="mm-inline-0094"
+    <div class="entry-ui-0094"
         id="successToast">
         <i class="fa-solid fa-circle-check"></i>
-        <span data-mm-style="mm-inline-0095">Settings saved successfully!</span>
+        <span class="entry-ui-0095">Settings saved successfully!</span>
     </div>
 
     <!-- Scripts -->
@@ -244,4 +272,5 @@
 </body>
 
 </html>
+
 

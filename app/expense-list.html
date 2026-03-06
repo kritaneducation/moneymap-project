@@ -141,48 +141,44 @@
             </div>
 
             <!-- Toolbar Row -->
-            <div class="paper-card dashboard-toolbar reveal-delayed"
-                data-mm-style="mm-inline-0099">
-                <div class="search-wrapper" data-mm-style="mm-inline-0100">
-                    <i class="fa-solid fa-magnifying-glass"
-                        data-mm-style="mm-inline-0101"></i>
+            <div class="paper-card dashboard-toolbar reveal-delayed dashboard-ui-0099">
+                <div class="search-wrapper dashboard-ui-0100">
+                    <i class="fa-solid fa-magnifying-glass dashboard-ui-0101"></i>
                     <input type="text" placeholder="Search by description or amount..."
-                        data-mm-style="mm-inline-0102">
+                        class="dashboard-ui-0102">
                 </div>
-                <div class="filter-group" data-mm-style="mm-inline-0103">
+                <div class="filter-group dashboard-ui-0103">
                     <select class="toolbar-select" id="category-filter"
-                        data-mm-style="mm-inline-0104">
+                        class="dashboard-ui-0104">
                         <option value="">All Categories</option>
                     </select>
                     <input type="date" class="toolbar-date" title="From Date"
-                        data-mm-style="mm-inline-0105">
+                        class="dashboard-ui-0105">
                     <input type="date" class="toolbar-date" title="To Date"
-                        data-mm-style="mm-inline-0105">
+                        class="dashboard-ui-0105">
                 </div>
-                <div class="toolbar-actions" data-mm-style="mm-inline-0106">
-                    <button class="btn-outline-sm"
-                        data-mm-style="mm-inline-0107"><i
+                <div class="toolbar-actions dashboard-ui-0106">
+                    <button class="btn-outline-sm dashboard-ui-0107"><i
                             class="fa-solid fa-file-export"></i> Export</button>
-                    <a href="add-expense.html" class="btn-primary"
-                        data-mm-style="mm-inline-0107"><i
+                    <a href="add-expense.html" class="btn-primary dashboard-ui-0107"><i
                             class="fa-solid fa-plus"></i> Add Expense</a>
                 </div>
             </div>
 
             <!-- Data Table Section -->
-            <div class="paper-card table-card reveal-delayed" data-mm-style="mm-inline-0108">
+            <div class="paper-card table-card reveal-delayed dashboard-ui-0108">
                 <div class="table-responsive">
-                    <table class="dashboard-table">
+                    <table class="dashboard-table table-with-selection">
                         <thead>
                             <tr>
                                 <th><input type="checkbox"></th>
-                                <th data-mm-style="mm-inline-0109">Author</th>
-                                <th data-mm-style="mm-inline-0109">Title</th>
-                                <th data-mm-style="mm-inline-0109">Category</th>
-                                <th data-mm-style="mm-inline-0109">Date</th>
-                                <th data-mm-style="mm-inline-0110">Amount</th>
+                                <th class="dashboard-ui-0109">Author</th>
+                                <th class="dashboard-ui-0109">Title</th>
+                                <th class="dashboard-ui-0109">Category</th>
+                                <th class="dashboard-ui-0109">Date</th>
+                                <th class="dashboard-ui-0110">Amount</th>
                                 <th>Status</th>
-                                <th data-mm-style="mm-inline-0009">Actions</th>
+                                <th class="public-ui-0009">Actions</th>
                             </tr>
                         </thead>
                         <tbody id="expense-list-body">
@@ -190,252 +186,222 @@
                             <tr>
                                 <td><input type="checkbox"></td>
                                 <td>
-                                    <div class="author-cell" data-mm-style="mm-inline-0111">
+                                    <div class="author-cell dashboard-ui-0111">
                                         <img src="../assets/user-sarah.webp" class="author-avatar" alt="Sarah"
-                                            data-mm-style="mm-inline-0112">
-                                        <div class="author-info" data-mm-style="mm-inline-0071">
-                                            <span class="author-name"
-                                                data-mm-style="mm-inline-0113">Sarah
+                                            class="dashboard-ui-0112">
+                                        <div class="author-info entry-ui-0071">
+                                            <span class="author-name dashboard-ui-0113">Sarah
                                                 Jenkins</span>
-                                            <span class="author-role"
-                                                data-mm-style="mm-inline-0073">Member</span>
+                                            <span class="author-role entry-ui-0073">Member</span>
                                         </div>
                                     </div>
                                 </td>
-                                <td data-mm-style="mm-inline-0114">Monthly Grocery Stock</td>
+                                <td class="dashboard-ui-0114">Monthly Grocery Stock</td>
                                 <td><span class="badge badge-expense">Food</span></td>
-                                <td data-mm-style="mm-inline-0115">Mar 04, 2026</td>
-                                <td data-mm-style="mm-inline-0116" class="text-expense">-$342.50</td>
-                                <td><span class="badge badge-income"
-                                        data-mm-style="mm-inline-0117">Verified</span>
+                                <td class="dashboard-ui-0115">Mar 04, 2026</td>
+                                <td class="dashboard-ui-0116 text-expense">-$342.50</td>
+                                <td><span class="badge badge-income dashboard-ui-0117">Verified</span>
                                 </td>
-                                <td data-mm-style="mm-inline-0009"><button class="action-btn"><i
+                                <td class="public-ui-0009"><button class="action-btn"><i
                                             class="fa-solid fa-ellipsis-vertical"></i></button></td>
                             </tr>
                             <tr>
                                 <td><input type="checkbox"></td>
                                 <td>
-                                    <div class="author-cell" data-mm-style="mm-inline-0111">
+                                    <div class="author-cell dashboard-ui-0111">
                                         <img src="../assets/user-sarah.webp" class="author-avatar" alt="Sarah"
-                                            data-mm-style="mm-inline-0112">
-                                        <div class="author-info" data-mm-style="mm-inline-0071">
-                                            <span class="author-name"
-                                                data-mm-style="mm-inline-0113">Sarah
+                                            class="dashboard-ui-0112">
+                                        <div class="author-info entry-ui-0071">
+                                            <span class="author-name dashboard-ui-0113">Sarah
                                                 Jenkins</span>
-                                            <span class="author-role"
-                                                data-mm-style="mm-inline-0073">Member</span>
+                                            <span class="author-role entry-ui-0073">Member</span>
                                         </div>
                                     </div>
                                 </td>
-                                <td data-mm-style="mm-inline-0114">Uber Trip - Business Meeting</td>
+                                <td class="dashboard-ui-0114">Uber Trip - Business Meeting</td>
                                 <td><span class="badge badge-expense">Transport</span></td>
-                                <td data-mm-style="mm-inline-0115">Mar 03, 2026</td>
-                                <td data-mm-style="mm-inline-0116" class="text-expense">-$42.00</td>
-                                <td><span class="badge badge-income"
-                                        data-mm-style="mm-inline-0117">Verified</span>
+                                <td class="dashboard-ui-0115">Mar 03, 2026</td>
+                                <td class="dashboard-ui-0116 text-expense">-$42.00</td>
+                                <td><span class="badge badge-income dashboard-ui-0117">Verified</span>
                                 </td>
-                                <td data-mm-style="mm-inline-0009"><button class="action-btn"><i
+                                <td class="public-ui-0009"><button class="action-btn"><i
                                             class="fa-solid fa-ellipsis-vertical"></i></button></td>
                             </tr>
                             <tr>
                                 <td><input type="checkbox"></td>
                                 <td>
-                                    <div class="author-cell" data-mm-style="mm-inline-0111">
+                                    <div class="author-cell dashboard-ui-0111">
                                         <img src="../assets/user-sarah.webp" class="author-avatar" alt="Sarah"
-                                            data-mm-style="mm-inline-0112">
-                                        <div class="author-info" data-mm-style="mm-inline-0071">
-                                            <span class="author-name"
-                                                data-mm-style="mm-inline-0113">Sarah
+                                            class="dashboard-ui-0112">
+                                        <div class="author-info entry-ui-0071">
+                                            <span class="author-name dashboard-ui-0113">Sarah
                                                 Jenkins</span>
-                                            <span class="author-role"
-                                                data-mm-style="mm-inline-0073">Member</span>
+                                            <span class="author-role entry-ui-0073">Member</span>
                                         </div>
                                     </div>
                                 </td>
-                                <td data-mm-style="mm-inline-0114">Netflix Premium Subscription</td>
+                                <td class="dashboard-ui-0114">Netflix Premium Subscription</td>
                                 <td><span class="badge badge-expense">Bills</span></td>
-                                <td data-mm-style="mm-inline-0115">Mar 02, 2026</td>
-                                <td data-mm-style="mm-inline-0116" class="text-expense">-$15.99</td>
-                                <td><span class="status-badge"
-                                        data-mm-style="mm-inline-0118">Pending</span>
+                                <td class="dashboard-ui-0115">Mar 02, 2026</td>
+                                <td class="dashboard-ui-0116 text-expense">-$15.99</td>
+                                <td><span class="status-badge dashboard-ui-0118">Pending</span>
                                 </td>
-                                <td data-mm-style="mm-inline-0009"><button class="action-btn"><i
+                                <td class="public-ui-0009"><button class="action-btn"><i
                                             class="fa-solid fa-ellipsis-vertical"></i></button></td>
                             </tr>
                             <!-- More rows to make it 10 -->
                             <tr>
                                 <td><input type="checkbox"></td>
                                 <td>
-                                    <div class="author-cell" data-mm-style="mm-inline-0111">
+                                    <div class="author-cell dashboard-ui-0111">
                                         <img src="../assets/user-sarah.webp" class="author-avatar" alt="Sarah"
-                                            data-mm-style="mm-inline-0112">
-                                        <div class="author-info" data-mm-style="mm-inline-0071">
-                                            <span class="author-name"
-                                                data-mm-style="mm-inline-0113">Sarah
+                                            class="dashboard-ui-0112">
+                                        <div class="author-info entry-ui-0071">
+                                            <span class="author-name dashboard-ui-0113">Sarah
                                                 Jenkins</span>
-                                            <span class="author-role"
-                                                data-mm-style="mm-inline-0073">Member</span>
+                                            <span class="author-role entry-ui-0073">Member</span>
                                         </div>
                                     </div>
                                 </td>
-                                <td data-mm-style="mm-inline-0114">Tech Conference Ticket</td>
+                                <td class="dashboard-ui-0114">Tech Conference Ticket</td>
                                 <td><span class="badge badge-expense">Other</span></td>
-                                <td data-mm-style="mm-inline-0115">Mar 01, 2026</td>
-                                <td data-mm-style="mm-inline-0116" class="text-expense">-$450.00</td>
-                                <td><span class="badge badge-income"
-                                        data-mm-style="mm-inline-0117">Verified</span>
+                                <td class="dashboard-ui-0115">Mar 01, 2026</td>
+                                <td class="dashboard-ui-0116 text-expense">-$450.00</td>
+                                <td><span class="badge badge-income dashboard-ui-0117">Verified</span>
                                 </td>
-                                <td data-mm-style="mm-inline-0009"><button class="action-btn"><i
+                                <td class="public-ui-0009"><button class="action-btn"><i
                                             class="fa-solid fa-ellipsis-vertical"></i></button></td>
                             </tr>
                             <tr>
                                 <td><input type="checkbox"></td>
                                 <td>
-                                    <div class="author-cell" data-mm-style="mm-inline-0111">
+                                    <div class="author-cell dashboard-ui-0111">
                                         <img src="../assets/user-sarah.webp" class="author-avatar" alt="Sarah"
-                                            data-mm-style="mm-inline-0112">
-                                        <div class="author-info" data-mm-style="mm-inline-0071">
-                                            <span class="author-name"
-                                                data-mm-style="mm-inline-0113">Sarah
+                                            class="dashboard-ui-0112">
+                                        <div class="author-info entry-ui-0071">
+                                            <span class="author-name dashboard-ui-0113">Sarah
                                                 Jenkins</span>
-                                            <span class="author-role"
-                                                data-mm-style="mm-inline-0073">Member</span>
+                                            <span class="author-role entry-ui-0073">Member</span>
                                         </div>
                                     </div>
                                 </td>
-                                <td data-mm-style="mm-inline-0114">Weekly Fuel - SUV</td>
+                                <td class="dashboard-ui-0114">Weekly Fuel - SUV</td>
                                 <td><span class="badge badge-expense">Transport</span></td>
-                                <td data-mm-style="mm-inline-0115">Feb 28, 2026</td>
-                                <td data-mm-style="mm-inline-0116" class="text-expense">-$85.00</td>
-                                <td><span class="badge badge-income"
-                                        data-mm-style="mm-inline-0117">Verified</span>
+                                <td class="dashboard-ui-0115">Feb 28, 2026</td>
+                                <td class="dashboard-ui-0116 text-expense">-$85.00</td>
+                                <td><span class="badge badge-income dashboard-ui-0117">Verified</span>
                                 </td>
-                                <td data-mm-style="mm-inline-0009"><button class="action-btn"><i
+                                <td class="public-ui-0009"><button class="action-btn"><i
                                             class="fa-solid fa-ellipsis-vertical"></i></button></td>
                             </tr>
                             <tr>
                                 <td><input type="checkbox"></td>
                                 <td>
-                                    <div class="author-cell" data-mm-style="mm-inline-0111">
+                                    <div class="author-cell dashboard-ui-0111">
                                         <img src="../assets/user-sarah.webp" class="author-avatar" alt="Sarah"
-                                            data-mm-style="mm-inline-0112">
-                                        <div class="author-info" data-mm-style="mm-inline-0071">
-                                            <span class="author-name"
-                                                data-mm-style="mm-inline-0113">Sarah
+                                            class="dashboard-ui-0112">
+                                        <div class="author-info entry-ui-0071">
+                                            <span class="author-name dashboard-ui-0113">Sarah
                                                 Jenkins</span>
-                                            <span class="author-role"
-                                                data-mm-style="mm-inline-0073">Member</span>
+                                            <span class="author-role entry-ui-0073">Member</span>
                                         </div>
                                     </div>
                                 </td>
-                                <td data-mm-style="mm-inline-0114">Gym Membership Fee</td>
+                                <td class="dashboard-ui-0114">Gym Membership Fee</td>
                                 <td><span class="badge badge-expense">Healthcare</span></td>
-                                <td data-mm-style="mm-inline-0115">Feb 25, 2026</td>
-                                <td data-mm-style="mm-inline-0116" class="text-expense">-$55.00</td>
-                                <td><span class="badge badge-income"
-                                        data-mm-style="mm-inline-0117">Verified</span>
+                                <td class="dashboard-ui-0115">Feb 25, 2026</td>
+                                <td class="dashboard-ui-0116 text-expense">-$55.00</td>
+                                <td><span class="badge badge-income dashboard-ui-0117">Verified</span>
                                 </td>
-                                <td data-mm-style="mm-inline-0009"><button class="action-btn"><i
+                                <td class="public-ui-0009"><button class="action-btn"><i
                                             class="fa-solid fa-ellipsis-vertical"></i></button></td>
                             </tr>
                             <tr>
                                 <td><input type="checkbox"></td>
                                 <td>
-                                    <div class="author-cell" data-mm-style="mm-inline-0111">
+                                    <div class="author-cell dashboard-ui-0111">
                                         <img src="../assets/user-sarah.webp" class="author-avatar" alt="Sarah"
-                                            data-mm-style="mm-inline-0112">
-                                        <div class="author-info" data-mm-style="mm-inline-0071">
-                                            <span class="author-name"
-                                                data-mm-style="mm-inline-0113">Sarah
+                                            class="dashboard-ui-0112">
+                                        <div class="author-info entry-ui-0071">
+                                            <span class="author-name dashboard-ui-0113">Sarah
                                                 Jenkins</span>
-                                            <span class="author-role"
-                                                data-mm-style="mm-inline-0073">Member</span>
+                                            <span class="author-role entry-ui-0073">Member</span>
                                         </div>
                                     </div>
                                 </td>
-                                <td data-mm-style="mm-inline-0114">Amazon - New Kindle</td>
+                                <td class="dashboard-ui-0114">Amazon - New Kindle</td>
                                 <td><span class="badge badge-expense">Shopping</span></td>
-                                <td data-mm-style="mm-inline-0115">Feb 22, 2026</td>
-                                <td data-mm-style="mm-inline-0116" class="text-expense">-$129.99</td>
-                                <td><span class="badge badge-income"
-                                        data-mm-style="mm-inline-0117">Verified</span>
+                                <td class="dashboard-ui-0115">Feb 22, 2026</td>
+                                <td class="dashboard-ui-0116 text-expense">-$129.99</td>
+                                <td><span class="badge badge-income dashboard-ui-0117">Verified</span>
                                 </td>
-                                <td data-mm-style="mm-inline-0009"><button class="action-btn"><i
+                                <td class="public-ui-0009"><button class="action-btn"><i
                                             class="fa-solid fa-ellipsis-vertical"></i></button></td>
                             </tr>
                             <tr>
                                 <td><input type="checkbox"></td>
                                 <td>
-                                    <div class="author-cell" data-mm-style="mm-inline-0111">
+                                    <div class="author-cell dashboard-ui-0111">
                                         <img src="../assets/user-sarah.webp" class="author-avatar" alt="Sarah"
-                                            data-mm-style="mm-inline-0112">
-                                        <div class="author-info" data-mm-style="mm-inline-0071">
-                                            <span class="author-name"
-                                                data-mm-style="mm-inline-0113">Sarah
+                                            class="dashboard-ui-0112">
+                                        <div class="author-info entry-ui-0071">
+                                            <span class="author-name dashboard-ui-0113">Sarah
                                                 Jenkins</span>
-                                            <span class="author-role"
-                                                data-mm-style="mm-inline-0073">Member</span>
+                                            <span class="author-role entry-ui-0073">Member</span>
                                         </div>
                                     </div>
                                 </td>
-                                <td data-mm-style="mm-inline-0114">Dinner at Thai House</td>
+                                <td class="dashboard-ui-0114">Dinner at Thai House</td>
                                 <td><span class="badge badge-expense">Food</span></td>
-                                <td data-mm-style="mm-inline-0115">Feb 20, 2026</td>
-                                <td data-mm-style="mm-inline-0116" class="text-expense">-$64.20</td>
-                                <td data-mm-style="mm-inline-0009"><span class="badge badge-income"
-                                        data-mm-style="mm-inline-0117">Verified</span>
+                                <td class="dashboard-ui-0115">Feb 20, 2026</td>
+                                <td class="dashboard-ui-0116 text-expense">-$64.20</td>
+                                <td class="public-ui-0009"><span class="badge badge-income dashboard-ui-0117">Verified</span>
                                 </td>
-                                <td data-mm-style="mm-inline-0009"><button class="action-btn"><i
+                                <td class="public-ui-0009"><button class="action-btn"><i
                                             class="fa-solid fa-ellipsis-vertical"></i></button></td>
                             </tr>
                             <tr>
                                 <td><input type="checkbox"></td>
                                 <td>
-                                    <div class="author-cell" data-mm-style="mm-inline-0111">
+                                    <div class="author-cell dashboard-ui-0111">
                                         <img src="../assets/user-sarah.webp" class="author-avatar" alt="Sarah"
-                                            data-mm-style="mm-inline-0112">
-                                        <div class="author-info" data-mm-style="mm-inline-0071">
-                                            <span class="author-name"
-                                                data-mm-style="mm-inline-0113">Sarah
+                                            class="dashboard-ui-0112">
+                                        <div class="author-info entry-ui-0071">
+                                            <span class="author-name dashboard-ui-0113">Sarah
                                                 Jenkins</span>
-                                            <span class="author-role"
-                                                data-mm-style="mm-inline-0073">Member</span>
+                                            <span class="author-role entry-ui-0073">Member</span>
                                         </div>
                                     </div>
                                 </td>
-                                <td data-mm-style="mm-inline-0114">Internet Bill - Fibernet</td>
+                                <td class="dashboard-ui-0114">Internet Bill - Fibernet</td>
                                 <td><span class="badge badge-expense">Bills</span></td>
-                                <td data-mm-style="mm-inline-0115">Feb 15, 2026</td>
-                                <td data-mm-style="mm-inline-0116" class="text-expense">-$60.00</td>
-                                <td data-mm-style="mm-inline-0009"><span class="badge badge-income"
-                                        data-mm-style="mm-inline-0117">Verified</span>
+                                <td class="dashboard-ui-0115">Feb 15, 2026</td>
+                                <td class="dashboard-ui-0116 text-expense">-$60.00</td>
+                                <td class="public-ui-0009"><span class="badge badge-income dashboard-ui-0117">Verified</span>
                                 </td>
-                                <td data-mm-style="mm-inline-0009"><button class="action-btn"><i
+                                <td class="public-ui-0009"><button class="action-btn"><i
                                             class="fa-solid fa-ellipsis-vertical"></i></button></td>
                             </tr>
                             <tr>
                                 <td><input type="checkbox"></td>
                                 <td>
-                                    <div class="author-cell" data-mm-style="mm-inline-0111">
+                                    <div class="author-cell dashboard-ui-0111">
                                         <img src="../assets/user-sarah.webp" class="author-avatar" alt="Sarah"
-                                            data-mm-style="mm-inline-0112">
-                                        <div class="author-info" data-mm-style="mm-inline-0071">
-                                            <span class="author-name"
-                                                data-mm-style="mm-inline-0113">Sarah
+                                            class="dashboard-ui-0112">
+                                        <div class="author-info entry-ui-0071">
+                                            <span class="author-name dashboard-ui-0113">Sarah
                                                 Jenkins</span>
-                                            <span class="author-role"
-                                                data-mm-style="mm-inline-0073">Member</span>
+                                            <span class="author-role entry-ui-0073">Member</span>
                                         </div>
                                     </div>
                                 </td>
-                                <td data-mm-style="mm-inline-0114">New Office Desk</td>
+                                <td class="dashboard-ui-0114">New Office Desk</td>
                                 <td><span class="badge badge-expense">Other</span></td>
-                                <td data-mm-style="mm-inline-0115">Feb 10, 2026</td>
-                                <td data-mm-style="mm-inline-0116" class="text-expense">-$185.00</td>
-                                <td data-mm-style="mm-inline-0009"><span class="badge badge-income"
-                                        data-mm-style="mm-inline-0117">Verified</span>
+                                <td class="dashboard-ui-0115">Feb 10, 2026</td>
+                                <td class="dashboard-ui-0116 text-expense">-$185.00</td>
+                                <td class="public-ui-0009"><span class="badge badge-income dashboard-ui-0117">Verified</span>
                                 </td>
-                                <td data-mm-style="mm-inline-0009"><button class="action-btn"><i
+                                <td class="public-ui-0009"><button class="action-btn"><i
                                             class="fa-solid fa-ellipsis-vertical"></i></button></td>
                             </tr>
                         </tbody>
@@ -443,25 +409,18 @@
                 </div>
 
                 <!-- Pagination -->
-                <div class="table-pagination"
-                    data-mm-style="mm-inline-0119">
-                    <span class="pagination-info" data-mm-style="mm-inline-0120">Showing 1 to 10
+                <div class="table-pagination dashboard-ui-0119">
+                    <span class="pagination-info dashboard-ui-0120">Showing 1 to 10
                         of 148 entries</span>
-                    <div class="pagination-links" data-mm-style="mm-inline-0121">
-                        <a href="#" class="page-link disabled"
-                            data-mm-style="mm-inline-0122"><i
+                    <div class="pagination-links dashboard-ui-0121">
+                        <a href="#" class="page-link disabled dashboard-ui-0122"><i
                                 class="fa-solid fa-chevron-left"></i> Previous</a>
-                        <a href="#" class="page-link active"
-                            data-mm-style="mm-inline-0123">1</a>
-                        <a href="#" class="page-link"
-                            data-mm-style="mm-inline-0124">2</a>
-                        <a href="#" class="page-link"
-                            data-mm-style="mm-inline-0124">3</a>
-                        <span class="pagination-dots" data-mm-style="mm-inline-0082">...</span>
-                        <a href="#" class="page-link"
-                            data-mm-style="mm-inline-0124">15</a>
-                        <a href="#" class="page-link"
-                            data-mm-style="mm-inline-0124">Next
+                        <a href="#" class="page-link active dashboard-ui-0123">1</a>
+                        <a href="#" class="page-link dashboard-ui-0124">2</a>
+                        <a href="#" class="page-link dashboard-ui-0124">3</a>
+                        <span class="pagination-dots entry-ui-0082">...</span>
+                        <a href="#" class="page-link dashboard-ui-0124">15</a>
+                        <a href="#" class="page-link dashboard-ui-0124">Next
                             <i class="fa-solid fa-chevron-right"></i></a>
                     </div>
                 </div>
@@ -487,4 +446,5 @@
 </body>
 
 </html>
+
 

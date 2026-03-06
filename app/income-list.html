@@ -118,47 +118,43 @@
             </div>
 
             <!-- Toolbar Row -->
-            <div class="paper-card dashboard-toolbar reveal-delayed"
-                data-mm-style="mm-inline-0099">
-                <div class="search-wrapper" data-mm-style="mm-inline-0100">
-                    <i class="fa-solid fa-magnifying-glass"
-                        data-mm-style="mm-inline-0101"></i>
+            <div class="paper-card dashboard-toolbar reveal-delayed dashboard-ui-0099">
+                <div class="search-wrapper dashboard-ui-0100">
+                    <i class="fa-solid fa-magnifying-glass dashboard-ui-0101"></i>
                     <input type="text" placeholder="Search by source or amount..."
-                        data-mm-style="mm-inline-0102">
+                        class="dashboard-ui-0102">
                 </div>
-                <div class="filter-group" data-mm-style="mm-inline-0103">
+                <div class="filter-group dashboard-ui-0103">
                     <select class="toolbar-select" id="category-filter"
-                        data-mm-style="mm-inline-0104">
+                        class="dashboard-ui-0104">
                         <option value="">All Sources</option>
                     </select>
                     <input type="date" class="toolbar-date" title="From Date"
-                        data-mm-style="mm-inline-0125">
+                        class="dashboard-ui-0125">
                     <input type="date" class="toolbar-date" title="To Date"
-                        data-mm-style="mm-inline-0125">
+                        class="dashboard-ui-0125">
                 </div>
-                <div class="toolbar-actions" data-mm-style="mm-inline-0106">
-                    <button class="btn-outline-sm"
-                        data-mm-style="mm-inline-0107"><i
+                <div class="toolbar-actions dashboard-ui-0106">
+                    <button class="btn-outline-sm dashboard-ui-0107"><i
                             class="fa-solid fa-file-export"></i> Export</button>
-                    <a href="add-income.html" class="btn-primary"
-                        data-mm-style="mm-inline-0126"><i
+                    <a href="add-income.html" class="btn-primary dashboard-ui-0126"><i
                             class="fa-solid fa-plus"></i> Add Income</a>
                 </div>
             </div>
 
             <!-- Data Table Section -->
-            <div class="paper-card table-card reveal-delayed" data-mm-style="mm-inline-0108">
+            <div class="paper-card table-card reveal-delayed dashboard-ui-0108">
                 <div class="table-responsive">
-                    <table class="dashboard-table">
+                    <table class="dashboard-table table-with-selection">
                         <thead>
                             <tr>
                                 <th><input type="checkbox"></th>
-                                <th data-mm-style="mm-inline-0109">Author</th>
-                                <th data-mm-style="mm-inline-0109">Title</th>
-                                <th data-mm-style="mm-inline-0109">Source</th>
-                                <th data-mm-style="mm-inline-0109">Date</th>
-                                <th data-mm-style="mm-inline-0110">Amount</th>
-                                <th data-mm-style="mm-inline-0009">Actions</th>
+                                <th class="dashboard-ui-0109">Author</th>
+                                <th class="dashboard-ui-0109">Title</th>
+                                <th class="dashboard-ui-0109">Source</th>
+                                <th class="dashboard-ui-0109">Date</th>
+                                <th class="dashboard-ui-0110">Amount</th>
+                                <th class="public-ui-0009">Actions</th>
                             </tr>
                         </thead>
                         <tbody id="income-list-body">
@@ -166,48 +162,44 @@
                             <tr>
                                 <td><input type="checkbox"></td>
                                 <td>
-                                    <div class="author-cell" data-mm-style="mm-inline-0111">
+                                    <div class="author-cell dashboard-ui-0111">
                                         <img src="../assets/user-sarah.webp" class="author-avatar" alt="Sarah"
-                                            data-mm-style="mm-inline-0112">
-                                        <div class="author-info" data-mm-style="mm-inline-0071">
-                                            <span class="author-name"
-                                                data-mm-style="mm-inline-0113">Sarah
+                                            class="dashboard-ui-0112">
+                                        <div class="author-info entry-ui-0071">
+                                            <span class="author-name dashboard-ui-0113">Sarah
                                                 Jenkins</span>
-                                            <span class="author-role"
-                                                data-mm-style="mm-inline-0073">Member</span>
+                                            <span class="author-role entry-ui-0073">Member</span>
                                         </div>
                                     </div>
                                 </td>
-                                <td data-mm-style="mm-inline-0114">Monthly Base Salary</td>
+                                <td class="dashboard-ui-0114">Monthly Base Salary</td>
                                 <td><span class="badge badge-income">Salary</span></td>
-                                <td data-mm-style="mm-inline-0115">Mar 01, 2026</td>
-                                <td data-mm-style="mm-inline-0127">+$5,000.00
+                                <td class="dashboard-ui-0115">Mar 01, 2026</td>
+                                <td class="dashboard-ui-0127">+$5,000.00
                                 </td>
-                                <td data-mm-style="mm-inline-0009"><button class="action-btn"><i
+                                <td class="public-ui-0009"><button class="action-btn"><i
                                             class="fa-solid fa-ellipsis-vertical"></i></button></td>
                             </tr>
                             <!-- More rows added for completeness -->
                             <tr>
                                 <td><input type="checkbox"></td>
                                 <td>
-                                    <div class="author-cell" data-mm-style="mm-inline-0111">
+                                    <div class="author-cell dashboard-ui-0111">
                                         <img src="../assets/user-sarah.webp" class="author-avatar" alt="Sarah"
-                                            data-mm-style="mm-inline-0112">
-                                        <div class="author-info" data-mm-style="mm-inline-0071">
-                                            <span class="author-name"
-                                                data-mm-style="mm-inline-0113">Sarah
+                                            class="dashboard-ui-0112">
+                                        <div class="author-info entry-ui-0071">
+                                            <span class="author-name dashboard-ui-0113">Sarah
                                                 Jenkins</span>
-                                            <span class="author-role"
-                                                data-mm-style="mm-inline-0073">Member</span>
+                                            <span class="author-role entry-ui-0073">Member</span>
                                         </div>
                                     </div>
                                 </td>
-                                <td data-mm-style="mm-inline-0114">UI Design - Client X</td>
+                                <td class="dashboard-ui-0114">UI Design - Client X</td>
                                 <td><span class="badge badge-income">Freelance</span></td>
-                                <td data-mm-style="mm-inline-0115">Feb 28, 2026</td>
-                                <td data-mm-style="mm-inline-0127">+$2,400.00
+                                <td class="dashboard-ui-0115">Feb 28, 2026</td>
+                                <td class="dashboard-ui-0127">+$2,400.00
                                 </td>
-                                <td data-mm-style="mm-inline-0009"><button class="action-btn"><i
+                                <td class="public-ui-0009"><button class="action-btn"><i
                                             class="fa-solid fa-ellipsis-vertical"></i></button></td>
                             </tr>
                             <!-- Total 10 rows would go here ... -->
@@ -216,38 +208,30 @@
                 </div>
 
                 <!-- Insights Strip -->
-                <div class="insights-strip"
-                    data-mm-style="mm-inline-0128">
-                    <div class="insight-chip"
-                        data-mm-style="mm-inline-0129">
-                        <span data-mm-style="mm-inline-0073">Top Source:</span>
-                        <span data-mm-style="mm-inline-0130">Salary (60%)</span>
+                <div class="insights-strip dashboard-ui-0128">
+                    <div class="insight-chip dashboard-ui-0129">
+                        <span class="entry-ui-0073">Top Source:</span>
+                        <span class="dashboard-ui-0130">Salary (60%)</span>
                     </div>
-                    <div class="insight-chip"
-                        data-mm-style="mm-inline-0129">
-                        <span data-mm-style="mm-inline-0073">Freelance:</span>
-                        <span data-mm-style="mm-inline-0131">$2.4k
+                    <div class="insight-chip dashboard-ui-0129">
+                        <span class="entry-ui-0073">Freelance:</span>
+                        <span class="dashboard-ui-0131">$2.4k
                             (30%)</span>
                     </div>
-                    <div class="insight-chip"
-                        data-mm-style="mm-inline-0129">
-                        <span data-mm-style="mm-inline-0073">Others:</span>
-                        <span data-mm-style="mm-inline-0132">$0.8k (10%)</span>
+                    <div class="insight-chip dashboard-ui-0129">
+                        <span class="entry-ui-0073">Others:</span>
+                        <span class="dashboard-ui-0132">$0.8k (10%)</span>
                     </div>
                 </div>
 
                 <!-- Pagination -->
-                <div class="table-pagination"
-                    data-mm-style="mm-inline-0119">
-                    <span class="pagination-info" data-mm-style="mm-inline-0120">Showing 1 to 10
+                <div class="table-pagination dashboard-ui-0119">
+                    <span class="pagination-info dashboard-ui-0120">Showing 1 to 10
                         of 42 entries</span>
-                    <div class="pagination-links" data-mm-style="mm-inline-0121">
-                        <a href="#" class="page-link active"
-                            data-mm-style="mm-inline-0133">1</a>
-                        <a href="#" class="page-link"
-                            data-mm-style="mm-inline-0124">2</a>
-                        <a href="#" class="page-link"
-                            data-mm-style="mm-inline-0124">Next
+                    <div class="pagination-links dashboard-ui-0121">
+                        <a href="#" class="page-link active dashboard-ui-0133">1</a>
+                        <a href="#" class="page-link dashboard-ui-0124">2</a>
+                        <a href="#" class="page-link dashboard-ui-0124">Next
                             <i class="fa-solid fa-chevron-right"></i></a>
                     </div>
                 </div>
@@ -273,4 +257,5 @@
 </body>
 
 </html>
+
 
