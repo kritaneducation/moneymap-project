@@ -597,19 +597,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        document.querySelectorAll('a.nav-link').forEach(link => {
-            const text = (link.textContent || '').trim().toLowerCase();
-            if (text === 'log in') {
-                link.setAttribute('href', dashboardHref);
-                link.textContent = 'Dashboard';
-            }
-        });
-
         const loginBtn = document.getElementById('btn-login');
-        if (loginBtn) loginBtn.textContent = 'Dashboard';
+        if (loginBtn) loginBtn.textContent = 'Account';
 
         const getStartedBtn = document.getElementById('btn-get-started');
-        if (getStartedBtn) getStartedBtn.textContent = 'Dashboard';
+        if (getStartedBtn) getStartedBtn.textContent = 'Open App';
 
         // Avoid duplicated Dashboard entries in the public header when authenticated.
         document.querySelectorAll('#nav-desktop .nav-link, #nav-mobile .nav-link').forEach(link => {

@@ -73,7 +73,7 @@
     <main class="dashboard-main">
 
         <!-- Top Tab Bar & User Profile -->
-        <header class="dashboard-top-tabs">
+        <header class="dashboard__topbar">
             <div class="header-left">
                 <button id="sidebarToggle" class="sidebar-toggle" title="Toggle Sidebar">
                     <i class="fa-solid fa-bars-staggered"></i>
@@ -101,10 +101,10 @@
             <h1 class="sr-only">Categories</h1>
 
             <!-- Page Header -->
-            <div class="section-header reveal public-ui-0038">
-                <h2 class="entry-ui-0081">Manage Categories
+            <div class="section-header reveal section__block-spacing">
+                <h2 class="form-card__title">Manage Categories
                 </h2>
-                <p class="entry-ui-0082">Organize your finances with custom income and expense labels.</p>
+                <p class="form-card__subtitle">Organize your finances with custom income and expense labels.</p>
             </div>
 
             <div class="dashboard-row reveal-delayed">
@@ -115,45 +115,45 @@
                         <span class="card-subtitle">Create a custom label</span>
                     </div>
                     <form id="add-category-form"
-                        class="entry-ui-0083">
+                        class="categories__form-layout">
                         <fieldset class="form-fieldset">
                             <legend class="form-legend">Add Category</legend>
                         <div class="form-group">
                             <label
-                                class="entry-ui-0084">Category
+                                class="form__label-inline">Category
                                 Name</label>
                             <input type="text" id="cat-name" placeholder="e.g. Subscriptions" required
                                 pattern="[A-Za-z][A-Za-z\s&-]{1,28}[A-Za-z]"
                                 title="3-30 letters. Spaces, ampersand, and hyphen are allowed."
-                                class="entry-ui-0085">
+                                class="form__input-control">
                         </div>
                         <div class="form-group">
                             <label
-                                class="entry-ui-0084">Type</label>
-                            <div class="entry-ui-0086">
+                                class="form__label-inline">Type</label>
+                            <div class="categories__type-options">
                                 <label
-                                    class="entry-ui-0087">
+                                    class="categories__type-option">
                                     <input type="radio" name="cat-type" value="expense" checked> Expense
                                 </label>
                                 <label
-                                    class="entry-ui-0087">
+                                    class="categories__type-option">
                                     <input type="radio" name="cat-type" value="income"> Income
                                 </label>
                             </div>
                         </div>
                         <div class="form-group">
                             <label
-                                class="entry-ui-0084">Pick
+                                class="form__label-inline">Pick
                                 a Color</label>
-                            <div class="entry-ui-0088">
+                            <div class="categories__color-row">
                                 <input type="color" id="cat-color" value="#3b82f6"
-                                    class="entry-ui-0089">
-                                <span class="entry-ui-0073">Select a brand color for this
+                                    class="categories__color-input">
+                                <span class="meta__caption">Select a brand color for this
                                     category</span>
                             </div>
                         </div>
-                        <button type="submit" class="btn-primary entry-ui-0090">
-                            Create Category <i class="fa-solid fa-plus-circle public-ui-0041"></i>
+                        <button type="submit" class="btn-primary categories__button-submit">
+                            Create Category <i class="fa-solid fa-plus-circle icon--trailing"></i>
                         </button>
                         </fieldset>
                     </form>
@@ -161,12 +161,12 @@
 
                 <!-- Categories List -->
                 <div class="paper-card categories-panel span-8">
-                    <div class="card-header entry-ui-0091">
+                    <div class="card-header row--between-center">
                         <div>
                             <h4>Your Categories</h4>
                             <span class="card-subtitle">Active labels used in transactions</span>
                         </div>
-                        <div class="filter-pills entry-ui-0092">
+                        <div class="filter-pills categories__filter-pills">
                             <button class="pill active" data-filter="all">All</button>
                             <button class="pill" data-filter="income">Income</button>
                             <button class="pill" data-filter="expense">Expense</button>
@@ -174,7 +174,7 @@
                     </div>
 
                     <div id="categories-grid"
-                        class="entry-ui-0093">
+                        class="categories__grid">
                         <!-- Categories will be injected here -->
                     </div>
                 </div>
@@ -196,10 +196,10 @@
     </main>
 
     <!-- Success Toast -->
-    <div class="entry-ui-0094"
+    <div class="toast"
         id="successToast">
         <i class="fa-solid fa-circle-check"></i>
-        <span id="toast-message" class="entry-ui-0095">Category saved!</span>
+        <span id="toast-message" class="toast__text">Category saved!</span>
     </div>
 
     <!-- Scripts -->
@@ -207,5 +207,7 @@
 </body>
 
 </html>
+
+
 
 

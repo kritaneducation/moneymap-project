@@ -77,7 +77,7 @@
     <main class="dashboard-main">
 
         <!-- Top Tab Bar & User Profile -->
-        <header class="dashboard-top-tabs">
+        <header class="dashboard__topbar">
             <div class="header-left">
                 <button id="sidebarToggle" class="sidebar-toggle" title="Toggle Sidebar">
                     <i class="fa-solid fa-bars-staggered"></i>
@@ -148,20 +148,20 @@
                         <span class="card-subtitle">Specify exactly as per your details</span>
                     </div>
                     <form class="expense-form" id="add-expense-form">
-                        <fieldset class="entry-ui-0067">
+                        <fieldset class="form__fieldset--reset">
                             <legend
-                                class="entry-ui-0068">
+                                class="form__helper-label">
                                 Transaction Details</legend>
                             <!-- Decorative Icon Group -->
-                            <div class="entry-ui-0069">
+                            <div class="form__header-row">
                                 <div
-                                    class="entry-ui-0070">
+                                    class="add-expense__icon-badge">
                                     <i class="fa-solid fa-receipt"></i>
                                 </div>
-                                <div class="entry-ui-0071">
-                                    <span class="entry-ui-0072">New
+                                <div class="meta__stack">
+                                    <span class="meta__title">New
                                         Expense</span>
-                                    <span class="entry-ui-0073">Log your spending
+                                    <span class="meta__caption">Log your spending
                                         details</span>
                                 </div>
                             </div>
@@ -191,27 +191,27 @@
                                     <input type="date" id="date" required>
                                 </div>
                             </div>
-                            <button type="submit" class="btn-primary entry-ui-0074">Add
-                                Expenses <i class="fa-solid fa-arrow-right public-ui-0041"></i></button>
+                            <button type="submit" class="btn-primary add-expense__button-submit">Add
+                                Expenses <i class="fa-solid fa-arrow-right icon--trailing"></i></button>
                         </fieldset>
                     </form>
                 </div>
 
                 <div class="support-cards-stack span-4">
                     <div class="paper-card tip-card">
-                        <div class="feature-card-image entry-ui-0075">
+                        <div class="feature-card-image feature-image-frame">
                             <img src="../assets/feature-expense.jpg" alt="Expense feature"
-                                class="entry-ui-0076">
+                                class="feature-image">
                         </div>
-                        <div class="card-header entry-ui-0077">
+                        <div class="card-header feature-card-body">
                             <h4><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Category Tips</h4>
                         </div>
-                        <ul class="support-list entry-ui-0078">
-                            <li><strong class="public-ui-0033">Food</strong>: Groceries, restaurants, and daily
+                        <ul class="support-list support-list">
+                            <li><strong class="text--emphasis">Food</strong>: Groceries, restaurants, and daily
                                 snacks.</li>
-                            <li><strong class="public-ui-0033">Bills</strong>: Rent, electricity, and
+                            <li><strong class="text--emphasis">Bills</strong>: Rent, electricity, and
                                 subscriptions.</li>
-                            <li><strong class="public-ui-0033">Shopping</strong>: Clothing, electronics, and home
+                            <li><strong class="text--emphasis">Shopping</strong>: Clothing, electronics, and home
                                 items.</li>
                         </ul>
                     </div>
@@ -238,5 +238,7 @@
 </body>
 
 </html>
+
+
 
 

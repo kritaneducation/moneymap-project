@@ -73,7 +73,7 @@
     <main class="dashboard-main">
 
         <!-- Top Tab Bar & User Profile -->
-        <header class="dashboard-top-tabs">
+        <header class="dashboard__topbar">
             <div class="header-left">
                 <button id="sidebarToggle" class="sidebar-toggle" title="Toggle Sidebar">
                     <i class="fa-solid fa-bars-staggered"></i>
@@ -100,62 +100,62 @@
             <h1 class="sr-only">Settings</h1>
 
             <!-- Settings Header -->
-            <div class="section-header reveal public-ui-0038">
-                <h2 class="entry-ui-0081">Account Settings</h2>
-                <p class="entry-ui-0082">Manage your profile, preferences, and data security.</p>
+            <div class="section-header reveal section__block-spacing">
+                <h2 class="form-card__title">Account Settings</h2>
+                <p class="form-card__subtitle">Manage your profile, preferences, and data security.</p>
             </div>
 
             <div class="dashboard-row reveal-delayed settings-layout">
                 <!-- Profile Photo Card -->
-                <div class="paper-card span-4 profile-side-card settings-ui-0186">
-                    <div class="settings-ui-0187">
+                <div class="paper-card span-4 profile-side-card settings__profile-panel">
+                    <div class="settings__avatar-wrap">
                         <img src="../assets/user-sarah.webp" alt="Profile Photo" id="profile-avatar"
-                            class="settings-ui-0188">
+                            class="settings__profile-avatar">
                         <button class="icon-btn" type="button" id="profile-camera-btn"
-                            class="settings-ui-0189">
+                            class="settings__button-avatar-edit">
                             <i class="fa-solid fa-camera"></i>
                         </button>
                     </div>
-                    <h4 id="profile-display-name" class="settings-ui-0190">Sarah Jenkins</h4>
-                    <span id="profile-member-since" class="dashboard-ui-0120">Member since Jan 2025</span>
-                    <hr class="settings-ui-0191">
-                    <div class="settings-ui-0192">
-                        <button class="btn-outline-sm" id="upload-photo-btn" type="button" class="settings-ui-0193">Upload New Photo</button>
+                    <h4 id="profile-display-name" class="settings__profile-name">Sarah Jenkins</h4>
+                    <span id="profile-member-since" class="pagination__note">Member since Jan 2025</span>
+                    <hr class="settings__profile-divider">
+                    <div class="settings__profile-actions">
+                        <button class="btn-outline-sm" id="upload-photo-btn" type="button" class="settings__button-upload">Upload New Photo</button>
                         <button class="btn-outline-sm" id="remove-photo-btn" type="button"
-                            class="settings-ui-0194">Remove
+                            class="settings__button-remove">Remove
                             Photo</button>
                         <input type="file" id="profile-photo-input" accept="image/png,image/jpeg,image/webp" hidden>
                     </div>
                 </div>
 
                 <!-- Account Detail Form -->
-                <div class="paper-card span-8 settings-main-card">
+                <div class="paper-card span-8 settings__main-panel">
                     <h4>Personal Information</h4>
                     <span class="card-subtitle">Update your profile details and contact info</span>
 
                     <form id="settings-form"
-                        class="settings-ui-0195">
+                        class="settings__profile-form">
                         <fieldset class="form-fieldset">
                             <legend class="form-legend">Profile Settings</legend>
                         <div class="form-group">
                             <label
-                                class="entry-ui-0084">Full
+                                class="form__label-inline">Full
                                 Name</label>
                             <input type="text" id="user-fullname" value="Sarah Jenkins"
-                                class="entry-ui-0085">
+                                class="form__input-control">
                         </div>
                         <div class="form-group">
                             <label
-                                class="entry-ui-0084">Email
+                                class="form__label-inline">Email
                                 Address</label>
                             <input type="email" id="user-email" value="sarah.jenkins@example.com"
-                                class="entry-ui-0085">
+                                class="form__input-control">
                         </div>
                         <div class="form-group">
                             <label
-                                class="entry-ui-0084">Currency</label>
+                                class="form__label-inline">Currency</label>
                             <select id="user-currency"
-                                class="entry-ui-0085">
+                                class="form__input-control">
                                 <option value="USD">USD - US Dollar</option>
                                 <option value="EUR">EUR - Euro</option>
                                 <option value="GBP">GBP - British Pound</option>
@@ -163,45 +163,45 @@
                         </div>
                         <div class="form-group">
                             <label
-                                class="entry-ui-0084">Occupation</label>
+                                class="form__label-inline">Occupation</label>
                             <input type="text" id="user-occupation" value="Product Designer"
-                                class="entry-ui-0085">
+                                class="form__input-control">
                         </div>
                         </fieldset>
                     </form>
 
-                    <h4 class="settings-ui-0196">Site Preferences</h4>
+                    <h4 class="settings__preferences-title">Site Preferences</h4>
                     <span class="card-subtitle">Customize your visual and notification experience</span>
 
-                    <div class="settings-ui-0174">
-                        <div class="entry-ui-0091">
+                    <div class="report__bars-grid">
+                        <div class="row--between-center">
                             <div>
-                                <span class="settings-ui-0197">Dark Mode</span>
-                                <span class="entry-ui-0073">Switch to a darker visual
+                                <span class="settings__preference-label">Dark Mode</span>
+                                <span class="meta__caption">Switch to a darker visual
                                     theme</span>
                             </div>
-                            <label class="switch settings-ui-0198">
-                                <input type="checkbox" id="dark-mode-toggle" class="settings-ui-0199">
+                            <label class="switch settings__toggle-switch">
+                                <input type="checkbox" id="dark-mode-toggle" class="settings__toggle-input">
                                 <span
-                                    class="settings-ui-0200">
+                                    class="settings__toggle-track-off">
                                     <span
-                                        class="settings-ui-0201"></span>
+                                        class="settings__toggle-knob-off"></span>
                                 </span>
                             </label>
                         </div>
-                        <div class="entry-ui-0091">
+                        <div class="row--between-center">
                             <div>
-                                <span class="settings-ui-0197">Email
+                                <span class="settings__preference-label">Email
                                     Notifications</span>
-                                <span class="entry-ui-0073">Receive weekly summary
+                                <span class="meta__caption">Receive weekly summary
                                     reports</span>
                             </div>
-                            <label class="switch settings-ui-0198">
-                                <input type="checkbox" id="email-notifications-toggle" checked class="settings-ui-0199">
+                            <label class="switch settings__toggle-switch">
+                                <input type="checkbox" id="email-notifications-toggle" checked class="settings__toggle-input">
                                 <span
-                                    class="settings-ui-0202">
+                                    class="settings__toggle-track-on">
                                     <span
-                                        class="settings-ui-0203"></span>
+                                        class="settings__toggle-knob-on"></span>
                                 </span>
                             </label>
                         </div>
@@ -211,16 +211,16 @@
                     <span class="card-subtitle">Keep your account secure by updating your password</span>
                     <div class="profile-security-grid">
                         <div class="form-group">
-                            <label for="current-password" class="entry-ui-0084">Current Password</label>
-                            <input type="password" id="current-password" class="entry-ui-0085" placeholder="Enter current password">
+                            <label for="current-password" class="form__label-inline">Current Password</label>
+                            <input type="password" id="current-password" class="form__input-control" placeholder="Enter current password">
                         </div>
                         <div class="form-group">
-                            <label for="new-password" class="entry-ui-0084">New Password</label>
-                            <input type="password" id="new-password" class="entry-ui-0085" placeholder="At least 8 characters">
+                            <label for="new-password" class="form__label-inline">New Password</label>
+                            <input type="password" id="new-password" class="form__input-control" placeholder="At least 8 characters">
                         </div>
                         <div class="form-group">
-                            <label for="confirm-password" class="entry-ui-0084">Confirm Password</label>
-                            <input type="password" id="confirm-password" class="entry-ui-0085" placeholder="Repeat new password">
+                            <label for="confirm-password" class="form__label-inline">Confirm Password</label>
+                            <input type="password" id="confirm-password" class="form__input-control" placeholder="Repeat new password">
                         </div>
                         <div class="profile-security-actions">
                             <button class="btn-outline-sm" id="change-password-btn" type="button">Update Password</button>
@@ -236,10 +236,10 @@
                         </button>
                     </div>
 
-                    <div class="settings-ui-0204">
+                    <div class="settings__form-actions">
                         <button class="btn-outline-sm" id="cancel-settings-btn" type="button">Cancel</button>
                         <button class="btn-primary" id="save-settings-btn" type="button"
-                            class="settings-ui-0205">Save All
+                            class="settings__button-save">Save All
                             Changes</button>
                     </div>
                 </div>
@@ -261,10 +261,10 @@
     </main>
 
     <!-- Success Toast (Visual Demo) -->
-    <div class="entry-ui-0094"
+    <div class="toast"
         id="successToast">
         <i class="fa-solid fa-circle-check"></i>
-        <span class="entry-ui-0095">Settings saved successfully!</span>
+        <span class="toast__text">Settings saved successfully!</span>
     </div>
 
     <!-- Scripts -->
@@ -272,5 +272,7 @@
 </body>
 
 </html>
+
+
 
 

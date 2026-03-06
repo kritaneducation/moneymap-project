@@ -295,7 +295,7 @@ body {
     @media print {
 
         .report-page .dashboard-sidebar,
-        .report-page .dashboard-top-tabs,
+        .report-page .dashboard__topbar,
         .report-page .btn-primary,
         .report-page .no-print {
             display: none !important;
@@ -2342,7 +2342,7 @@ body {
     z-index: 10;
 }
 
-.faq-search-input {
+.faq__search-input {
     width: 100%;
     padding: 1.25rem 1.5rem 1.25rem 3.5rem;
     background: rgba(255, 255, 255, 0.05);
@@ -2354,14 +2354,14 @@ body {
     transition: var(--transition-base);
 }
 
-.faq-search-input:focus {
+.faq__search-input:focus {
     outline: none;
     border-color: var(--money-green);
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.1);
 }
 
-.faq-search-wrap .search-icon {
+.faq-search-wrap .toolbar__search-icon {
     position: absolute;
     left: 1.25rem;
     top: 50%;
@@ -4418,7 +4418,7 @@ details summary .fa-chevron-down {
     margin-left: var(--sidebar-collapsed-width);
 }
 
-.dashboard-top-tabs {
+.dashboard__topbar {
     background: #fff;
     border-bottom: 1px solid var(--slate-200);
     padding: 0 2rem;
@@ -5170,7 +5170,7 @@ details summary .fa-chevron-down {
     padding: 1.25rem;
 }
 
-.categories-panel #categories-grid.entry-ui-0093 {
+.categories-panel #categories-grid.categories__grid {
     margin-top: 1rem;
 }
 
@@ -5409,7 +5409,7 @@ details summary .fa-chevron-down {
         margin-left: 0;
     }
 
-    .dashboard-top-tabs {
+    .dashboard__topbar {
         padding: 0 1rem;
     }
 
@@ -5464,7 +5464,7 @@ details summary .fa-chevron-down {
 }
 
 @media (max-width: 768px) {
-    .dashboard-top-tabs {
+    .dashboard__topbar {
         flex-wrap: wrap;
         gap: 0.5rem;
         padding: 0.5rem 0.75rem;
@@ -5565,7 +5565,7 @@ details summary .fa-chevron-down {
         width: 100%;
     }
 
-    .dashboard-content .summary-ui-0139 {
+    .dashboard-content .monthly-summary__chart-area {
         height: auto;
         min-height: 240px;
         padding: 1rem 0.25rem 0;
@@ -5574,44 +5574,44 @@ details summary .fa-chevron-down {
         gap: 0.5rem;
     }
 
-    .dashboard-content .summary-ui-0140 {
+    .dashboard-content .monthly-summary__week-column {
         width: 48px;
         flex: 0 0 auto;
     }
 
-    .dashboard-content .summary-ui-0141 {
+    .dashboard-content .monthly-summary__bar-group {
         height: 170px;
     }
 
-    .dashboard-content .settings-ui-0175 {
+    .dashboard-content .report__quarter-row {
         grid-template-columns: 1fr;
         gap: 0.5rem;
         align-items: flex-start;
     }
 
-    .dashboard-content .settings-ui-0176,
-    .dashboard-content .settings-ui-0179 {
+    .dashboard-content .report__quarter-label,
+    .dashboard-content .report__quarter-value {
         font-size: 0.75rem;
     }
 
-    .dashboard-content .settings-ui-0183 {
+    .dashboard-content .report__line-chart-wrap {
         height: 180px;
     }
 
-    .dashboard-content .settings-ui-0185 {
+    .dashboard-content .report__line-chart-labels {
         font-size: 0.62rem;
         gap: 0.45rem;
         overflow-x: auto;
     }
 
-    .dashboard-content .settings-ui-0204 {
+    .dashboard-content .settings__form-actions {
         margin-top: 1.5rem;
         flex-direction: column;
         align-items: stretch;
     }
 
-    .dashboard-content .settings-ui-0204 .btn-outline-sm,
-    .dashboard-content .settings-ui-0204 .btn-primary {
+    .dashboard-content .settings__form-actions .btn-outline-sm,
+    .dashboard-content .settings__form-actions .btn-primary {
         width: 100%;
     }
 
@@ -5657,15 +5657,15 @@ details summary .fa-chevron-down {
         flex-wrap: wrap;
     }
 
-    .dashboard-content .summary-ui-0139 {
+    .dashboard-content .monthly-summary__chart-area {
         min-height: 220px;
     }
 
-    .dashboard-content .summary-ui-0140 {
+    .dashboard-content .monthly-summary__week-column {
         width: 42px;
     }
 
-    .dashboard-content .settings-ui-0183 {
+    .dashboard-content .report__line-chart-wrap {
         height: 160px;
     }
 }
@@ -6016,7 +6016,7 @@ details summary .fa-chevron-down {
 }
 
 /* Dashboard Dark Mode Support */
-.dark-theme .dashboard-top-tabs,
+.dark-theme .dashboard__topbar,
 .dark-theme .dashboard-footer,
 .dark-theme .dashboard-toolbar,
 .dark-theme .table-card,
@@ -6060,10 +6060,10 @@ details summary .fa-chevron-down {
 .dark-theme .toolbar-date,
 .dark-theme .form-group input,
 .dark-theme .form-group select,
-.dark-theme .entry-ui-0085,
-.dark-theme .dashboard-ui-0102,
-.dark-theme .dashboard-ui-0104,
-.dark-theme .dashboard-ui-0105 {
+.dark-theme .form__input-control,
+.dark-theme .toolbar__search-input,
+.dark-theme .toolbar__filter-control,
+.dark-theme .expense-list__date-input {
     background: #0b1220;
     border-color: var(--border-subtle);
     color: var(--text-primary);
@@ -6207,15 +6207,15 @@ details summary .fa-chevron-down {
     align-items: start;
 }
 
-.settings-main-card {
+.settings__main-panel {
     padding: 1.5rem;
 }
 
-.settings-main-card > h4 {
+.settings__main-panel > h4 {
     margin-bottom: 0.15rem;
 }
 
-.settings-main-card .card-subtitle {
+.settings__main-panel .card-subtitle {
     display: block;
     margin-bottom: 1rem;
 }
@@ -6255,7 +6255,7 @@ details summary .fa-chevron-down {
     font-size: 1rem;
 }
 
-.settings-main-card .settings-ui-0174 {
+.settings__main-panel .report__bars-grid {
     margin-top: 1rem;
     background: var(--slate-50);
     border: 1px solid var(--slate-200);
@@ -6264,7 +6264,7 @@ details summary .fa-chevron-down {
     gap: 1rem;
 }
 
-.settings-ui-0204 {
+.settings__form-actions {
     margin-top: 1.25rem;
     display: flex;
     justify-content: flex-end;
@@ -6274,11 +6274,11 @@ details summary .fa-chevron-down {
     border-top: 1px solid var(--slate-100);
 }
 
-.profile-side-card .settings-ui-0192 {
+.profile-side-card .settings__profile-actions {
     gap: 0.65rem;
 }
 
-.profile-side-card .settings-ui-0192 .btn-outline-sm {
+.profile-side-card .settings__profile-actions .btn-outline-sm {
     width: 100%;
 }
 
@@ -6289,12 +6289,12 @@ details summary .fa-chevron-down {
 
 .dark-theme #settings-form .form-group input,
 .dark-theme #settings-form .form-group select,
-.dark-theme .settings-main-card .settings-ui-0174 {
+.dark-theme .settings__main-panel .report__bars-grid {
     background: #0b1220;
     border-color: var(--border-subtle);
 }
 
-.dark-theme .settings-ui-0204 {
+.dark-theme .settings__form-actions {
     border-top-color: var(--border-subtle);
 }
 
@@ -6363,16 +6363,16 @@ details summary .fa-chevron-down {
         padding: 1rem;
     }
 
-    .settings-main-card {
+    .settings__main-panel {
         padding: 1rem;
     }
 
-    .settings-ui-0204 {
+    .settings__form-actions {
         flex-direction: column;
     }
 
-    .settings-ui-0204 .btn-outline-sm,
-    .settings-ui-0204 .btn-primary {
+    .settings__form-actions .btn-outline-sm,
+    .settings__form-actions .btn-primary {
         width: 100%;
     }
 
@@ -6708,35 +6708,35 @@ details summary .fa-chevron-down {
     }
 }
 
-.public-ui-0021 {
+.contact__content-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 4rem;
 }
 
-.public-ui-0022 {
+.contact__support-title {
     font-size: 2rem;
     margin-bottom: 1.5rem;
 }
 
-.public-ui-0023 {
+.contact__support-text {
     color: var(--slate-500);
     margin-bottom: 3rem;
     line-height: 1.7;
 }
 
-.public-ui-0024 {
+.contact__info-list {
     display: grid;
     gap: 2rem;
 }
 
-.public-ui-0025 {
+.contact__info-item {
     display: flex;
     gap: 1.5rem;
     align-items: flex-start;
 }
 
-.public-ui-0026 {
+.contact__info-icon {
     width: 3rem;
     height: 3rem;
     background: var(--money-green);
@@ -6748,7 +6748,7 @@ details summary .fa-chevron-down {
     flex-shrink: 0;
 }
 
-.public-ui-0027 {
+.contact__info-label {
     display: block;
     font-family: var(--font-mono);
     font-size: 0.75rem;
@@ -6757,53 +6757,53 @@ details summary .fa-chevron-down {
     margin-bottom: 0.25rem;
 }
 
-.public-ui-0028 {
+.contact__info-link {
     font-weight: 600;
     color: var(--navy);
     text-decoration: none;
 }
 
-.public-ui-0029 {
+.contact__info-text {
     font-weight: 600;
     color: var(--navy);
     margin: 0;
 }
 
-.public-ui-0030 {
+.contact__social-section {
     margin-top: 4rem;
     padding-top: 2rem;
     border-top: 1px solid var(--slate-100);
 }
 
-.public-ui-0031 {
+.contact__social-label {
     font-family: var(--font-mono);
     font-size: 0.75rem;
     text-transform: uppercase;
     color: var(--slate-400);
 }
 
-.public-ui-0032 {
+.contact__social-links {
     margin-top: 1rem;
     display: flex;
     gap: 1rem;
 }
 
-.public-ui-0033 {
+.text--emphasis {
     color: var(--navy);
 }
 
-.public-ui-0034 {
+.contact__form-panel {
     padding: 3rem;
 }
 
-.public-ui-0035 {
+.contact__form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
     margin-bottom: 1.5rem;
 }
 
-.public-ui-0036 {
+.contact__form-label {
     display: block;
     font-size: 0.875rem;
     font-weight: 500;
@@ -6811,7 +6811,7 @@ details summary .fa-chevron-down {
     color: var(--slate-700);
 }
 
-.public-ui-0037 {
+.contact__form-input {
     width: 100%;
     padding: 0.75rem 1rem;
     border: 1px solid var(--slate-200);
@@ -6820,11 +6820,11 @@ details summary .fa-chevron-down {
     transition: var(--transition-base);
 }
 
-.public-ui-0038 {
+.section__block-spacing {
     margin-bottom: 2rem;
 }
 
-.public-ui-0039 {
+.contact__form-textarea {
     width: 100%;
     padding: 0.75rem 1rem;
     border: 1px solid var(--slate-200);
@@ -6834,21 +6834,21 @@ details summary .fa-chevron-down {
     resize: none;
 }
 
-.public-ui-0040 {
+.contact__button-submit {
     width: 100%;
     justify-content: center;
     padding: 1rem;
 }
 
-.public-ui-0041 {
+.icon--trailing {
     margin-left: 0.5rem;
 }
 
-.public-ui-0042 {
+.section__bottom-pad {
     padding: 0 0 8rem 0;
 }
 
-.public-ui-0043 {
+.contact__map-panel {
     background: var(--slate-wash);
     border: 1px solid var(--slate-100);
     border-radius: 24px;
@@ -6856,21 +6856,21 @@ details summary .fa-chevron-down {
     text-align: center;
 }
 
-.public-ui-0044 {
+.contact__map-icon {
     font-size: 3rem;
     margin-bottom: 1.5rem;
 }
 
-.public-ui-0045 {
+.contact__map-title {
     margin-bottom: 1rem;
 }
 
-.public-ui-0046 {
+.contact__map-description {
     color: var(--slate-500);
     margin-bottom: 3rem;
 }
 
-.public-ui-0047 {
+.contact__map-frame {
     width: 100%;
     height: 400px;
     background: #e2e8f0;
@@ -6884,27 +6884,27 @@ details summary .fa-chevron-down {
     font-size: 0.875rem;
 }
 
-.public-ui-0048 {
+.faq__content-wrap {
     max-width: 800px;
     margin: 0 auto;
 }
 
-.public-ui-0049 {
+.faq__category-group {
     margin-bottom: 5rem;
 }
 
-.public-ui-0050 {
+.faq__accordion-list {
     display: grid;
     gap: 1rem;
 }
 
-.public-ui-0051 {
+.faq__accordion-item {
     padding: 0;
     overflow: hidden;
     border: 1px solid var(--slate-100);
 }
 
-.public-ui-0052 {
+.faq__accordion-summary {
     padding: 1.5rem 2rem;
     cursor: pointer;
     font-weight: 600;
@@ -6915,19 +6915,19 @@ details summary .fa-chevron-down {
     list-style: none;
 }
 
-.public-ui-0053 {
+.faq__accordion-icon {
     font-size: 0.75rem;
     transition: transform 0.3s ease;
 }
 
-.public-ui-0054 {
+.faq__accordion-answer {
     padding: 0 2rem 1.5rem;
     color: var(--slate-500);
     line-height: 1.7;
     font-size: 0.9375rem;
 }
 
-.public-ui-0055 {
+.faq__cta-panel {
     background: var(--navy);
     border-radius: 24px;
     padding: 5rem 3rem;
@@ -6935,71 +6935,71 @@ details summary .fa-chevron-down {
     color: #fff;
 }
 
-.public-ui-0056 {
+.faq__cta-title {
     color: #fff;
     margin-bottom: 1.5rem;
 }
 
-.public-ui-0057 {
+.faq__cta-description {
     color: var(--slate-400);
     max-width: 30rem;
     margin: 0 auto 3rem;
     font-weight: 300;
 }
 
-.public-ui-0058 {
+.faq__button-cta {
     background: #fff;
     color: var(--navy);
     border: none;
 }
 
-.public-ui-0059 {
+.privacy__content-wrap {
     max-width: 760px;
     margin: 0 auto;
 }
 
-.public-ui-0060 {
+.privacy__section {
     margin-bottom: 4rem;
 }
 
-.public-ui-0061 {
+.privacy__section-badge {
     margin-bottom: 1.5rem;
 }
 
-.public-ui-0062 {
+.privacy__paragraph {
     color: var(--slate-600);
     line-height: 1.8;
     margin-bottom: 1.5rem;
 }
 
-.public-ui-0063 {
+.privacy__list {
     color: var(--slate-600);
     line-height: 1.8;
     padding-left: 1.5rem;
 }
 
-.public-ui-0064 {
+.privacy__list-item {
     margin-bottom: 0.75rem;
 }
 
-.public-ui-0065 {
+.privacy__action-row {
     text-align: center;
     margin-top: 6rem;
     padding-top: 4rem;
     border-top: 1px solid var(--slate-100);
 }
 
-.public-ui-0066 {
+.icon--leading {
     margin-right: 0.5rem;
 }
 
-.entry-ui-0067 {
+.form__fieldset--reset {
     border: none;
     padding: 0;
     margin: 0;
 }
 
-.entry-ui-0068 {
+.form__helper-label {
     font-size: 0.875rem;
     color: var(--slate-400);
     margin-bottom: 2rem;
@@ -7007,14 +7007,14 @@ details summary .fa-chevron-down {
     text-transform: uppercase;
 }
 
-.entry-ui-0069 {
+.form__header-row {
     display: flex;
     align-items: center;
     gap: 1rem;
     margin-bottom: 2rem;
 }
 
-.entry-ui-0070 {
+.add-expense__icon-badge {
     width: 48px;
     height: 48px;
     border-radius: 12px;
@@ -7027,42 +7027,42 @@ details summary .fa-chevron-down {
     box-shadow: 0 4px 10px rgba(59, 130, 246, 0.1);
 }
 
-.entry-ui-0071 {
+.meta__stack {
     display: flex;
     flex-direction: column;
 }
 
-.entry-ui-0072 {
+.meta__title {
     font-weight: 700;
     color: var(--navy);
     font-size: 0.9rem;
 }
 
-.entry-ui-0073 {
+.meta__caption {
     font-size: 0.75rem;
     color: var(--slate-400);
 }
 
-.entry-ui-0074 {
+.add-expense__button-submit {
     margin-top: 2rem;
     padding: 1rem 2rem;
 }
 
-.entry-ui-0075 {
+.feature-image-frame {
     height: 120px;
 }
 
-.entry-ui-0076 {
+.feature-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.entry-ui-0077 {
+.feature-card-body {
     padding-top: 1.5rem;
 }
 
-.entry-ui-0078 {
+.support-list {
     list-style: none;
     padding: 0 1.5rem 1.5rem;
     margin-top: 1rem;
@@ -7072,7 +7072,7 @@ details summary .fa-chevron-down {
     gap: 1rem;
 }
 
-.entry-ui-0079 {
+.add-income__icon-badge {
     width: 48px;
     height: 48px;
     border-radius: 12px;
@@ -7085,30 +7085,30 @@ details summary .fa-chevron-down {
     box-shadow: 0 4px 10px rgba(46, 204, 113, 0.1);
 }
 
-.entry-ui-0080 {
+.add-income__button-submit {
     margin-top: 2rem;
     padding: 1rem 2rem;
     background: var(--money-green);
 }
 
-.entry-ui-0081 {
+.form-card__title {
     font-family: var(--font-display);
     font-size: 2rem;
     color: var(--navy);
 }
 
-.entry-ui-0082 {
+.form-card__subtitle {
     color: var(--slate-400);
 }
 
-.entry-ui-0083 {
+.categories__form-layout {
     margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
 }
 
-.entry-ui-0084 {
+.form__label-inline {
     display: block;
     font-size: 0.75rem;
     font-weight: 700;
@@ -7116,7 +7116,7 @@ details summary .fa-chevron-down {
     margin-bottom: 0.5rem;
 }
 
-.entry-ui-0085 {
+.form__input-control {
     width: 100%;
     padding: 0.75rem 1rem;
     border-radius: 12px;
@@ -7125,12 +7125,12 @@ details summary .fa-chevron-down {
     outline: none;
 }
 
-.entry-ui-0086 {
+.categories__type-options {
     display: flex;
     gap: 1rem;
 }
 
-.entry-ui-0087 {
+.categories__type-option {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -7138,13 +7138,13 @@ details summary .fa-chevron-down {
     font-size: 0.875rem;
 }
 
-.entry-ui-0088 {
+.categories__color-row {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-.entry-ui-0089 {
+.categories__color-input {
     width: 48px;
     height: 48px;
     border: none;
@@ -7153,32 +7153,32 @@ details summary .fa-chevron-down {
     cursor: pointer;
 }
 
-.entry-ui-0090 {
+.categories__button-submit {
     margin-top: 1rem;
     padding: 1rem;
     border-radius: 12px;
     font-weight: 600;
 }
 
-.entry-ui-0091 {
+.row--between-center {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.entry-ui-0092 {
+.categories__filter-pills {
     display: flex;
     gap: 0.5rem;
 }
 
-.entry-ui-0093 {
+.categories__grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
 }
 
-.entry-ui-0094 {
+.toast {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
@@ -7195,24 +7195,24 @@ details summary .fa-chevron-down {
     z-index: 1000;
 }
 
-.entry-ui-0095 {
+.toast__text {
     font-weight: 600;
     font-size: 0.875rem;
 }
 
-.dashboard-ui-0096 {
+.dashboard__donut-income {
     background: conic-gradient(var(--money-green) 67%, #e2e8f0 0);
 }
 
-.dashboard-ui-0097 {
+.dashboard__donut-expense {
     background: conic-gradient(var(--money-orange) 45%, #e2e8f0 0);
 }
 
-.dashboard-ui-0098 {
+.dashboard__donut-balance {
     background: conic-gradient(var(--blue-600) 82%, #e2e8f0 0);
 }
 
-.dashboard-ui-0099 {
+.list__toolbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -7221,13 +7221,13 @@ details summary .fa-chevron-down {
     flex-wrap: wrap;
 }
 
-.dashboard-ui-0100 {
+.toolbar__search-area {
     position: relative;
     flex: 1;
     min-width: 250px;
 }
 
-.dashboard-ui-0101 {
+.toolbar__search-icon {
     position: absolute;
     left: 1rem;
     top: 50%;
@@ -7235,7 +7235,7 @@ details summary .fa-chevron-down {
     color: var(--slate-400);
 }
 
-.dashboard-ui-0102 {
+.toolbar__search-input {
     width: 100%;
     padding: 0.75rem 1rem 0.75rem 2.5rem;
     border-radius: 12px;
@@ -7244,13 +7244,13 @@ details summary .fa-chevron-down {
     outline: none;
 }
 
-.dashboard-ui-0103 {
+.toolbar__filter-row {
     display: flex;
     gap: 0.75rem;
     flex-wrap: wrap;
 }
 
-.dashboard-ui-0104 {
+.toolbar__filter-control {
     padding: 0.75rem 1.5rem;
     border-radius: 12px;
     border: 1px solid var(--slate-100);
@@ -7260,7 +7260,7 @@ details summary .fa-chevron-down {
     cursor: pointer;
 }
 
-.dashboard-ui-0105 {
+.expense-list__date-input {
     padding: 0.75rem 1rem;
     border-radius: 12px;
     border: 1px solid var(--slate-100);
@@ -7269,69 +7269,69 @@ details summary .fa-chevron-down {
     outline: none;
 }
 
-.dashboard-ui-0106 {
+.toolbar__actions {
     display: flex;
     gap: 0.75rem;
 }
 
-.dashboard-ui-0107 {
+.toolbar__action-chip {
     padding: 0.75rem 1.25rem;
     border-radius: 12px;
     font-weight: 600;
 }
 
-.dashboard-ui-0108 {
+.table__section {
     margin-top: 1.5rem;
 }
 
-.dashboard-ui-0109 {
+.table__cell--left {
     text-align: left;
 }
 
-.dashboard-ui-0110 {
+.table__cell--right {
     text-align: right;
 }
 
-.dashboard-ui-0111 {
+.author__inline {
     display: flex;
     align-items: center;
     gap: 0.75rem;
 }
 
-.dashboard-ui-0112 {
+.avatar-sm {
     width: 32px;
     height: 32px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.dashboard-ui-0113 {
+.author__name {
     font-weight: 600;
     color: var(--navy);
     font-size: 0.875rem;
 }
 
-.dashboard-ui-0114 {
+.table__text-main {
     color: var(--navy);
     font-size: 0.875rem;
 }
 
-.dashboard-ui-0115 {
+.table__text-muted {
     color: var(--slate-600);
     font-size: 0.875rem;
 }
 
-.dashboard-ui-0116 {
+.expense-list__amount-cell {
     text-align: right;
     font-weight: 700;
 }
 
-.dashboard-ui-0117 {
+.expense-list__status-verified {
     background: rgba(46, 204, 113, 0.1);
     color: var(--money-green);
 }
 
-.dashboard-ui-0118 {
+.expense-list__status-pending {
     background: var(--slate-wash);
     color: var(--slate-400);
     font-size: 0.7rem;
@@ -7339,7 +7339,7 @@ details summary .fa-chevron-down {
     border-radius: 100px;
 }
 
-.dashboard-ui-0119 {
+.pagination__bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -7347,18 +7347,18 @@ details summary .fa-chevron-down {
     border-top: 1px solid var(--slate-100);
 }
 
-.dashboard-ui-0120 {
+.pagination__note {
     font-size: 0.8125rem;
     color: var(--slate-400);
 }
 
-.dashboard-ui-0121 {
+.pagination__actions {
     display: flex;
     gap: 0.5rem;
     align-items: center;
 }
 
-.dashboard-ui-0122 {
+.expense-list__pagination-prev {
     padding: 0.5rem 0.75rem;
     border-radius: 8px;
     border: 1px solid var(--slate-100);
@@ -7367,7 +7367,7 @@ details summary .fa-chevron-down {
     font-size: 0.8125rem;
 }
 
-.dashboard-ui-0123 {
+.expense-list__pagination-active {
     padding: 0.5rem 0.75rem;
     border-radius: 8px;
     background: var(--blue-600);
@@ -7377,7 +7377,7 @@ details summary .fa-chevron-down {
     font-weight: 600;
 }
 
-.dashboard-ui-0124 {
+.pagination__link--neutral {
     padding: 0.5rem 0.75rem;
     border-radius: 8px;
     border: 1px solid var(--slate-100);
@@ -7386,7 +7386,7 @@ details summary .fa-chevron-down {
     font-size: 0.8125rem;
 }
 
-.dashboard-ui-0125 {
+.income-list__date-input {
     padding: 0.75rem 1rem;
     border-radius: 12px;
     border: 1px solid var(--slate-100);
@@ -7394,20 +7394,20 @@ details summary .fa-chevron-down {
     outline: none;
 }
 
-.dashboard-ui-0126 {
+.income-list__button-add {
     padding: 0.75rem 1.25rem;
     border-radius: 12px;
     font-weight: 600;
     background: var(--money-green);
 }
 
-.dashboard-ui-0127 {
+.income-list__amount-cell {
     text-align: right;
     font-weight: 700;
     color: var(--money-green);
 }
 
-.dashboard-ui-0128 {
+.income-list__insights-strip {
     display: flex;
     gap: 1.5rem;
     padding: 1.5rem;
@@ -7416,7 +7416,7 @@ details summary .fa-chevron-down {
     flex-wrap: wrap;
 }
 
-.dashboard-ui-0129 {
+.income-list__insight-chip {
     background: #fff;
     padding: 0.5rem 1rem;
     border-radius: 100px;
@@ -7426,25 +7426,25 @@ details summary .fa-chevron-down {
     gap: 0.5rem;
 }
 
-.dashboard-ui-0130 {
+.income-list__insight-primary {
     font-weight: 700;
     color: var(--navy);
     font-size: 0.8125rem;
 }
 
-.dashboard-ui-0131 {
+.income-list__insight-income {
     font-weight: 700;
     color: var(--money-green);
     font-size: 0.8125rem;
 }
 
-.dashboard-ui-0132 {
+.income-list__insight-secondary {
     font-weight: 700;
     color: var(--blue-600);
     font-size: 0.8125rem;
 }
 
-.dashboard-ui-0133 {
+.income-list__pagination-active {
     padding: 0.5rem 0.75rem;
     border-radius: 8px;
     background: var(--money-green);
@@ -7454,39 +7454,39 @@ details summary .fa-chevron-down {
     font-weight: 600;
 }
 
-.summary-ui-0134 {
+.period-label {
     font-style: italic;
     color: var(--blue-600);
 }
 
-.summary-ui-0135 {
+.monthly-summary__legend {
     display: flex;
     gap: 1rem;
     font-size: 0.75rem;
     color: var(--slate-400);
 }
 
-.summary-ui-0136 {
+.monthly-summary__legend-item {
     display: flex;
     align-items: center;
     gap: 0.4rem;
 }
 
-.summary-ui-0137 {
+.monthly-summary__legend-income-dot {
     width: 10px;
     height: 10px;
     border-radius: 2px;
     background: var(--money-green);
 }
 
-.summary-ui-0138 {
+.monthly-summary__legend-expense-dot {
     width: 10px;
     height: 10px;
     border-radius: 2px;
     background: var(--money-orange);
 }
 
-.summary-ui-0139 {
+.monthly-summary__chart-area {
     height: 300px;
     padding: 2rem 1rem 0;
     display: flex;
@@ -7495,7 +7495,7 @@ details summary .fa-chevron-down {
     border-bottom: 1px solid var(--slate-100);
 }
 
-.summary-ui-0140 {
+.monthly-summary__week-column {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7503,14 +7503,14 @@ details summary .fa-chevron-down {
     width: 60px;
 }
 
-.summary-ui-0141 {
+.monthly-summary__bar-group {
     display: flex;
     align-items: flex-end;
     gap: 4px;
     height: 200px;
 }
 
-.summary-ui-0142 {
+.monthly-summary__bar-income-week1 {
     width: 12px;
     height: 85%;
     background: var(--money-green);
@@ -7518,7 +7518,7 @@ details summary .fa-chevron-down {
     transition: height 0.6s ease;
 }
 
-.summary-ui-0143 {
+.monthly-summary__bar-expense-week1 {
     width: 12px;
     height: 45%;
     background: var(--money-orange);
@@ -7526,122 +7526,122 @@ details summary .fa-chevron-down {
     transition: height 0.6s ease;
 }
 
-.summary-ui-0144 {
+.monthly-summary__week-label {
     font-size: 0.75rem;
     font-weight: 600;
     color: var(--slate-400);
 }
 
-.summary-ui-0145 {
+.monthly-summary__bar-income-week2 {
     width: 12px;
     height: 95%;
     background: var(--money-green);
     border-radius: 4px 4px 0 0;
 }
 
-.summary-ui-0146 {
+.monthly-summary__bar-expense-week2 {
     width: 12px;
     height: 35%;
     background: var(--money-orange);
     border-radius: 4px 4px 0 0;
 }
 
-.summary-ui-0147 {
+.monthly-summary__bar-income-week3 {
     width: 12px;
     height: 60%;
     background: var(--money-green);
     border-radius: 4px 4px 0 0;
 }
 
-.summary-ui-0148 {
+.monthly-summary__bar-expense-week3 {
     width: 12px;
     height: 75%;
     background: var(--money-orange);
     border-radius: 4px 4px 0 0;
 }
 
-.summary-ui-0149 {
+.monthly-summary__bar-income-week4 {
     width: 12px;
     height: 80%;
     background: var(--money-green);
     border-radius: 4px 4px 0 0;
 }
 
-.summary-ui-0150 {
+.monthly-summary__bar-expense-week4 {
     width: 12px;
     height: 50%;
     background: var(--money-orange);
     border-radius: 4px 4px 0 0;
 }
 
-.summary-ui-0151 {
+.dashboard__row--two-column {
     margin-top: 2rem;
 }
 
-.summary-ui-0152 {
+.monthly-summary__planned-amount {
     text-align: right;
     color: var(--slate-400);
 }
 
-.summary-ui-0153 {
+.monthly-summary__actual-amount-positive {
     text-align: right;
     color: var(--money-green);
     font-weight: 600;
 }
 
-.summary-ui-0154 {
+.monthly-summary__variance-icon-ok {
     color: var(--money-green);
 }
 
-.summary-ui-0155 {
+.monthly-summary__actual-amount-warning {
     text-align: right;
     color: var(--money-orange);
     font-weight: 600;
 }
 
-.summary-ui-0156 {
+.monthly-summary__variance-text-warning {
     color: var(--money-orange);
     font-size: 0.75rem;
 }
 
-.summary-ui-0157 {
+.monthly-summary__variance-text-positive {
     color: var(--money-green);
     font-size: 0.75rem;
 }
 
-.summary-ui-0158 {
+.monthly-summary__total-row {
     background: var(--slate-wash);
     font-weight: 700;
 }
 
-.summary-ui-0159 {
+.monthly-summary__net-amount {
     text-align: right;
     color: var(--blue-600);
 }
 
-.summary-ui-0160 {
+.monthly-summary__health-badge {
     font-size: 0.7rem;
 }
 
-.summary-ui-0161 {
+.monthly-summary__insights-panel {
     background: var(--navy);
     color: #fff;
 }
 
-.summary-ui-0162 {
+.monthly-summary__insights-list {
     display: grid;
     gap: 1.5rem;
     margin-top: 2rem;
 }
 
-.summary-ui-0163 {
+.monthly-summary__insight-card {
     padding: 1.5rem;
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.summary-ui-0164 {
+.monthly-summary__insight-label {
     font-size: 0.75rem;
     color: var(--slate-400);
     display: block;
@@ -7650,40 +7650,40 @@ details summary .fa-chevron-down {
     text-transform: uppercase;
 }
 
-.summary-ui-0165 {
+.monthly-summary__insight-metric-row {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
 }
 
-.summary-ui-0166 {
+.monthly-summary__insight-metric-value {
     font-size: 2rem;
     font-weight: 700;
 }
 
-.summary-ui-0167 {
+.monthly-summary__insight-metric-trend {
     color: var(--money-green);
     font-size: 0.8125rem;
 }
 
-.summary-ui-0168 {
+.monthly-summary__highlight-title {
     font-size: 1.25rem;
     font-weight: 600;
 }
 
-.summary-ui-0169 {
+.monthly-summary__highlight-detail {
     color: var(--slate-400);
     font-size: 0.8125rem;
 }
 
-.summary-ui-0170 {
+.monthly-summary__wealth-status-row {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     margin-top: 0.5rem;
 }
 
-.summary-ui-0171 {
+.monthly-summary__wealth-status-dot {
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -7691,90 +7691,90 @@ details summary .fa-chevron-down {
     box-shadow: 0 0 10px var(--money-green);
 }
 
-.summary-ui-0172 {
+.monthly-summary__wealth-status-text {
     font-weight: 600;
     font-size: 1.125rem;
 }
 
-.summary-ui-0173 {
+.report__button-print {
     padding: 0.75rem 1.5rem;
     background: var(--navy);
 }
 
-.settings-ui-0174 {
+.report__bars-grid {
     margin-top: 2rem;
     display: grid;
     gap: 1.5rem;
 }
 
-.settings-ui-0175 {
+.report__quarter-row {
     display: grid;
     grid-template-columns: 80px 1fr 100px;
     align-items: center;
     gap: 1.5rem;
 }
 
-.settings-ui-0176 {
+.report__quarter-label {
     font-size: 0.8125rem;
     font-weight: 600;
     color: var(--slate-400);
 }
 
-.settings-ui-0177 {
+.report__quarter-track {
     height: 12px;
     background: var(--slate-wash);
     border-radius: 6px;
     overflow: hidden;
 }
 
-.settings-ui-0178 {
+.report__quarter-fill-q1 {
     width: 75%;
     height: 100%;
     background: var(--money-green);
     border-radius: 6px;
 }
 
-.settings-ui-0179 {
+.report__quarter-value {
     text-align: right;
     font-weight: 700;
     color: var(--navy);
 }
 
-.settings-ui-0180 {
+.report__quarter-fill-q2 {
     width: 85%;
     height: 100%;
     background: var(--money-green);
     border-radius: 6px;
 }
 
-.settings-ui-0181 {
+.report__quarter-fill-q3 {
     width: 65%;
     height: 100%;
     background: var(--money-green);
     border-radius: 6px;
 }
 
-.settings-ui-0182 {
+.report__quarter-fill-q4 {
     width: 90%;
     height: 100%;
     background: var(--money-green);
     border-radius: 6px;
 }
 
-.settings-ui-0183 {
+.report__line-chart-wrap {
     margin-top: 2rem;
     position: relative;
     height: 200px;
     width: 100%;
 }
 
-.settings-ui-0184 {
+.report__line-chart-svg {
     width: 100%;
     height: 100%;
     overflow: visible;
 }
 
-.settings-ui-0185 {
+.report__line-chart-labels {
     display: flex;
     justify-content: space-between;
     margin-top: 1rem;
@@ -7783,19 +7783,19 @@ details summary .fa-chevron-down {
     font-family: var(--font-mono);
 }
 
-.settings-ui-0186 {
+.settings__profile-panel {
     text-align: center;
     padding: 2.5rem 1.5rem;
 }
 
-.settings-ui-0187 {
+.settings__avatar-wrap {
     position: relative;
     width: 120px;
     height: 120px;
     margin: 0 auto 1.5rem;
 }
 
-.settings-ui-0188 {
+.settings__profile-avatar {
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -7804,7 +7804,7 @@ details summary .fa-chevron-down {
     object-fit: cover;
 }
 
-.settings-ui-0189 {
+.settings__button-avatar-edit {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -7816,62 +7816,62 @@ details summary .fa-chevron-down {
     border: 2px solid #fff;
 }
 
-.settings-ui-0190 {
+.settings__profile-name {
     margin-bottom: 0.25rem;
 }
 
-.settings-ui-0191 {
+.settings__profile-divider {
     margin: 2rem 0;
     border: none;
     border-top: 1px solid var(--slate-100);
 }
 
-.settings-ui-0192 {
+.settings__profile-actions {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
 }
 
-.settings-ui-0193 {
+.settings__button-upload {
     width: 100%;
 }
 
-.settings-ui-0194 {
+.settings__button-remove {
     width: 100%;
     color: var(--money-orange);
     border-color: rgba(230, 126, 34, 0.2);
 }
 
-.settings-ui-0195 {
+.settings__profile-form {
     margin-top: 1rem;
     width: 100%;
     display: block;
 }
 
-.settings-ui-0196 {
+.settings__preferences-title {
     margin-top: 3rem;
 }
 
-.settings-ui-0197 {
+.settings__preference-label {
     font-weight: 600;
     color: var(--navy);
     display: block;
 }
 
-.settings-ui-0198 {
+.settings__toggle-switch {
     position: relative;
     display: inline-block;
     width: 44px;
     height: 24px;
 }
 
-.settings-ui-0199 {
+.settings__toggle-input {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-.settings-ui-0200 {
+.settings__toggle-track-off {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -7883,7 +7883,7 @@ details summary .fa-chevron-down {
     border-radius: 34px;
 }
 
-.settings-ui-0201 {
+.settings__toggle-knob-off {
     position: absolute;
     height: 18px;
     width: 18px;
@@ -7894,7 +7894,7 @@ details summary .fa-chevron-down {
     border-radius: 50%;
 }
 
-.settings-ui-0202 {
+.settings__toggle-track-on {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -7906,7 +7906,7 @@ details summary .fa-chevron-down {
     border-radius: 34px;
 }
 
-.settings-ui-0203 {
+.settings__toggle-knob-on {
     position: absolute;
     height: 18px;
     width: 18px;
@@ -7917,14 +7917,14 @@ details summary .fa-chevron-down {
     border-radius: 50%;
 }
 
-.settings-ui-0204 {
+.settings__form-actions {
     margin-top: 3rem;
     display: flex;
     justify-content: flex-end;
     gap: 1rem;
 }
 
-.settings-ui-0205 {
+.settings__button-save {
     padding: 0.75rem 2rem;
     border-radius: 12px;
     font-weight: 600;
@@ -7934,28 +7934,28 @@ details summary .fa-chevron-down {
 
 /* Post-migration responsive safeguards for dashboard pages */
 @media (max-width: 768px) {
-    .dashboard-ui-0100 {
+    .toolbar__search-area {
         min-width: 0;
     }
 
-    .entry-ui-0093 {
+    .categories__grid {
         grid-template-columns: 1fr;
         gap: 0.75rem;
     }
 
-    .settings-ui-0195 {
+    .settings__profile-form {
         margin-top: 0.85rem;
         width: 100%;
         display: block;
     }
 
-    .settings-ui-0204 {
+    .settings__form-actions {
         flex-direction: column;
         align-items: stretch;
         margin-top: 1.5rem;
     }
 
-    .summary-ui-0139 {
+    .monthly-summary__chart-area {
         height: auto;
         min-height: 240px;
         padding: 1rem 0.25rem 0;
@@ -7964,26 +7964,26 @@ details summary .fa-chevron-down {
         gap: 0.5rem;
     }
 
-    .summary-ui-0140 {
+    .monthly-summary__week-column {
         width: 48px;
         flex: 0 0 auto;
     }
 
-    .summary-ui-0141 {
+    .monthly-summary__bar-group {
         height: 170px;
     }
 
-    .settings-ui-0175 {
+    .report__quarter-row {
         grid-template-columns: 1fr;
         gap: 0.5rem;
         align-items: flex-start;
     }
 
-    .settings-ui-0183 {
+    .report__line-chart-wrap {
         height: 180px;
     }
 
-    .settings-ui-0185 {
+    .report__line-chart-labels {
         font-size: 0.62rem;
         gap: 0.45rem;
         overflow-x: auto;
@@ -7991,15 +7991,15 @@ details summary .fa-chevron-down {
 }
 
 @media (max-width: 480px) {
-    .summary-ui-0139 {
+    .monthly-summary__chart-area {
         min-height: 220px;
     }
 
-    .summary-ui-0140 {
+    .monthly-summary__week-column {
         width: 42px;
     }
 
-    .settings-ui-0183 {
+    .report__line-chart-wrap {
         height: 160px;
     }
 }
@@ -8013,7 +8013,7 @@ details summary .fa-chevron-down {
     margin-bottom: 1.25rem;
 }
 
-.monthly-summary-page .summary-ui-0139 {
+.monthly-summary-page .monthly-summary__chart-area {
     height: 246px;
     margin-top: 0.5rem;
     padding: 1rem 1rem 0.25rem;
@@ -8024,24 +8024,24 @@ details summary .fa-chevron-down {
         linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
 }
 
-.monthly-summary-page .summary-ui-0140 {
+.monthly-summary-page .monthly-summary__week-column {
     width: 72px;
     gap: 0.6rem;
 }
 
-.monthly-summary-page .summary-ui-0141 {
+.monthly-summary-page .monthly-summary__bar-group {
     height: 168px;
     gap: 6px;
 }
 
-.monthly-summary-page .summary-ui-0142,
-.monthly-summary-page .summary-ui-0143,
-.monthly-summary-page .summary-ui-0145,
-.monthly-summary-page .summary-ui-0146,
-.monthly-summary-page .summary-ui-0147,
-.monthly-summary-page .summary-ui-0148,
-.monthly-summary-page .summary-ui-0149,
-.monthly-summary-page .summary-ui-0150 {
+.monthly-summary-page .monthly-summary__bar-income-week1,
+.monthly-summary-page .monthly-summary__bar-expense-week1,
+.monthly-summary-page .monthly-summary__bar-income-week2,
+.monthly-summary-page .monthly-summary__bar-expense-week2,
+.monthly-summary-page .monthly-summary__bar-income-week3,
+.monthly-summary-page .monthly-summary__bar-expense-week3,
+.monthly-summary-page .monthly-summary__bar-income-week4,
+.monthly-summary-page .monthly-summary__bar-expense-week4 {
     width: 13px;
     border-radius: 6px 6px 0 0;
 }
@@ -8054,28 +8054,28 @@ details summary .fa-chevron-down {
     margin-bottom: 0.85rem;
 }
 
-.monthly-summary-page .summary-ui-0161 {
+.monthly-summary-page .monthly-summary__insights-panel {
     border: 1px solid var(--slate-100);
     background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
     color: var(--navy);
 }
 
-.monthly-summary-page .summary-ui-0163 {
+.monthly-summary-page .monthly-summary__insight-card {
     background: var(--slate-50);
     border-color: var(--slate-100);
     backdrop-filter: none;
 }
 
-.monthly-summary-page .summary-ui-0161 h4,
-.monthly-summary-page .summary-ui-0161 .summary-ui-0168,
-.monthly-summary-page .summary-ui-0161 .summary-ui-0166,
-.monthly-summary-page .summary-ui-0161 .summary-ui-0172 {
+.monthly-summary-page .monthly-summary__insights-panel h4,
+.monthly-summary-page .monthly-summary__insights-panel .monthly-summary__highlight-title,
+.monthly-summary-page .monthly-summary__insights-panel .monthly-summary__insight-metric-value,
+.monthly-summary-page .monthly-summary__insights-panel .monthly-summary__wealth-status-text {
     color: var(--navy);
 }
 
-.monthly-summary-page .summary-ui-0161 .card-subtitle,
-.monthly-summary-page .summary-ui-0161 .summary-ui-0164,
-.monthly-summary-page .summary-ui-0161 .summary-ui-0169 {
+.monthly-summary-page .monthly-summary__insights-panel .card-subtitle,
+.monthly-summary-page .monthly-summary__insights-panel .monthly-summary__insight-label,
+.monthly-summary-page .monthly-summary__insights-panel .monthly-summary__highlight-detail {
     color: var(--slate-500);
 }
 
@@ -8087,58 +8087,58 @@ details summary .fa-chevron-down {
     margin-bottom: 0.35rem;
 }
 
-.monthly-summary-page .dashboard-row.summary-ui-0151 {
+.monthly-summary-page .dashboard-row.dashboard__row--two-column {
     align-items: stretch;
 }
 
-.monthly-summary-page .dashboard-row.summary-ui-0151 > .paper-card {
+.monthly-summary-page .dashboard-row.dashboard__row--two-column > .paper-card {
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.monthly-summary-page .dashboard-row.summary-ui-0151 .table-responsive {
+.monthly-summary-page .dashboard-row.dashboard__row--two-column .table-responsive {
     margin-top: 0.75rem;
 }
 
-.monthly-summary-page .summary-ui-0161 .summary-ui-0162 {
+.monthly-summary-page .monthly-summary__insights-panel .monthly-summary__insights-list {
     flex: 1;
 }
 
 @media (max-width: 768px) {
-    .monthly-summary-page .dashboard-row.summary-ui-0151 {
+    .monthly-summary-page .dashboard-row.dashboard__row--two-column {
         margin-top: 1rem;
     }
 
-    .monthly-summary-page .dashboard-row.summary-ui-0151 > .paper-card {
+    .monthly-summary-page .dashboard-row.dashboard__row--two-column > .paper-card {
         height: auto;
     }
 
-    .monthly-summary-page .summary-ui-0139 {
+    .monthly-summary-page .monthly-summary__chart-area {
         height: auto;
         min-height: 220px;
         padding: 0.9rem 0.75rem 0.2rem;
     }
 
-    .monthly-summary-page .summary-ui-0140 {
+    .monthly-summary-page .monthly-summary__week-column {
         width: 56px;
         gap: 0.5rem;
     }
 
-    .monthly-summary-page .summary-ui-0141 {
+    .monthly-summary-page .monthly-summary__bar-group {
         height: 150px;
     }
 
-    .monthly-summary-page .summary-ui-0161 {
+    .monthly-summary-page .monthly-summary__insights-panel {
         padding: 1rem;
     }
 
-    .monthly-summary-page .summary-ui-0162 {
+    .monthly-summary-page .monthly-summary__insights-list {
         margin-top: 1rem;
         gap: 0.85rem;
     }
 
-    .monthly-summary-page .summary-ui-0135 {
+    .monthly-summary-page .monthly-summary__legend {
         width: 100%;
         justify-content: flex-start;
         flex-wrap: wrap;
@@ -8150,26 +8150,30 @@ details summary .fa-chevron-down {
     border-color: var(--border-subtle);
 }
 
-.dark-theme.monthly-summary-page .summary-ui-0139 {
+.dark-theme.monthly-summary-page .monthly-summary__chart-area {
     border-color: var(--border-subtle);
     background:
     linear-gradient(to top, rgba(100, 116, 139, 0.24) 1px, transparent 1px) 0 0 / 100% 40px,
         linear-gradient(180deg, #0b1220 0%, #0f1b31 100%);
 }
 
-.dark-theme.monthly-summary-page .summary-ui-0144,
-.dark-theme.monthly-summary-page .summary-ui-0135,
-.dark-theme.monthly-summary-page .summary-ui-0169 {
+.dark-theme.monthly-summary-page .monthly-summary__week-label,
+.dark-theme.monthly-summary-page .monthly-summary__legend,
+.dark-theme.monthly-summary-page .monthly-summary__highlight-detail {
     color: var(--text-secondary);
 }
 
-.dark-theme.monthly-summary-page .summary-ui-0161 {
+.dark-theme.monthly-summary-page .monthly-summary__insights-panel {
     background: linear-gradient(160deg, #14213a 0%, #183257 100%);
     border-color: var(--border-subtle);
 }
 
-.dark-theme.monthly-summary-page .summary-ui-0163 {
+.dark-theme.monthly-summary-page .monthly-summary__insight-card {
     background: rgba(15, 23, 42, 0.52);
     border-color: rgba(100, 116, 139, 0.35);
 }
+
+
+
+
 

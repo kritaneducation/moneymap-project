@@ -73,7 +73,7 @@
     <main class="dashboard-main">
 
         <!-- Top Tab Bar & User Profile -->
-        <header class="dashboard-top-tabs no-print">
+        <header class="dashboard__topbar no-print">
             <div class="header-left">
                 <button id="sidebarToggle" class="sidebar-toggle" title="Toggle Sidebar">
                     <i class="fa-solid fa-bars-staggered"></i>
@@ -101,14 +101,14 @@
             <h1 class="sr-only">Financial Report</h1>
 
             <!-- Report Header -->
-            <div class="section-header reveal row-between public-ui-0038">
+            <div class="section-header reveal row-between section__block-spacing">
                 <div>
-                    <h2 class="entry-ui-0081">Financial Report
-                        <span class="summary-ui-0134">Annual 2026</span></h2>
-                    <p class="entry-ui-0082">Comprehensive overview of yearly fiscal performance.</p>
+                    <h2 class="form-card__title">Financial Report
+                        <span class="period-label">Annual 2026</span></h2>
+                    <p class="form-card__subtitle">Comprehensive overview of yearly fiscal performance.</p>
                 </div>
-                <button onclick="window.print()" class="btn-primary summary-ui-0173">
-                    <i class="fa-solid fa-print public-ui-0066"></i> Print Report
+                <button onclick="window.print()" class="btn-primary report__button-print">
+                    <i class="fa-solid fa-print icon--leading"></i> Print Report
                 </button>
             </div>
 
@@ -119,72 +119,72 @@
                         <h4>Yearly Income Evolution</h4>
                         <span class="card-subtitle">Quarterly income breakdown</span>
                     </div>
-                    <div class="settings-ui-0174">
+                    <div class="report__bars-grid">
                         <!-- Quarter 1 -->
                         <div
-                            class="settings-ui-0175">
-                            <span class="settings-ui-0176">Q1
+                            class="report__quarter-row">
+                            <span class="report__quarter-label">Q1
                                 2026</span>
                             <div
-                                class="settings-ui-0177">
+                                class="report__quarter-track">
                                 <div
-                                    class="settings-ui-0178">
+                                    class="report__quarter-fill-q1">
                                 </div>
                             </div>
-                            <span class="settings-ui-0179">$15,400</span>
+                            <span class="report__quarter-value">$15,400</span>
                         </div>
                         <!-- Quarter 2 -->
                         <div
-                            class="settings-ui-0175">
-                            <span class="settings-ui-0176">Q2
+                            class="report__quarter-row">
+                            <span class="report__quarter-label">Q2
                                 2026</span>
                             <div
-                                class="settings-ui-0177">
+                                class="report__quarter-track">
                                 <div
-                                    class="settings-ui-0180">
+                                    class="report__quarter-fill-q2">
                                 </div>
                             </div>
-                            <span class="settings-ui-0179">$18,200</span>
+                            <span class="report__quarter-value">$18,200</span>
                         </div>
                         <!-- Quarter 3 -->
                         <div
-                            class="settings-ui-0175">
-                            <span class="settings-ui-0176">Q3
+                            class="report__quarter-row">
+                            <span class="report__quarter-label">Q3
                                 2026</span>
                             <div
-                                class="settings-ui-0177">
+                                class="report__quarter-track">
                                 <div
-                                    class="settings-ui-0181">
+                                    class="report__quarter-fill-q3">
                                 </div>
                             </div>
-                            <span class="settings-ui-0179">$12,800</span>
+                            <span class="report__quarter-value">$12,800</span>
                         </div>
                         <!-- Quarter 4 -->
                         <div
-                            class="settings-ui-0175">
-                            <span class="settings-ui-0176">Q4
+                            class="report__quarter-row">
+                            <span class="report__quarter-label">Q4
                                 2026</span>
                             <div
-                                class="settings-ui-0177">
+                                class="report__quarter-track">
                                 <div
-                                    class="settings-ui-0182">
+                                    class="report__quarter-fill-q4">
                                 </div>
                             </div>
-                            <span class="settings-ui-0179">$19,500</span>
+                            <span class="report__quarter-value">$19,500</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Yearly Expenses (SVG Polyline Chart) -->
-            <div class="dashboard-row reveal-delayed summary-ui-0151">
+            <div class="dashboard-row reveal-delayed dashboard__row--two-column">
                 <div class="paper-card span-12">
                     <div class="card-header">
                         <h4>Expense Trend Line</h4>
                         <span class="card-subtitle">Monthly expense fluctuations</span>
                     </div>
-                    <div class="settings-ui-0183">
-                        <svg viewBox="0 0 1000 200" class="settings-ui-0184"
+                    <div class="report__line-chart-wrap">
+                        <svg viewBox="0 0 1000 200" class="report__line-chart-svg"
                             preserveAspectRatio="none">
                             <defs>
                                 <linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1">
@@ -217,7 +217,7 @@
                         </svg>
                         <!-- Labels -->
                         <div
-                            class="settings-ui-0185">
+                            class="report__line-chart-labels">
                             <span>JAN</span>
                             <span>MAR</span>
                             <span>MAY</span>
@@ -249,5 +249,7 @@
 </body>
 
 </html>
+
+
 
 
