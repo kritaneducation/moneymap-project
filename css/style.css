@@ -1008,6 +1008,27 @@ body {
     color: #fff;
 }
 
+/* Dark hero overrides for public pages using statistics-style hero sections */
+.statistics.hero__section .hero__header {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0;
+    padding: 0;
+    background: none;
+}
+
+.statistics.hero__section .hero__badge--compact {
+    color: var(--emerald-400);
+}
+
+.statistics.hero__section .hero__heading--lg {
+    color: #fff;
+}
+
+.statistics.hero__section .hero__subtitle {
+    color: var(--slate-200);
+}
+
 .stats-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
